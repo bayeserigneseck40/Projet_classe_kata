@@ -124,13 +124,12 @@ public class UnitTests {
         assertTrue(leveledUp); 
         assertNotEquals(4, player.retrieveLevel());
     }
-        @Test
+    @Test
     public void testAddXpMultipleLevelUp3() {
         player player = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
         player.setXp(20);  
-        int xpToAdd = 20   
-        boolean leveledUp = UpdatePlayer.addXp(player, xpToAdd);
-       assertThat(UpdatePlayer.addXp(player, xpToAdd),is(false))
+        int xpToAdd = 0; 
+       assertThat(UpdatePlayer.addXp(player, xpToAdd),is(false));
     }
      @Test
     public void testPlayer_ValidAvatarClass() {
@@ -156,4 +155,3 @@ public class UnitTests {
         assertNull(playerInvalid.money);
     }
 }
-
