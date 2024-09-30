@@ -1,0 +1,3013 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000001ef97e622f3, pid=13400, tid=13908
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.12+7 (17.0.12+7) (build 17.0.12+7)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.12+7 (17.0.12+7, mixed mode, tiered, compressed oops, compressed class ptrs, parallel gc, windows-amd64)
+# Problematic frame:
+# J 8092 c1 java.util.zip.ZipFile$Source.initCEN(I)V java.base@17.0.12 (591 bytes) @ 0x000001ef97e622f3 [0x000001ef97e61b20+0x00000000000007d3]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -DDetectVMInstallationsJob.disabled=true -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\lombok\lombok-1.18.33.jar -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:\Users\bayes\AppData\Roaming\Code\User\workspaceStorage\168498a9360cd755819b0a706d5edd1a\redhat.java -Daether.dependencyCollector.impl=bf c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar -configuration c:\Users\bayes\AppData\Roaming\Code\User\globalStorage\redhat.java\1.35.0\config_win -data c:\Users\bayes\AppData\Roaming\Code\User\workspaceStorage\168498a9360cd755819b0a706d5edd1a\redhat.java\jdt_ws --pipe=\\.\pipe\lsp-1f0ff9a3ddeeee7bfe186a0b3bc75c39-sock
+
+Host: Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.2913)
+Time: Sat Sep 28 13:52:26 2024 Paris, Madrid (heure duild 19041 (10.0.19041.2913) elapsed time: 28.401429 seconds (0d 0h 0m 28s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001efada69230):  JavaThread "Connection worker" [_thread_in_Java, id=13908, stack(0x000000db3a600000,0x000000db3a700000)]
+
+Stack: [0x000000db3a600000,0x000000db3a700000],  sp=0x000000db3a6fd3b0,  free space=1012k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x000001ef97e622f3
+
+The last pc belongs to nmethod (printed below).
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x000000db3a71d48c
+
+
+Registers:
+RAX=0x0000000000000000, RBX=0x0000000000000446, RCX=0x00000000d5bd52d1, RDX=0x00000000eaef51c0
+RSP=0x000000db3a6fd3b0, RBP=0x000000db3a6fd9c8, RSI=0x000001efa9d69590, RDI=0x0000000000000110
+R8 =0x00000000eaef51c0, R9 =0x000001efa9d73cd0, R10=0x0000000000000178, R11=0x000000000000000f
+R12=0x0000000000000000, R13=0x0000000000000330, R14=0x000000000000777b, R15=0x000001efada69230
+RIP=0x000001ef97e622f3, EFLAGS=0x0000000000010202
+
+
+Register to memory mapping:
+
+RIP=0x000001ef97e622f3 is at entry_point+2003 in (nmethod*)0x000001ef97e61610
+Compiled method (c1)   28425 8092       3       java.util.zip.ZipFile$Source::initCEN (591 bytes)
+ total in heap  [0x000001ef97e61610,0x000001ef97e65ec8] = 18616
+ relocation     [0x000001ef97e61768,0x000001ef97e61b10] = 936
+ main code      [0x000001ef97e61b20,0x000001ef97e649c0] = 11936
+ stub code      [0x000001ef97e649c0,0x000001ef97e64b58] = 408
+ oops           [0x000001ef97e64b58,0x000001ef97e64b78] = 32
+ metadata       [0x000001ef97e64b78,0x000001ef97e64c50] = 216
+ scopes data    [0x000001ef97e64c50,0x000001ef97e655e8] = 2456
+ scopes pcs     [0x000001ef97e655e8,0x000001ef97e65d88] = 1952
+ dependencies   [0x000001ef97e65d88,0x000001ef97e65dd0] = 72
+ nul chk table  [0x000001ef97e65dd0,0x000001ef97e65ec8] = 248
+RAX=0x0 is NULL
+RBX=0x0000000000000446 is an unknown value
+RCX=0x00000000d5bd52d1 is an unallocated location in the heap
+RDX=0x00000000eaef51c0 is an oop: java.util.zip.ZipFile$Source 
+{0x00000000eaef51c0} - klass: 'java/util/zip/ZipFile$Source'
+ - ---- fields (total size 10 words):
+ - private 'refs' 'I' @12  1
+ - private 'locpos' 'J' @16  0 (0 0)
+ - private 'manifestPos' 'I' @24  55 (37)
+ - private 'manifestNum' 'I' @28  1
+ - private 'total' 'I' @32  2041 (7f9)
+ - private 'tablelen' 'I' @36  1021 (3fd)
+ - private final 'startsWithLoc' 'Z' @40  false
+ - private final 'key' 'Ljava/util/zip/ZipFile$Source$Key;' @44  a 'java/util/zip/ZipFile$Source$Key'{0x00000000eaef4dc0} (eaef4dc0)
+ - private final synchronized 'zc' 'Ljava/util/zip/ZipCoder;' @48  a 'java/util/zip/ZipCoder$UTF8ZipCoder'{0x00000000c0002e88} (c0002e88)
+ - private 'zfile' 'Ljava/io/RandomAccessFile;' @52  a 'java/io/RandomAccessFile'{0x00000000eaef5210} (eaef5210)
+ - private 'cen' '[B' @56  [B{0x00000000eb2af000} (eb2af000)
+ - private 'comment' '[B' @60  NULL (0)
+ - private 'signatureMetaNames' '[I' @64  NULL (0)
+ - private 'metaVersions' '[I' @68  NULL (0)
+ - private 'entries' '[I' @72  [I{0x00000000eb2ee4f0} (eb2ee4f0)
+ - private 'table' '[I' @76  [I{0x00000000eaef53a8} (eaef53a8)
+RSP=0x000000db3a6fd3b0 is pointing into the stack for thread: 0x000001efada69230
+RBP=0x000000db3a6fd9c8 is pointing into the stack for thread: 0x000001efada69230
+RSI=0x000001efa9d69590 is pointing into metadata
+RDI=0x0000000000000110 is an unknown value
+R8 =0x00000000eaef51c0 is an oop: java.util.zip.ZipFile$Source 
+{0x00000000eaef51c0} - klass: 'java/util/zip/ZipFile$Source'
+ - ---- fields (total size 10 words):
+ - private 'refs' 'I' @12  1
+ - private 'locpos' 'J' @16  0 (0 0)
+ - private 'manifestPos' 'I' @24  55 (37)
+ - private 'manifestNum' 'I' @28  1
+ - private 'total' 'I' @32  2041 (7f9)
+ - private 'tablelen' 'I' @36  1021 (3fd)
+ - private final 'startsWithLoc' 'Z' @40  false
+ - private final 'key' 'Ljava/util/zip/ZipFile$Source$Key;' @44  a 'java/util/zip/ZipFile$Source$Key'{0x00000000eaef4dc0} (eaef4dc0)
+ - private final synchronized 'zc' 'Ljava/util/zip/ZipCoder;' @48  a 'java/util/zip/ZipCoder$UTF8ZipCoder'{0x00000000c0002e88} (c0002e88)
+ - private 'zfile' 'Ljava/io/RandomAccessFile;' @52  a 'java/io/RandomAccessFile'{0x00000000eaef5210} (eaef5210)
+ - private 'cen' '[B' @56  [B{0x00000000eb2af000} (eb2af000)
+ - private 'comment' '[B' @60  NULL (0)
+ - private 'signatureMetaNames' '[I' @64  NULL (0)
+ - private 'metaVersions' '[I' @68  NULL (0)
+ - private 'entries' '[I' @72  [I{0x00000000eb2ee4f0} (eb2ee4f0)
+ - private 'table' '[I' @76  [I{0x00000000eaef53a8} (eaef53a8)
+R9 =0x000001efa9d73cd0 is pointing into metadata
+R10=0x0000000000000178 is an unknown value
+R11=0x000000000000000f is an unknown value
+R12=0x0 is NULL
+R13=0x0000000000000330 is an unknown value
+R14=0x000000000000777b is an unknown value
+R15=0x000001efada69230 is a thread
+
+
+Top of Stack: (sp=0x000000db3a6fd3b0)
+0x000000db3a6fd3b0:   00000000eaef4b80 00007ff919845cfa
+0x000000db3a6fd3c0:   0000000000000000 000000db3a6fd460
+0x000000db3a6fd3d0:   00000000eaef5210 00000000eaef5240
+0x000000db3a6fd3e0:   000000db00000000 000001ef9719c364
+0x000000db3a6fd3f0:   000000db3a6fd908 000001ef9ea8ee0f
+0x000000db3a6fd400:   00000000ebab8368 00007ff94b1d47b1
+0x000000db3a6fd410:   000001efaff49bc0 000001ef971aee3a
+0x000000db3a6fd420:   00000000eaef5268 00000000ffffffff
+0x000000db3a6fd430:   0000000000000aa4 00000000eaef5240
+0x000000db3a6fd440:   0000000000000001 00000000eaef5240
+0x000000db3a6fd450:   00000000eaef51c0 00000000eaef52a0
+0x000000db3a6fd460:   0000000000000016 00000000eb2af000
+0x000000db3a6fd470:   00000000eb2af000 00000114000017eb
+0x000000db3a6fd480:   0003f4c60003f4dc 000001420000000c
+0x000000db3a6fd490:   0000000000000000 0000000000000000
+0x000000db3a6fd4a0:   0000000f00000036 0000002d0000014b
+0x000000db3a6fd4b0:   00000000eaef5120 00000000eaef4e18
+0x000000db3a6fd4c0:   00000000eac10fd0 00000000c0340a68
+0x000000db3a6fd4d0:   00000000eaef5210 0000000100000000
+0x000000db3a6fd4e0:   00000000eaef4b68 00000000eaef4c08
+0x000000db3a6fd4f0:   00000000eac10fd0 000001ef96ec8dcc
+0x000000db3a6fd500:   00000000eac10fd0 000001ef93550000
+0x000000db3a6fd510:   000000db3a6fd9c8 000001ef975d3af4
+0x000000db3a6fd520:   00000000c02e4720 00000000eaef4f70
+0x000000db3a6fd530:   000000db3a6fd9c8 000001ef976f3824
+0x000000db3a6fd540:   00000000eac10fd0 000001ef97ad2624
+0x000000db3a6fd550:   846f949500000020 00000000eaef4f98
+0x000000db3a6fd560:   8479429601db119c 0000000001db0ec8
+0x000000db3a6fd570:   000000db3a6fd9c8 000001ef9787a9e4
+0x000000db3a6fd580:   00000000000000ee 0000000000000000
+0x000000db3a6fd590:   000000db3a6fd9c8 000001ef971e85c4
+0x000000db3a6fd5a0:   00000002eaef2688 00007ff94b1db86b 
+
+Instructions: (pc=0x000001ef97e622f3)
+0x000001ef97e621f3:   24 dc 00 00 00 83 c3 09 8b 84 24 f0 00 00 00 83
+0x000001ef97e62203:   e8 09 48 8b 94 24 a0 00 00 00 49 b8 d0 3c d7 a9
+0x000001ef97e62213:   ef 01 00 00 49 83 80 68 03 00 00 01 4c 8b c3 4c
+0x000001ef97e62223:   8b c8 48 8b 94 24 a0 00 00 00 89 84 24 fc 00 00
+0x000001ef97e62233:   00 89 9c 24 f8 00 00 00 0f 1f 40 00 e8 3c 06 33
+0x000001ef97e62243:   ff 83 f8 00 49 b8 d0 3c d7 a9 ef 01 00 00 49 b9
+0x000001ef97e62253:   a0 03 00 00 00 00 00 00 0f 84 0a 00 00 00 49 b9
+0x000001ef97e62263:   b0 03 00 00 00 00 00 00 4b 8b 14 08 48 8d 52 01
+0x000001ef97e62273:   4b 89 14 08 0f 84 59 00 00 00 8b 8c 24 cc 00 00
+0x000001ef97e62283:   00 48 8b 94 24 a0 00 00 00 89 4a 18 44 8b 42 1c
+0x000001ef97e62293:   41 ff c0 44 89 42 1c 49 b8 d0 3c d7 a9 ef 01 00
+0x000001ef97e622a3:   00 41 ff 80 c0 03 00 00 4c 8b ac 24 e0 00 00 00
+0x000001ef97e622b3:   4c 8b b4 24 e8 00 00 00 44 8b 9c 24 f4 00 00 00
+0x000001ef97e622c3:   8b 84 24 f0 00 00 00 89 8c 24 cc 00 00 00 e9 75
+0x000001ef97e622d3:   0c 00 00 48 8b 94 24 a0 00 00 00 4c 8b c2 49 b9
+0x000001ef97e622e3:   d0 3c d7 a9 ef 01 00 00 49 83 81 d8 03 00 00 01
+0x000001ef97e622f3:   44 8b 84 24 dc 00 02 00 44 8b 8c 24 f0 00 00 00
+0x000001ef97e62303:   48 8b f2 48 8b d6 66 0f 1f 44 00 00 e8 6c ed 56
+0x000001ef97e62313:   06 83 f8 00 48 ba d0 3c d7 a9 ef 01 00 00 48 be
+0x000001ef97e62323:   10 04 00 00 00 00 00 00 0f 84 0a 00 00 00 48 be
+0x000001ef97e62333:   20 04 00 00 00 00 00 00 48 8b 3c 32 48 8d 7f 01
+0x000001ef97e62343:   48 89 3c 32 4c 8b b4 24 e8 00 00 00 0f 84 c0 05
+0x000001ef97e62353:   00 00 49 83 fe 00 48 ba d0 3c d7 a9 ef 01 00 00
+0x000001ef97e62363:   48 be 30 04 00 00 00 00 00 00 0f 85 0a 00 00 00
+0x000001ef97e62373:   48 be 40 04 00 00 00 00 00 00 48 8b 3c 32 48 8d
+0x000001ef97e62383:   7f 01 48 89 3c 32 0f 85 7d 00 00 00 48 ba d0 38
+0x000001ef97e62393:   05 00 01 00 00 00 49 8b 87 08 01 00 00 48 8d 78
+0x000001ef97e623a3:   18 49 3b bf 18 01 00 00 0f 87 06 1f 00 00 49 89
+0x000001ef97e623b3:   bf 08 01 00 00 48 c7 00 01 00 00 00 48 8b ca 48
+0x000001ef97e623c3:   c1 e9 03 89 48 08 48 33 c9 89 48 0c 48 33 c9 48
+0x000001ef97e623d3:   89 48 10 4c 8b c0 48 ba d0 3c d7 a9 ef 01 00 00
+0x000001ef97e623e3:   48 83 82 50 04 00 00 01 41 b8 04 00 00 00 48 8b 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00000000eaef4b80 is an oop: [B 
+{0x00000000eaef4b80} - klass: {type array byte}
+ - length: 118
+stack at sp + 1 slots: 0x00007ff919845cfa java.dll
+stack at sp + 2 slots: 0x0 is NULL
+stack at sp + 3 slots: 0x000000db3a6fd460 is pointing into the stack for thread: 0x000001efada69230
+stack at sp + 4 slots: 0x00000000eaef5210 is an oop: java.io.RandomAccessFile 
+{0x00000000eaef5210} - klass: 'java/io/RandomAccessFile'
+ - ---- fields (total size 4 words):
+ - private 'rw' 'Z' @12  false
+ - private volatile 'closed' 'Z' @13  false
+ - private 'fd' 'Ljava/io/FileDescriptor;' @16  a 'java/io/FileDescriptor'{0x00000000eaef5240} (eaef5240)
+ - private volatile 'channel' 'Ljava/nio/channels/FileChannel;' @20  NULL (0)
+ - private final 'path' 'Ljava/lang/String;' @24  "C:\Users\bayes\.gradle\wrapper\dists\gradle-8.5-bin\5t9huq95ubn472n8rpzujfbqh\gradle-8.5\lib\kotlin-reflect-1.9.20.jar"{0x00000000eaef4b68} (eaef4b68)
+ - private final 'closeLock' 'Ljava/lang/Object;' @28  a 'java/lang/Object'{0x00000000eaef5230} (eaef5230)
+stack at sp + 5 slots: 0x00000000eaef5240 is an oop: java.io.FileDescriptor 
+{0x00000000eaef5240} - klass: 'java/io/FileDescriptor'
+ - ---- fields (total size 5 words):
+ - private 'fd' 'I' @12  -1 (ffffffff)
+ - private 'handle' 'J' @16  2724 (aa4 0)
+ - private 'closed' 'Z' @24  false
+ - private 'append' 'Z' @25  false
+ - private 'parent' 'Ljava/io/Closeable;' @28  a 'java/io/RandomAccessFile'{0x00000000eaef5210} (eaef5210)
+ - private 'otherParents' 'Ljava/util/List;' @32  NULL (0)
+ - private 'cleanup' 'Ljdk/internal/ref/PhantomCleanable;' @36  a 'java/io/FileCleanable'{0x00000000eaef5268} (eaef5268)
+stack at sp + 6 slots: 0x000000db00000000 is an unknown value
+stack at sp + 7 slots: 0x000001ef9719c364 is at entry_point+228 in (nmethod*)0x000001ef9719c090
+Compiled method (c1)   28632 1851       3       sun.nio.fs.NativeBuffers::getNativeBufferFromCache (51 bytes)
+ total in heap  [0x000001ef9719c090,0x000001ef9719c9f8] = 2408
+ relocation     [0x000001ef9719c1e8,0x000001ef9719c268] = 128
+ main code      [0x000001ef9719c280,0x000001ef9719c800] = 1408
+ stub code      [0x000001ef9719c800,0x000001ef9719c848] = 72
+ metadata       [0x000001ef9719c848,0x000001ef9719c870] = 40
+ scopes data    [0x000001ef9719c870,0x000001ef9719c8c8] = 88
+ scopes pcs     [0x000001ef9719c8c8,0x000001ef9719c9b8] = 240
+ dependencies   [0x000001ef9719c9b8,0x000001ef9719c9c8] = 16
+ nul chk table  [0x000001ef9719c9c8,0x000001ef9719c9f8] = 48
+
+
+Compiled method (c1)   28634 8092       3       java.util.zip.ZipFile$Source::initCEN (591 bytes)
+ total in heap  [0x000001ef97e61610,0x000001ef97e65ec8] = 18616
+ relocation     [0x000001ef97e61768,0x000001ef97e61b10] = 936
+ main code      [0x000001ef97e61b20,0x000001ef97e649c0] = 11936
+ stub code      [0x000001ef97e649c0,0x000001ef97e64b58] = 408
+ oops           [0x000001ef97e64b58,0x000001ef97e64b78] = 32
+ metadata       [0x000001ef97e64b78,0x000001ef97e64c50] = 216
+ scopes data    [0x000001ef97e64c50,0x000001ef97e655e8] = 2456
+ scopes pcs     [0x000001ef97e655e8,0x000001ef97e65d88] = 1952
+ dependencies   [0x000001ef97e65d88,0x000001ef97e65dd0] = 72
+ nul chk table  [0x000001ef97e65dd0,0x000001ef97e65ec8] = 248
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source'
+  # this:     rdx:rdx   = 'java/util/zip/ZipFile$Source'
+  # parm0:    r8        = int
+  #           [sp+0x190]  (sp of caller)
+  0x000001ef97e61b20: 448b 5208 | 49c1 e203 
+
+  0x000001ef97e61b28: ;   {runtime_call ic_miss_stub}
+  0x000001ef97e61b28: 4c3b d00f | 854f f256 | 0666 6666 | 0f1f 8400 | 0000 0000 | 6666 6690 
+[Verified Entry Point]
+  0x000001ef97e61b40: 8984 2400 | 90ff ff55 | 4881 ec80 | 0100 0048 | 8994 24a0 
+
+  0x000001ef97e61b54: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61b54: 0000 0048 | bed0 3cd7 | a9ef 0100 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 fe07 
+  0x000001ef97e61b74: 0000 83ff | 000f 84ea | 2600 0041 
+
+  0x000001ef97e61b80: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61b80: 83f8 ff48 | bed0 3cd7 | a9ef 0100 | 0048 bf10 | 0100 0000 | 0000 000f | 850a 0000 | 0048 bf20 
+  0x000001ef97e61ba0: 0100 0000 | 0000 0048 | 8b1c 3e48 | 8d5b 0148 | 891c 3e0f | 8589 0200 | 0048 8bf2 
+
+  0x000001ef97e61bbc: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61bbc: 48bf d03c | d7a9 ef01 | 0000 4883 | 8730 0100 | 0001 488b | f248 8bd6 
+
+  0x000001ef97e61bd4: ;   {optimized virtual_call}
+  0x000001ef97e61bd4: 6666 90e8 
+
+  0x000001ef97e61bd8: ; ImmutableOopMap {[160]=Oop }
+                      ;*invokevirtual findEND {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@6
+  0x000001ef97e61bd8: e451 43ff | 4889 8424 | a800 0000 
+
+  0x000001ef97e61be4: ; implicit exception: dispatches to 0x000001ef97e6428a
+  0x000001ef97e61be4: 488b 5820 | 48ba 0000 | 0000 0000 | 0000 488b | f348 3bf2 
+
+  0x000001ef97e61bf8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61bf8: 48ba d03c | d7a9 ef01 | 0000 48be | 7801 0000 | 0000 0000 | 0f84 0a00 | 0000 48be | 6801 0000 
+  0x000001ef97e61c18: 0000 0000 | 488b 3c32 | 488d 7f01 | 4889 3c32 | 0f84 7c21 | 0000 488b | 5010 488b | f348 3bf2 
+  0x000001ef97e61c38: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61c38: 48be d03c | d7a9 ef01 | 0000 48bf | 9801 0000 | 0000 0000 | 0f8c 0a00 | 0000 48bf | 8801 0000 
+  0x000001ef97e61c58: 0000 0000 | 488b 0c3e | 488d 4901 | 4889 0c3e | 0f8c 2325 | 0000 4c8b | 9c24 a000 | 0000 482b 
+  0x000001ef97e61c78: da48 8b70 | 1848 8bfb | 482b fe49 | 897b 1048 | be00 0000 | 0000 0000 | 0048 3bfe 
+
+  0x000001ef97e61c94: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61c94: 48be d03c | d7a9 ef01 | 0000 48bf | c801 0000 | 0000 0000 | 0f8c 0a00 | 0000 48bf | b801 0000 
+  0x000001ef97e61cb4: 0000 0000 | 488b 0c3e | 488d 4901 | 4889 0c3e | 0f8c e723 | 0000 49bd | 1600 0000 | 0000 0000 
+  0x000001ef97e61cd4: 4903 d58b | d24c 8bf3 
+
+  0x000001ef97e61cdc: ;   {metadata({type array byte})}
+  0x000001ef97e61cdc: 488b da48 | bac0 0704 | 0001 0000 | 0048 63db | 488b fb48 | 81fb ffff | ff00 0f87 | 9325 0000 
+  0x000001ef97e61cfc: 48be 1700 | 0000 0000 | 0000 488d | 341e 4883 | e6f8 498b | 8708 0100 | 0048 8d34 | 3049 3bb7 
+  0x000001ef97e61d1c: 1801 0000 | 0f87 6925 | 0000 4989 | b708 0100 | 0048 2bf0 | 48c7 0001 | 0000 0048 | 8bca 48c1 
+  0x000001ef97e61d3c: e903 8948 | 0889 580c | 4883 ee10 | 0f84 1a00 | 0000 4885 | f60f 8411 | 0000 0048 | 33db 48c1 
+  0x000001ef97e61d5c: ee03 4889 | 5cf0 0848 | ffce 75f6 | 4889 8424 | b800 0000 | 4c8b d045 | 8953 3849 | 8bd3 48c1 
+  0x000001ef97e61d7c: ea09 49b8 | 0000 5593 | ef01 0000 | 42c6 0402 | 008b 780c 
+
+  0x000001ef97e61d90: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61d90: 498b d349 | b8d0 3cd7 | a9ef 0100 | 0049 8380 | e801 0000 | 014c 8bc0 | 41b9 0000 | 0000 498b 
+  0x000001ef97e61db0: f649 8bd3 | 4c89 ac24 | b000 0000 
+
+  0x000001ef97e61dbc: ;   {optimized virtual_call}
+  0x000001ef97e61dbc: 6666 90e8 
+
+  0x000001ef97e61dc0: ; ImmutableOopMap {[184]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual readFullyAt {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@121
+  0x000001ef97e61dc0: 5cb4 19ff | 488b 9c24 | a800 0000 | 488b 5310 | 4863 c04c | 8bac 24b0 | 0000 0049 | 03d5 483b 
+  0x000001ef97e61de0: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61de0: c248 bad0 | 3cd7 a9ef | 0100 0048 | be30 0200 | 0000 0000 | 000f 850a | 0000 0048 | be20 0200 
+  0x000001ef97e61e00: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 85c5 | 2100 0048 | 8b94 24a0 | 0000 008b 
+  0x000001ef97e61e20: 5b0c 895a 
+
+  0x000001ef97e61e24: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61e24: 2048 bbd0 | 3cd7 a9ef | 0100 00ff | 8350 0200 | 0048 8b84 | 24b8 0000 | 00e9 0a00 | 0000 8b5a 
+  0x000001ef97e61e44: 3844 8942 | 2048 8bc3 | 4889 8424 | c000 0000 | 448b 4220 | 4d8b c849 | 8bd9 41c1 | e102 442b 
+  0x000001ef97e61e64: cb49 8bd9 
+
+  0x000001ef97e61e68: ;   {metadata({type array int})}
+  0x000001ef97e61e68: 4c8b da48 | baa0 0b04 | 0001 0000 | 0048 63db | 488b fb48 | 81fb ffff | ff00 0f87 | 1124 0000 
+  0x000001ef97e61e88: 48be 1700 | 0000 0000 | 0000 488d | 349e 4883 | e6f8 498b | 8708 0100 | 0048 8d34 | 3049 3bb7 
+  0x000001ef97e61ea8: 1801 0000 | 0f87 e723 | 0000 4989 | b708 0100 | 0048 2bf0 | 48c7 0001 | 0000 0048 | 8bca 48c1 
+  0x000001ef97e61ec8: e903 8948 | 0889 580c | 4883 ee10 | 0f84 1a00 | 0000 4885 | f60f 8411 | 0000 0048 | 33db 48c1 
+  0x000001ef97e61ee8: ee03 4889 | 5cf0 0848 | ffce 75f6 | 4c8b d045 | 8953 4849 | 8bd3 48c1 | ea09 49be | 0000 5593 
+  0x000001ef97e61f08: ef01 0000 | 42c6 0432 | 0049 8bc0 | bb02 0000 | 0081 f800 | 0000 800f | 850b 0000 | 0033 d283 
+  0x000001ef97e61f28: fbff 0f84 | 0300 0000 | 99f7 fb83 | c801 4189 | 4324 488b 
+
+  0x000001ef97e61f3c: ;   {metadata({type array int})}
+  0x000001ef97e61f3c: d848 baa0 | 0b04 0001 | 0000 0048 | 63db 488b | fb48 81fb | ffff ff00 | 0f87 4e23 | 0000 48be 
+  0x000001ef97e61f5c: 1700 0000 | 0000 0000 | 488d 349e | 4883 e6f8 | 498b 8708 | 0100 0048 | 8d34 3049 | 3bb7 1801 
+  0x000001ef97e61f7c: 0000 0f87 | 2423 0000 | 4989 b708 | 0100 0048 | 2bf0 48c7 | 0001 0000 | 0048 8bca | 48c1 e903 
+  0x000001ef97e61f9c: 8948 0889 | 580c 4883 | ee10 0f84 | 1a00 0000 | 4885 f60f | 8411 0000 | 0048 33db | 48c1 ee03 
+  0x000001ef97e61fbc: 4889 5cf0 | 0848 ffce | 75f6 4c8b | d045 8953 | 4c49 8bd3 | 48c1 ea09 | 42c6 0432 
+
+  0x000001ef97e61fd8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e61fd8: 0048 bad0 | 3cd7 a9ef | 0100 0048 | 8382 6802 | 0000 0148 | 8bd0 41b8 | ffff ffff | 4489 8c24 
+  0x000001ef97e61ff8: c800 0000 
+
+  0x000001ef97e61ffc: ;   {static_call}
+  0x000001ef97e61ffc: 6666 90e8 
+
+  0x000001ef97e62000: ; ImmutableOopMap {[160]=Oop [192]=Oop }
+                      ;*invokestatic fill {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@209
+  0x000001ef97e62000: fc49 db06 | 488b 8424 | c000 0000 
+
+  0x000001ef97e6200c: ; implicit exception: dispatches to 0x000001ef97e642b2
+  0x000001ef97e6200c: 8b70 0c89 | b424 d000 | 0000 488b | fe83 ef16 | 89bc 24d4 | 0000 0048 | 8b94 24a0 | 0000 00c7 
+  0x000001ef97e6202c: 421c 0000 | 0000 bb2e | 0000 00b9 | 0000 0000 | 41bb 0000 
+
+  0x000001ef97e62040: ;   {oop(NULL)}
+  0x000001ef97e62040: 0000 49bd | 0000 0000 | 0000 0000 
+
+  0x000001ef97e6204c: ;   {oop(NULL)}
+  0x000001ef97e6204c: 49be 0000 | 0000 0000 | 0000 898c | 24cc 0000 | 004c 89ac | 24e0 0000 | 004c 89b4 | 24e8 0000 
+  0x000001ef97e6206c: 0044 8b8c | 24c8 0000 | 0048 8984 | 24c0 0000 | 0066 6690 
+
+  0x000001ef97e62080: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62080: 3bdf 49b8 | d03c d7a9 | ef01 0000 | 48b9 7802 | 0000 0000 | 0000 0f8f | 0a00 0000 | 48b9 8802 
+  0x000001ef97e620a0: 0000 0000 | 0000 498b | 1408 488d | 5201 4989 | 1408 0f8f | b310 0000 
+
+  0x000001ef97e620b8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e620b8: 453b d949 | b8d0 3cd7 | a9ef 0100 | 0048 baa8 | 0200 0000 | 0000 000f | 8d0a 0000 | 0048 ba98 
+  0x000001ef97e620d8: 0200 0000 | 0000 0049 | 8b0c 1048 | 8d49 0149 | 890c 100f | 8d4f 1c00 | 0089 9c24 | dc00 0000 
+  0x000001ef97e620f8: 8b8c 24cc | 0000 0044 | 898c 24c8 | 0000 0048 | 8b94 24a0 | 0000 004c 
+
+  0x000001ef97e62110: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62110: 8bc2 48be | d03c d7a9 | ef01 0000 | 4883 8600 | 0300 0001 | 4c8b c14d | 8bcb 488b | fa48 8bd7 
+  0x000001ef97e62130: 898c 24cc | 0000 0044 | 899c 24d8 
+
+  0x000001ef97e6213c: ;   {optimized virtual_call}
+  0x000001ef97e6213c: 0000 00e8 
+
+  0x000001ef97e62140: ; ImmutableOopMap {[232]=Oop [224]=Oop [192]=Oop [160]=Oop }
+                      ;*invokevirtual checkAndAddEntry {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@269
+  0x000001ef97e62140: bc41 0000 | 448b 9c24 | d800 0000 | 4183 c303 
+
+  0x000001ef97e62150: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62150: 48ba d03c | d7a9 ef01 | 0000 4883 | 8238 0300 | 0001 488b | 9424 c000 | 0000 448b | 8424 dc00 
+  0x000001ef97e62170: 0000 4c8b | c844 899c | 24f4 0000 | 0089 8424 | f000 0000 
+
+  0x000001ef97e62184: ;   {static_call}
+  0x000001ef97e62184: 6666 90e8 
+
+  0x000001ef97e62188: ; ImmutableOopMap {[232]=Oop [224]=Oop [192]=Oop [160]=Oop }
+                      ;*invokestatic isMetaName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@282
+  0x000001ef97e62188: b468 0000 
+
+  0x000001ef97e6218c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e6218c: 83f8 0049 | b8d0 3cd7 | a9ef 0100 | 0049 b958 | 0300 0000 | 0000 000f | 850a 0000 | 0049 b948 
+  0x000001ef97e621ac: 0300 0000 | 0000 004b | 8b14 0848 | 8d52 014b | 8914 080f | 852c 0000 | 004c 8bac | 24e0 0000 
+  0x000001ef97e621cc: 004c 8bb4 | 24e8 0000 | 0044 8b9c | 24f4 0000 | 008b 8424 | f000 0000 | 488b 9424 | a000 0000 
+  0x000001ef97e621ec: e95a 0d00 | 008b 9c24 | dc00 0000 | 83c3 098b | 8424 f000 | 0000 83e8 | 0948 8b94 | 24a0 0000 
+  0x000001ef97e6220c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e6220c: 0049 b8d0 | 3cd7 a9ef | 0100 0049 | 8380 6803 | 0000 014c | 8bc3 4c8b | c848 8b94 | 24a0 0000 
+  0x000001ef97e6222c: 0089 8424 | fc00 0000 | 899c 24f8 | 0000 000f 
+
+  0x000001ef97e6223c: ;   {optimized virtual_call}
+  0x000001ef97e6223c: 1f40 00e8 
+
+  0x000001ef97e62240: ; ImmutableOopMap {[192]=Oop [160]=Oop [224]=Oop [232]=Oop }
+                      ;*invokevirtual isManifestName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@299
+  0x000001ef97e62240: 3c06 33ff 
+
+  0x000001ef97e62244: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62244: 83f8 0049 | b8d0 3cd7 | a9ef 0100 | 0049 b9a0 | 0300 0000 | 0000 000f | 840a 0000 | 0049 b9b0 
+  0x000001ef97e62264: 0300 0000 | 0000 004b | 8b14 0848 | 8d52 014b | 8914 080f | 8459 0000 | 008b 8c24 | cc00 0000 
+  0x000001ef97e62284: 488b 9424 | a000 0000 | 894a 1844 | 8b42 1c41 | ffc0 4489 
+
+  0x000001ef97e62298: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62298: 421c 49b8 | d03c d7a9 | ef01 0000 | 41ff 80c0 | 0300 004c | 8bac 24e0 | 0000 004c | 8bb4 24e8 
+  0x000001ef97e622b8: 0000 0044 | 8b9c 24f4 | 0000 008b | 8424 f000 | 0000 898c | 24cc 0000 | 00e9 750c | 0000 488b 
+  0x000001ef97e622d8: 9424 a000 | 0000 4c8b 
+
+  0x000001ef97e622e0: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e622e0: c249 b9d0 | 3cd7 a9ef | 0100 0049 | 8381 d803 | 0000 0144 | 8b84 24dc | 0002 0044 | 8b8c 24f0 
+  0x000001ef97e62300: 0000 0048 | 8bf2 488b | d666 0f1f 
+
+  0x000001ef97e6230c: ;   {optimized virtual_call}
+  0x000001ef97e6230c: 4400 00e8 
+
+  0x000001ef97e62310: ; ImmutableOopMap {[192]=Oop [232]=Oop [224]=Oop [160]=Oop }
+                      ;*invokevirtual isSignatureRelated {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@329
+  0x000001ef97e62310: 6ced 5606 
+
+  0x000001ef97e62314: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62314: 83f8 0048 | bad0 3cd7 | a9ef 0100 | 0048 be10 | 0400 0000 | 0000 000f | 840a 0000 | 0048 be20 
+  0x000001ef97e62334: 0400 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 324c | 8bb4 24e8 | 0000 000f | 84c0 0500 
+  0x000001ef97e62354: 0049 83fe 
+
+  0x000001ef97e62358: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62358: 0048 bad0 | 3cd7 a9ef | 0100 0048 | be30 0400 | 0000 0000 | 000f 850a | 0000 0048 | be40 0400 
+  0x000001ef97e62378: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 857d 
+
+  0x000001ef97e6238c: ;   {metadata('java/util/ArrayList')}
+  0x000001ef97e6238c: 0000 0048 | bad0 3805 | 0001 0000 | 0049 8b87 | 0801 0000 | 488d 7818 | 493b bf18 | 0100 000f 
+  0x000001ef97e623ac: 8706 1f00 | 0049 89bf | 0801 0000 | 48c7 0001 | 0000 0048 | 8bca 48c1 | e903 8948 | 0848 33c9 
+  0x000001ef97e623cc: 8948 0c48 | 33c9 4889 | 4810 4c8b 
+
+  0x000001ef97e623d8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e623d8: c048 bad0 | 3cd7 a9ef | 0100 0048 | 8382 5004 | 0000 0141 | b804 0000 | 0048 8bd0 | 4889 8424 
+  0x000001ef97e623f8: 0001 0000 
+
+  0x000001ef97e623fc: ;   {optimized virtual_call}
+  0x000001ef97e623fc: 6666 90e8 
+
+  0x000001ef97e62400: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop [256]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@345
+  0x000001ef97e62400: 7cec 5606 | 4c8b b424 | 0001 0000 | 8b8c 24cc 
+
+  0x000001ef97e62410: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62410: 0000 0048 | bad0 3cd7 | a9ef 0100 | 0048 8382 | 6004 0000 
+
+  0x000001ef97e62424: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62424: 0148 baa8 | 14b8 a9ef | 0100 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x000001ef97e62444: 83fe 000f | 8477 1e00 | 0083 f980 
+
+  0x000001ef97e62450: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62450: 48ba a814 | b8a9 ef01 | 0000 48be | 1001 0000 | 0000 0000 | 0f8c 0a00 | 0000 48be | 2001 0000 
+  0x000001ef97e62470: 0000 0000 | 488b 3c32 | 488d 7f01 | 4889 3c32 | 0f8c 3900 | 0000 83f9 
+
+  0x000001ef97e62488: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62488: 7f48 baa8 | 14b8 a9ef | 0100 0048 | be40 0100 | 0000 0000 | 000f 8e0a | 0000 0048 | be30 0100 
+  0x000001ef97e624a8: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 8e0b 
+
+  0x000001ef97e624bc: ;   {metadata('java/lang/Integer')}
+  0x000001ef97e624bc: 0100 0048 | bad8 6205 | 0001 0000 | 0048 8bd9 | 498b 8708 | 0100 0048 | 8d78 1049 | 3bbf 1801 
+  0x000001ef97e624dc: 0000 0f87 | 011e 0000 | 4989 bf08 | 0100 0048 | c700 0100 | 0000 488b | ca48 c1e9 | 0389 4808 
+  0x000001ef97e624fc: 4833 c989 | 480c 4833 | c94c 8bc0 
+
+  0x000001ef97e62508: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62508: 48ba a814 | b8a9 ef01 | 0000 4883 | 8250 0100 
+
+  0x000001ef97e62518: ;   {metadata(method data for {method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e62518: 0001 49b8 | 3816 b8a9 | ef01 0000 | 418b 90cc | 0000 0083 | c202 4189 | 90cc 0000 | 0081 e2fe 
+  0x000001ef97e62538: ff1f 0083 | fa00 0f84 | ae1d 0000 
+
+  0x000001ef97e62544: ;   {metadata(method data for {method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e62544: 4c8b c048 | ba38 16b8 | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e62558: ;   {metadata(method data for {method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e62558: 0149 b8e8 | a260 a9ef | 0100 0041 | 8b90 cc00 | 0000 83c2 | 0241 8990 | cc00 0000 | 81e2 feff 
+  0x000001ef97e62578: 1f00 83fa | 000f 8490 | 1d00 004c 
+
+  0x000001ef97e62584: ;   {metadata(method data for {method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e62584: 8bc0 48ba | e8a2 60a9 | ef01 0000 | 4883 8210 | 0100 0001 
+
+  0x000001ef97e62598: ;   {metadata(method data for {method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e62598: 49b8 80c7 | 1ea9 ef01 | 0000 418b | 90cc 0000 | 0083 c202 | 4189 90cc | 0000 0081 | e2fe ff1f 
+  0x000001ef97e625b8: 0083 fa00 | 0f84 721d | 0000 8958 | 0ce9 2100 | 0000 488b | d948 8bcb | 81c1 8000 
+
+  0x000001ef97e625d4: ;   {oop(a 'java/lang/Integer'[256] {0x00000000c0003458})}
+  0x000001ef97e625d4: 0000 49b8 | 5834 00c0 | 0000 0000 | 4863 c945 | 8b44 8810 | 498b c049 | 3b06 4d8b 
+
+  0x000001ef97e625f0: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e625f0: c648 bad0 | 3cd7 a9ef | 0100 0045 | 8b40 0849 | c1e0 034c | 3b82 8004 | 0000 750d | 4883 8288 
+  0x000001ef97e62610: 0400 0001 | e966 0000 | 004c 3b82 | 9004 0000 | 750d 4883 | 8298 0400 | 0001 e950 | 0000 0048 
+  0x000001ef97e62630: 81ba 8004 | 0000 0000 | 0000 7517 | 4c89 8280 | 0400 0048 | c782 8804 | 0000 0100 | 0000 e92c 
+  0x000001ef97e62650: 0000 0048 | 81ba 9004 | 0000 0000 | 0000 7517 | 4c89 8290 | 0400 0048 | c782 9804 | 0000 0100 
+  0x000001ef97e62670: 0000 e908 | 0000 0048 | 8382 7004 
+
+  0x000001ef97e6267c: ;   {metadata(method data for {method} {0x000001efa90d6050} 'add' '(Ljava/lang/Object;)Z' in 'java/util/ArrayList')}
+  0x000001ef97e6267c: 0000 0149 | b808 1f4c | a9ef 0100 | 0041 8b90 | cc00 0000 | 83c2 0241 | 8990 cc00 | 0000 81e2 
+  0x000001ef97e6269c: feff 1f00 | 83fa 000f | 84b6 1c00 | 0045 8b46 | 0c41 ffc0 | 4589 460c | 458b 4614 | 418b 7610 
+  0x000001ef97e626bc: ;   {metadata(method data for {method} {0x000001efa90d6050} 'add' '(Ljava/lang/Object;)Z' in 'java/util/ArrayList')}
+  0x000001ef97e626bc: 498b d648 | bf08 1f4c | a9ef 0100 | 0048 8387 | 1001 0000 
+
+  0x000001ef97e626d0: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e626d0: 0148 ba98 | 204c a9ef | 0100 008b | bacc 0000 | 0083 c702 | 89ba cc00 | 0000 81e7 | feff 1f00 
+  0x000001ef97e626f0: 83ff 000f | 8487 1c00 | 0041 8b50 
+
+  0x000001ef97e626fc: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e626fc: 0c3b f248 | ba98 204c | a9ef 0100 | 0048 bf20 | 0100 0000 | 0000 000f | 840a 0000 | 0048 bf10 
+  0x000001ef97e6271c: 0100 0000 | 0000 0048 | 8b0c 3a48 | 8d49 0148 | 890c 3a0f | 840c 0000 | 0089 9c24 | cc00 0000 
+  0x000001ef97e6273c: e99d 0000 | 0048 8984 | 2410 0100 | 0089 9c24 | cc00 0000 
+
+  0x000001ef97e62750: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e62750: 4d8b c648 | ba98 204c | a9ef 0100 | 0048 8382 | 3001 0000 
+
+  0x000001ef97e62764: ;   {metadata(method data for {method} {0x000001efa90d55d8} 'grow' '()[Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e62764: 0149 b890 | 224c a9ef | 0100 0041 | 8b90 cc00 | 0000 83c2 | 0241 8990 | cc00 0000 | 81e2 feff 
+  0x000001ef97e62784: 1f00 83fa | 000f 8417 | 1c00 004d 
+
+  0x000001ef97e62790: ;   {metadata(method data for {method} {0x000001efa90d55d8} 'grow' '()[Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e62790: 8bc6 48ba | 9022 4ca9 | ef01 0000 | 4883 8210 | 0100 0001 | 4c8b c641 | ffc0 498b | d64c 89b4 
+  0x000001ef97e627b0: 2418 0100 | 0089 b424 | 0801 0000 
+
+  0x000001ef97e627bc: ;   {optimized virtual_call}
+  0x000001ef97e627bc: 6666 90e8 
+
+  0x000001ef97e627c0: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop [272]=Oop [280]=Oop }
+                      ;*invokevirtual grow {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.ArrayList::grow@7
+                      ; - java.util.ArrayList::add@7
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e627c0: bce8 5606 | 4c8b c08b | b424 0801 | 0000 488b | 8424 1001 | 0000 4c8b | b424 1801 | 0000 413b 
+  0x000001ef97e627e0: 700c 0f83 | e91b 0000 | 4883 f800 
+
+  0x000001ef97e627ec: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e627ec: 7516 48ba | 9820 4ca9 | ef01 0000 | 808a 6101 | 0000 01e9 | ea00 0000 
+
+  0x000001ef97e62804: ; implicit exception: dispatches to 0x000001ef97e643df
+  0x000001ef97e62804: 458b 4808 | 49c1 e103 | 8b50 0848 | c1e2 034d | 8b89 e000 | 0000 493b | d10f 842c | 0000 0041 
+  0x000001ef97e62824: 8b79 144c | 3b0c 3a0f | 841e 0000 | 0083 ff20 | 0f85 9d00 | 0000 5241 
+
+  0x000001ef97e6283c: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x000001ef97e6283c: 51e8 be57 | 6106 5a41 | 5941 83f9 | 000f 8488 
+
+  0x000001ef97e6284c: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e6284c: 0000 0048 | ba98 204c | a9ef 0100 | 0044 8b48 | 0849 c1e1 | 034c 3b8a | 7801 0000 | 750d 4883 
+  0x000001ef97e6286c: 8280 0100 | 0001 e977 | 0000 004c | 3b8a 8801 | 0000 750d | 4883 8290 | 0100 0001 | e961 0000 
+  0x000001ef97e6288c: 0048 81ba | 7801 0000 | 0000 0000 | 7517 4c89 | 8a78 0100 | 0048 c782 | 8001 0000 | 0100 0000 
+  0x000001ef97e628ac: e93d 0000 | 0048 81ba | 8801 0000 | 0000 0000 | 7517 4c89 | 8a88 0100 | 0048 c782 | 9001 0000 
+  0x000001ef97e628cc: 0100 0000 | e919 0000 
+
+  0x000001ef97e628d4: ;   {metadata(method data for {method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e628d4: 00eb 1748 | ba98 204c | a9ef 0100 | 0048 83aa | 6801 0000 | 01e9 f61a | 0000 4c63 | ce4f 8d44 
+  0x000001ef97e628f4: 8810 4c8b | d045 8910 | 49c1 e809 | 49b9 0000 | 5593 ef01 | 0000 43c6 | 0408 00ff | c641 8976 
+  0x000001ef97e62914: 104c 89b4 | 2420 0100 | 008b 8424 | fc00 0000 | 8b9c 24f8 | 0000 0048 | 8b94 24a0 
+
+  0x000001ef97e62930: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62930: 0000 0049 | b8d0 3cd7 | a9ef 0100 | 0049 8380 | a804 0000 | 014c 8bc3 | 4c8b c848 | 8b94 24a0 
+  0x000001ef97e62950: 0000 000f 
+
+  0x000001ef97e62954: ;   {optimized virtual_call}
+  0x000001ef97e62954: 1f40 00e8 
+
+  0x000001ef97e62958: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop [288]=Oop }
+                      ;*invokevirtual getMetaVersion {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@372
+  0x000001ef97e62958: 24e7 5606 | 4c8b c041 
+
+  0x000001ef97e62960: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62960: 83f8 0048 | bad0 3cd7 | a9ef 0100 | 0048 bef0 | 0400 0000 | 0000 000f | 8f0a 0000 | 0048 bee0 
+  0x000001ef97e62980: 0400 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 324c | 8bac 24e0 | 0000 000f | 8f24 0000 
+  0x000001ef97e629a0: 004c 8bb4 | 2420 0100 | 0044 8b9c | 24f4 0000 | 008b 8424 | f000 0000 | 488b 9424 | a000 0000 
+  0x000001ef97e629c0: e986 0500 | 0049 83fd 
+
+  0x000001ef97e629c8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e629c8: 0048 bad0 | 3cd7 a9ef | 0100 0048 | be00 0500 | 0000 0000 | 000f 850a | 0000 0048 | be10 0500 
+  0x000001ef97e629e8: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 85a0 
+
+  0x000001ef97e629fc: ;   {metadata('java/util/TreeSet')}
+  0x000001ef97e629fc: 0200 0048 | baa8 430b | 0001 0000 | 0049 8b87 | 0801 0000 | 488d 7810 | 493b bf18 | 0100 000f 
+  0x000001ef97e62a1c: 87cc 1900 | 0049 89bf | 0801 0000 | 48c7 0001 | 0000 0048 | 8bca 48c1 | e903 8948 | 0848 33c9 
+  0x000001ef97e62a3c: 8948 0c48 | 33c9 488b | d848 8bd3 
+
+  0x000001ef97e62a48: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62a48: 48be d03c | d7a9 ef01 | 0000 4883 | 8620 0500 
+
+  0x000001ef97e62a58: ;   {metadata(method data for {method} {0x000001efa96c5bb0} '<init>' '()V' in 'java/util/TreeSet')}
+  0x000001ef97e62a58: 0001 48ba | 3851 d7a9 | ef01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001ef97e62a78: 0083 fe00 | 0f84 7819 
+
+  0x000001ef97e62a80: ;   {metadata('java/util/TreeMap')}
+  0x000001ef97e62a80: 0000 48ba | 18a6 0a00 | 0100 0000 | 498b 8708 | 0100 0048 | 8d78 3049 | 3bbf 1801 | 0000 0f87 
+  0x000001ef97e62aa0: 7719 0000 | 4989 bf08 | 0100 0048 | c700 0100 | 0000 488b | ca48 c1e9 | 0389 4808 | 4833 c989 
+  0x000001ef97e62ac0: 480c 4833 | c948 8948 | 1048 8948 | 1848 8948 | 2048 8948 | 2848 8bd0 
+
+  0x000001ef97e62ad8: ;   {metadata(method data for {method} {0x000001efa96c5bb0} '<init>' '()V' in 'java/util/TreeSet')}
+  0x000001ef97e62ad8: 48be 3851 | d7a9 ef01 | 0000 4883 | 8610 0100 
+
+  0x000001ef97e62ae8: ;   {metadata(method data for {method} {0x000001efa966d590} '<init>' '()V' in 'java/util/TreeMap')}
+  0x000001ef97e62ae8: 0001 48ba | 9052 d7a9 | ef01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001ef97e62b08: 0083 fe00 | 0f84 1619 | 0000 488b 
+
+  0x000001ef97e62b14: ;   {metadata(method data for {method} {0x000001efa966d590} '<init>' '()V' in 'java/util/TreeMap')}
+  0x000001ef97e62b14: d048 be90 | 52d7 a9ef | 0100 0048 | 8386 1001 
+
+  0x000001ef97e62b24: ;   {metadata(method data for {method} {0x000001efa90cf928} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x000001ef97e62b24: 0000 0148 | ba68 ea3d | a9ef 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001ef97e62b44: 1f00 83fe | 000f 84fa | 1800 0048 
+
+  0x000001ef97e62b50: ;   {metadata(method data for {method} {0x000001efa90cf928} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x000001ef97e62b50: 8bd0 48be | 68ea 3da9 | ef01 0000 | 4883 8610 | 0100 0001 
+
+  0x000001ef97e62b64: ;   {metadata(method data for {method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e62b64: 48ba 80c7 | 1ea9 ef01 | 0000 8bb2 | cc00 0000 | 83c6 0289 | b2cc 0000 | 0081 e6fe | ff1f 0083 
+  0x000001ef97e62b84: fe00 0f84 | de18 0000 
+
+  0x000001ef97e62b8c: ;   {metadata(method data for {method} {0x000001efa96c5bb0} '<init>' '()V' in 'java/util/TreeSet')}
+  0x000001ef97e62b8c: 488b d348 | be38 51d7 | a9ef 0100 | 0048 8386 | 2001 0000 
+
+  0x000001ef97e62ba0: ;   {metadata(method data for {method} {0x000001efa96c5b18} '<init>' '(Ljava/util/NavigableMap;)V' in 'java/util/TreeSet')}
+  0x000001ef97e62ba0: 0148 bae0 | 53d7 a9ef | 0100 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x000001ef97e62bc0: 83fe 000f | 84c2 1800 | 0048 8bd3 
+
+  0x000001ef97e62bcc: ;   {metadata(method data for {method} {0x000001efa96c5b18} '<init>' '(Ljava/util/NavigableMap;)V' in 'java/util/TreeSet')}
+  0x000001ef97e62bcc: 48be e053 | d7a9 ef01 | 0000 4883 | 8610 0100 
+
+  0x000001ef97e62bdc: ;   {metadata(method data for {method} {0x000001efa9159c98} '<init>' '()V' in 'java/util/AbstractSet')}
+  0x000001ef97e62bdc: 0001 48ba | d8e7 3da9 | ef01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001ef97e62bfc: 0083 fe00 | 0f84 a618 | 0000 488b 
+
+  0x000001ef97e62c08: ;   {metadata(method data for {method} {0x000001efa9159c98} '<init>' '()V' in 'java/util/AbstractSet')}
+  0x000001ef97e62c08: d348 bed8 | e73d a9ef | 0100 0048 | 8386 1001 
+
+  0x000001ef97e62c18: ;   {metadata(method data for {method} {0x000001efa90d9aa8} '<init>' '()V' in 'java/util/AbstractCollection')}
+  0x000001ef97e62c18: 0000 0148 | baa0 e824 | a9ef 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001ef97e62c38: 1f00 83fe | 000f 848a | 1800 0048 
+
+  0x000001ef97e62c44: ;   {metadata(method data for {method} {0x000001efa90d9aa8} '<init>' '()V' in 'java/util/AbstractCollection')}
+  0x000001ef97e62c44: 8bd3 48be | a0e8 24a9 | ef01 0000 | 4883 8610 | 0100 0001 
+
+  0x000001ef97e62c58: ;   {metadata(method data for {method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e62c58: 48ba 80c7 | 1ea9 ef01 | 0000 8bb2 | cc00 0000 | 83c6 0289 | b2cc 0000 | 0081 e6fe | ff1f 0083 
+  0x000001ef97e62c78: fe00 0f84 | 6e18 0000 | 4c8b d044 | 8953 0c48 | 8bd3 48c1 | ea09 48be | 0000 5593 | ef01 0000 
+  0x000001ef97e62c98: c604 3200 
+
+  0x000001ef97e62c9c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62c9c: 4c8b eb48 | bad0 3cd7 | a9ef 0100 | 0048 8382 | 3005 0000 
+
+  0x000001ef97e62cb0: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62cb0: 0148 baa8 | 14b8 a9ef | 0100 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x000001ef97e62cd0: 83fe 000f | 8436 1800 | 0041 83f8 
+
+  0x000001ef97e62cdc: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62cdc: 8048 baa8 | 14b8 a9ef | 0100 0048 | be10 0100 | 0000 0000 | 000f 8c0a | 0000 0048 | be20 0100 
+  0x000001ef97e62cfc: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 8c3a | 0000 0041 
+
+  0x000001ef97e62d14: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62d14: 83f8 7f48 | baa8 14b8 | a9ef 0100 | 0048 be40 | 0100 0000 | 0000 000f | 8e0a 0000 | 0048 be30 
+  0x000001ef97e62d34: 0100 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 320f | 8e03 0100 
+
+  0x000001ef97e62d4c: ;   {metadata('java/lang/Integer')}
+  0x000001ef97e62d4c: 0048 bad8 | 6205 0001 | 0000 0049 | 8b87 0801 | 0000 488d | 7810 493b | bf18 0100 | 000f 87c1 
+  0x000001ef97e62d6c: 1700 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca | 48c1 e903 | 8948 0848 | 33c9 8948 
+  0x000001ef97e62d8c: 0c48 33c9 
+
+  0x000001ef97e62d90: ;   {metadata(method data for {method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e62d90: 488b d048 | bea8 14b8 | a9ef 0100 | 0048 8386 | 5001 0000 
+
+  0x000001ef97e62da4: ;   {metadata(method data for {method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e62da4: 0148 ba38 | 16b8 a9ef | 0100 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x000001ef97e62dc4: 83fe 000f | 8470 1700 | 0048 8bd0 
+
+  0x000001ef97e62dd0: ;   {metadata(method data for {method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e62dd0: 48be 3816 | b8a9 ef01 | 0000 4883 | 8610 0100 
+
+  0x000001ef97e62de0: ;   {metadata(method data for {method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e62de0: 0001 48ba | e8a2 60a9 | ef01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001ef97e62e00: 0083 fe00 | 0f84 5417 | 0000 488b 
+
+  0x000001ef97e62e0c: ;   {metadata(method data for {method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e62e0c: d048 bee8 | a260 a9ef | 0100 0048 | 8386 1001 
+
+  0x000001ef97e62e1c: ;   {metadata(method data for {method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e62e1c: 0000 0148 | ba80 c71e | a9ef 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001ef97e62e3c: 1f00 83fe | 000f 8438 | 1700 0044 | 8940 0ce9 | 1c00 0000 | 4181 c080 
+
+  0x000001ef97e62e54: ;   {oop(a 'java/lang/Integer'[256] {0x00000000c0003458})}
+  0x000001ef97e62e54: 0000 0048 | ba58 3400 | c000 0000 | 004d 63c0 
+
+  0x000001ef97e62e64: ; implicit exception: dispatches to 0x000001ef97e645a0
+  0x000001ef97e62e64: 468b 4482 | 1049 8bc0 
+
+  0x000001ef97e62e6c: ; implicit exception: dispatches to 0x000001ef97e645a5
+  0x000001ef97e62e6c: 493b 4500 
+
+  0x000001ef97e62e70: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62e70: 4d8b c548 | bad0 3cd7 | a9ef 0100 | 0045 8b40 | 0849 c1e0 | 034c 3b82 | 5005 0000 | 750d 4883 
+  0x000001ef97e62e90: 8258 0500 | 0001 e966 | 0000 004c | 3b82 6005 | 0000 750d | 4883 8268 | 0500 0001 | e950 0000 
+  0x000001ef97e62eb0: 0048 81ba | 5005 0000 | 0000 0000 | 7517 4c89 | 8250 0500 | 0048 c782 | 5805 0000 | 0100 0000 
+  0x000001ef97e62ed0: e92c 0000 | 0048 81ba | 6005 0000 | 0000 0000 | 7517 4c89 | 8260 0500 | 0048 c782 | 6805 0000 
+  0x000001ef97e62ef0: 0100 0000 | e908 0000 | 0048 8382 | 4005 0000 | 014c 8bc0 | 498b d54c | 89ac 2428 | 0100 0066 
+  0x000001ef97e62f10: 0f1f 4400 | 0048 b8ff | ffff ffff 
+
+  0x000001ef97e62f1c: ;   {virtual_call}
+  0x000001ef97e62f1c: ffff ffe8 
+
+  0x000001ef97e62f20: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop [296]=Oop }
+                      ;*invokeinterface add {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@403
+  0x000001ef97e62f20: 5ce4 5606 | 4c8b ac24 | 2801 0000 | 4c8b b424 | 2001 0000 | 448b 9c24 | f400 0000 | 8b84 24f0 
+  0x000001ef97e62f40: 0000 0048 | 8b94 24a0 | 0000 0048 
+
+  0x000001ef97e62f4c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62f4c: 8bda 48be | d03c d7a9 | ef01 0000 | 4883 8678 | 0500 0001 
+
+  0x000001ef97e62f60: ;   {metadata(method data for {method} {0x000001efa9526668} 'nextEntryPos' '(III)I' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62f60: 48bb 4817 | 5aa9 ef01 | 0000 8bb3 | cc00 0000 | 83c6 0289 | b3cc 0000 | 0081 e6fe | ff1f 0083 
+  0x000001ef97e62f80: fe00 0f84 | 2216 0000 
+
+  0x000001ef97e62f88: ;   {metadata(method data for {method} {0x000001efa9526668} 'nextEntryPos' '(III)I' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e62f88: 8b5a 3848 | be48 175a | a9ef 0100 | 0048 8386 | 1001 0000 | 0103 8424 | dc00 0000 
+
+  0x000001ef97e62fa4: ;   {metadata(method data for {method} {0x000001efa956e5d8} 'CENCOM' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e62fa4: 48be c00c | 5aa9 ef01 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | ff1f 0083 
+  0x000001ef97e62fc4: ff00 0f84 | ff15 0000 
+
+  0x000001ef97e62fcc: ;   {metadata(method data for {method} {0x000001efa956e5d8} 'CENCOM' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e62fcc: 48be c00c | 5aa9 ef01 | 0000 4883 | 8610 0100 | 0001 8b8c | 24cc 0000 | 0083 c120 
+
+  0x000001ef97e62fe8: ;   {metadata(method data for {method} {0x000001efa956cee0} 'SH' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e62fe8: 48be 10f8 | 59a9 ef01 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | ff1f 0083 
+  0x000001ef97e63008: ff00 0f84 | dc15 0000 
+
+  0x000001ef97e63010: ; implicit exception: dispatches to 0x000001ef97e6460d
+  0x000001ef97e63010: 3b4b 0c0f | 83fe 1500 | 0048 63f1 | 0fbe 7433 | 10ff c13b | 4b0c 0f83 | f915 0000 | 4863 c90f 
+  0x000001ef97e63030: be7c 0b10 
+
+  0x000001ef97e63034: ;   {metadata(method data for {method} {0x000001efa9526668} 'nextEntryPos' '(III)I' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63034: 48b9 4817 | 5aa9 ef01 | 0000 4883 | 8120 0100 | 0001 81e6 | ff00 0000 | 81e7 ff00 | 0000 c1e7 
+  0x000001ef97e63054: 0848 0bf7 
+
+  0x000001ef97e63058: ;   {metadata(method data for {method} {0x000001efa956e540} 'CENEXT' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e63058: 03c6 48be | c803 5aa9 | ef01 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001ef97e63078: 0083 ff00 | 0f84 b115 
+
+  0x000001ef97e63080: ;   {metadata(method data for {method} {0x000001efa956e540} 'CENEXT' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e63080: 0000 48be | c803 5aa9 | ef01 0000 | 4883 8610 | 0100 0001 | 8b8c 24cc | 0000 0083 
+
+  0x000001ef97e6309c: ;   {metadata(method data for {method} {0x000001efa956cee0} 'SH' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e6309c: c11e 48be | 10f8 59a9 | ef01 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001ef97e630bc: 0083 ff00 | 0f84 8e15 | 0000 3b4b | 0c0f 83a6 | 1500 0048 | 63f1 0fbe | 7433 10ff | c148 63c9 
+  0x000001ef97e630dc: 0fbe 5c0b | 1081 e6ff | 0000 0081 | e3ff 0000 | 00c1 e308 | 480b f303 | c648 8bd8 
+
+  0x000001ef97e630f8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e630f8: 83c3 2e48 | bed0 3cd7 | a9ef 0100 | 008b bed0 | 0000 0083 | c702 89be | d000 0000 | 81e7 fe3f 
+  0x000001ef97e63118: 0000 83ff | 000f 8460 | 1500 004d | 8b97 5803 
+
+  0x000001ef97e63128: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@428
+                      ;   {poll}
+  0x000001ef97e63128: 0000 4185 
+
+  0x000001ef97e6312c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e6312c: 0248 bed0 | 3cd7 a9ef | 0100 00ff | 86b0 0500 | 0048 8bc8 | 898c 24cc | 0000 004c | 89ac 24e0 
+  0x000001ef97e6314c: 0000 004c | 89b4 24e8 | 0000 008b | bc24 d400 | 0000 448b | 8c24 c800 | 0000 e915 | efff ff8b 
+  0x000001ef97e6316c: 8c24 cc00 | 0000 4c8b | ac24 e000 | 0000 4c8b | b424 e800 | 0000 488b | 9424 a000 | 0000 498b 
+  0x000001ef97e6318c: c3bb 0300 | 0000 4c8b | c281 f800 | 0000 800f | 850b 0000 | 0033 d283 | fbff 0f84 | 0300 0000 
+  0x000001ef97e631ac: 99f7 fb41 | 8940 2049 
+
+  0x000001ef97e631b4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e631b4: 83fe 0048 | bbd0 3cd7 | a9ef 0100 | 0048 bac8 | 0500 0000 | 0000 000f | 840a 0000 | 0048 bad8 
+  0x000001ef97e631d4: 0500 0000 | 0000 0048 | 8b34 1348 | 8d76 0148 | 8934 1389 | 8c24 cc00 | 0000 0f84 | 3b05 0000 
+  0x000001ef97e631f4: ; implicit exception: dispatches to 0x000001ef97e646a9
+  0x000001ef97e631f4: 493b 0649 
+
+  0x000001ef97e631f8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e631f8: 8bde 48ba | d03c d7a9 | ef01 0000 | 8b5b 0848 | c1e3 0348 | 3b9a f805 | 0000 750d | 4883 8200 
+  0x000001ef97e63218: 0600 0001 | e966 0000 | 0048 3b9a | 0806 0000 | 750d 4883 | 8210 0600 | 0001 e950 | 0000 0048 
+  0x000001ef97e63238: 81ba f805 | 0000 0000 | 0000 7517 | 4889 9af8 | 0500 0048 | c782 0006 | 0000 0100 | 0000 e92c 
+  0x000001ef97e63258: 0000 0048 | 81ba 0806 | 0000 0000 | 0000 7517 | 4889 9a08 | 0600 0048 | c782 1006 | 0000 0100 
+  0x000001ef97e63278: 0000 e908 | 0000 0048 | 8382 e805 | 0000 0145 | 8b5e 1049 
+
+  0x000001ef97e6328c: ;   {metadata({type array int})}
+  0x000001ef97e6328c: 8bdb 48ba | a00b 0400 | 0100 0000 | 4863 db48 | 8bfb 4881 | fbff ffff | 000f 8703 | 1400 0048 
+  0x000001ef97e632ac: be17 0000 | 0000 0000 | 0048 8d34 | 9e48 83e6 | f849 8b87 | 0801 0000 | 488d 3430 | 493b b718 
+  0x000001ef97e632cc: 0100 000f | 87d9 1300 | 0049 89b7 | 0801 0000 | 482b f048 | c700 0100 | 0000 488b | ca48 c1e9 
+  0x000001ef97e632ec: 0389 4808 | 8958 0c48 | 83ee 100f | 841a 0000 | 0048 85f6 | 0f84 1100 | 0000 4833 | db48 c1ee 
+  0x000001ef97e6330c: 0348 895c | f008 48ff | ce75 f64c | 8bd0 4589 | 5040 498b | d048 c1ea | 0948 be00 | 0055 93ef 
+  0x000001ef97e6332c: 0100 00c6 | 0432 00be | 0000 0000 
+
+  0x000001ef97e63338: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63338: 413b f348 | bad0 3cd7 | a9ef 0100 | 0048 bf20 | 0600 0000 | 0000 000f | 8d0a 0000 | 0048 bf30 
+  0x000001ef97e63358: 0600 0000 | 0000 0048 | 8b1c 3a48 | 8d5b 0148 | 891c 3a0f | 8dbe 0300 | 0041 8b78 | 4049 8bd6 
+  0x000001ef97e63378: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63378: 48bb d03c | d7a9 ef01 | 0000 8b52 | 0848 c1e2 | 0348 3b93 | 5006 0000 | 750d 4883 | 8358 0600 
+  0x000001ef97e63398: 0001 e966 | 0000 0048 | 3b93 6006 | 0000 750d | 4883 8368 | 0600 0001 | e950 0000 | 0048 81bb 
+  0x000001ef97e633b8: 5006 0000 | 0000 0000 | 7517 4889 | 9350 0600 | 0048 c783 | 5806 0000 | 0100 0000 | e92c 0000 
+  0x000001ef97e633d8: 0048 81bb | 6006 0000 | 0000 0000 | 7517 4889 | 9360 0600 | 0048 c783 | 6806 0000 | 0100 0000 
+  0x000001ef97e633f8: e908 0000 | 0048 8383 | 4006 0000 
+
+  0x000001ef97e63404: ;   {metadata(method data for {method} {0x000001efa90d5e58} 'get' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e63404: 0148 baf8 | 464c a9ef | 0100 008b | 9acc 0000 | 0083 c302 | 899a cc00 | 0000 81e3 | feff 1f00 
+  0x000001ef97e63424: 83fb 000f | 848b 1200 
+
+  0x000001ef97e6342c: ;   {metadata(method data for {method} {0x000001efa90d5e58} 'get' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e6342c: 0048 baf8 | 464c a9ef | 0100 0048 | 8382 1001 
+
+  0x000001ef97e6343c: ;   {metadata(method data for {method} {0x000001efa911deb8} 'checkIndex' '(II)I' in 'java/util/Objects')}
+  0x000001ef97e6343c: 0000 0148 | ba98 484c | a9ef 0100 | 008b 9acc | 0000 0083 | c302 899a | cc00 0000 | 81e3 feff 
+  0x000001ef97e6345c: 1f00 83fb | 000f 8472 
+
+  0x000001ef97e63464: ;   {metadata(method data for {method} {0x000001efa911deb8} 'checkIndex' '(II)I' in 'java/util/Objects')}
+  0x000001ef97e63464: 1200 0048 | ba98 484c | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e63478: ;   {metadata(method data for {method} {0x000001efa928f168} 'checkIndex' '(IILjava/util/function/BiFunction;)I' in 'jdk/internal/util/Preconditions')}
+  0x000001ef97e63478: 0148 ba00 | 4a4c a9ef | 0100 008b | 9acc 0000 | 0083 c302 | 899a cc00 | 0000 81e3 | feff 1f00 
+  0x000001ef97e63498: 83fb 000f | 8459 1200 | 0083 fe00 
+
+  0x000001ef97e634a4: ;   {metadata(method data for {method} {0x000001efa928f168} 'checkIndex' '(IILjava/util/function/BiFunction;)I' in 'jdk/internal/util/Preconditions')}
+  0x000001ef97e634a4: 48ba 004a | 4ca9 ef01 | 0000 48bb | 1001 0000 | 0000 0000 | 0f8c 0a00 | 0000 48bb | 2001 0000 
+  0x000001ef97e634c4: 0000 0000 | 488b 041a | 488d 4001 | 4889 041a | 0f8c a70a | 0000 413b 
+
+  0x000001ef97e634dc: ;   {metadata(method data for {method} {0x000001efa928f168} 'checkIndex' '(IILjava/util/function/BiFunction;)I' in 'jdk/internal/util/Preconditions')}
+  0x000001ef97e634dc: f348 ba00 | 4a4c a9ef | 0100 0048 | bb40 0100 | 0000 0000 | 000f 8d0a | 0000 0048 | bb30 0100 
+  0x000001ef97e634fc: 0000 0000 | 0048 8b04 | 1a48 8d40 | 0148 8904 | 1a0f 8d6e | 0a00 0049 
+
+  0x000001ef97e63514: ;   {metadata(method data for {method} {0x000001efa90d5e58} 'get' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e63514: 8bd6 48bb | f846 4ca9 | ef01 0000 | 8b52 0848 | c1e2 0348 | 3b93 3001 | 0000 750d | 4883 8338 
+  0x000001ef97e63534: 0100 0001 | e966 0000 | 0048 3b93 | 4001 0000 | 750d 4883 | 8348 0100 | 0001 e950 | 0000 0048 
+  0x000001ef97e63554: 81bb 3001 | 0000 0000 | 0000 7517 | 4889 9330 | 0100 0048 | c783 3801 | 0000 0100 | 0000 e92c 
+  0x000001ef97e63574: 0000 0048 | 81bb 4001 | 0000 0000 | 0000 7517 | 4889 9340 | 0100 0048 | c783 4801 | 0000 0100 
+  0x000001ef97e63594: 0000 e908 | 0000 0048 | 8383 2001 
+
+  0x000001ef97e635a0: ;   {metadata(method data for {method} {0x000001efa90d5d28} 'elementData' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e635a0: 0000 0148 | bab0 4d4c | a9ef 0100 | 008b 9acc | 0000 0083 | c302 899a | cc00 0000 | 81e3 feff 
+  0x000001ef97e635c0: 1f00 83fb | 000f 8450 | 1100 0041 | 8b56 143b | 720c 0f83 | 6e11 0000 | 4863 de8b | 549a 1048 
+  0x000001ef97e635e0: 83fa 0075 
+
+  0x000001ef97e635e4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e635e4: 1648 b8d0 | 3cd7 a9ef | 0100 0080 | 8871 0600 | 0001 e9c0 
+
+  0x000001ef97e635f8: ;   {metadata('java/lang/Integer')}
+  0x000001ef97e635f8: 0000 0048 | b9d8 6205 | 0001 0000 | 008b 5a08 | 48c1 e303 | 483b cb0f | 858a 0000 
+
+  0x000001ef97e63614: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63614: 0048 b8d0 | 3cd7 a9ef | 0100 008b | 4a08 48c1 | e103 483b | 8888 0600 | 0075 0d48 | 8380 9006 
+  0x000001ef97e63634: 0000 01e9 | 7f00 0000 | 483b 8898 | 0600 0075 | 0d48 8380 | a006 0000 | 01e9 6900 | 0000 4881 
+  0x000001ef97e63654: b888 0600 | 0000 0000 | 0075 1748 | 8988 8806 | 0000 48c7 | 8090 0600 | 0001 0000 | 00e9 4500 
+  0x000001ef97e63674: 0000 4881 | b898 0600 | 0000 0000 | 0075 1748 | 8988 9806 | 0000 48c7 | 80a0 0600 | 0001 0000 
+  0x000001ef97e63694: 00e9 2100 | 0000 e91c 
+
+  0x000001ef97e6369c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e6369c: 0000 0048 | b8d0 3cd7 | a9ef 0100 | 0048 83a8 | 7806 0000 | 01e9 9e10 | 0000 e900 | 0000 0048 
+  0x000001ef97e636bc: 3b02 488b 
+
+  0x000001ef97e636c0: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e636c0: da48 b8d0 | 3cd7 a9ef | 0100 0048 | 8380 b006 | 0000 018b | 520c 3b77 | 0c0f 838d | 1000 0048 
+  0x000001ef97e636e0: 63de 8954 | 9f10 ffc6 
+
+  0x000001ef97e636e8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e636e8: 48ba d03c | d7a9 ef01 | 0000 8bba | d000 0000 | 83c7 0289 | bad0 0000 | 0081 e7fe | 3f00 0083 
+  0x000001ef97e63708: ff00 0f84 | 6a10 0000 | 4d8b 9758 
+
+  0x000001ef97e63714: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@492
+                      ;   {poll}
+  0x000001ef97e63714: 0300 0041 
+
+  0x000001ef97e63718: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63718: 8502 48ba | d03c d7a9 | ef01 0000 | ff82 e806 | 0000 e909 | fcff ff49 
+
+  0x000001ef97e63730: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63730: 83fd 0048 | bad0 3cd7 | a9ef 0100 | 0048 be00 | 0700 0000 | 0000 000f | 840a 0000 | 0048 be10 
+  0x000001ef97e63750: 0700 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 320f | 8451 0500 | 0049 3b45 | 0049 8bf5 
+  0x000001ef97e63770: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63770: 48bf d03c | d7a9 ef01 | 0000 8b76 | 0848 c1e6 | 0348 3bb7 | 3007 0000 | 750d 4883 | 8738 0700 
+  0x000001ef97e63790: 0001 e966 | 0000 0048 | 3bb7 4007 | 0000 750d | 4883 8748 | 0700 0001 | e950 0000 | 0048 81bf 
+  0x000001ef97e637b0: 3007 0000 | 0000 0000 | 7517 4889 | b730 0700 | 0048 c787 | 3807 0000 | 0100 0000 | e92c 0000 
+  0x000001ef97e637d0: 0048 81bf | 4007 0000 | 0000 0000 | 7517 4889 | b740 0700 | 0048 c787 | 4807 0000 | 0100 0000 
+  0x000001ef97e637f0: e908 0000 | 0048 8387 | 2007 0000 | 0149 8bd5 | 4c89 ac24 | e000 0000 | 0f1f 4400 | 0048 b8ff 
+  0x000001ef97e63810: ffff ffff 
+
+  0x000001ef97e63814: ;   {virtual_call}
+  0x000001ef97e63814: ffff ffe8 
+
+  0x000001ef97e63818: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop }
+                      ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@503
+  0x000001ef97e63818: 64db 5606 
+
+  0x000001ef97e6381c: ;   {metadata({type array int})}
+  0x000001ef97e6381c: 488b d848 | baa0 0b04 | 0001 0000 | 0048 63db | 488b fb48 | 81fb ffff | ff00 0f87 | 640f 0000 
+  0x000001ef97e6383c: 48be 1700 | 0000 0000 | 0000 488d | 349e 4883 | e6f8 498b | 8708 0100 | 0048 8d34 | 3049 3bb7 
+  0x000001ef97e6385c: 1801 0000 | 0f87 3a0f | 0000 4989 | b708 0100 | 0048 2bf0 | 48c7 0001 | 0000 0048 | 8bca 48c1 
+  0x000001ef97e6387c: e903 8948 | 0889 580c | 4883 ee10 | 0f84 1a00 | 0000 4885 | f60f 8411 | 0000 0048 | 33db 48c1 
+  0x000001ef97e6389c: ee03 4889 | 5cf0 0848 | ffce 75f6 | 488b 9424 | a000 0000 | 4c8b d044 | 8952 4448 | 8bf2 48c1 
+  0x000001ef97e638bc: ee09 48bf | 0000 5593 | ef01 0000 | c604 3e00 | 4c8b ac24 | e000 0000 
+
+  0x000001ef97e638d4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e638d4: 48be d03c | d7a9 ef01 | 0000 458b | 6d08 49c1 | e503 4c3b | ae68 0700 | 0075 0d48 | 8386 7007 
+  0x000001ef97e638f4: 0000 01e9 | 6600 0000 | 4c3b ae78 | 0700 0075 | 0d48 8386 | 8007 0000 | 01e9 5000 | 0000 4881 
+  0x000001ef97e63914: be68 0700 | 0000 0000 | 0075 174c | 89ae 6807 | 0000 48c7 | 8670 0700 | 0001 0000 | 00e9 2c00 
+  0x000001ef97e63934: 0000 4881 | be78 0700 | 0000 0000 | 0075 174c | 89ae 7807 | 0000 48c7 | 8680 0700 | 0001 0000 
+  0x000001ef97e63954: 00e9 0800 | 0000 4883 | 8658 0700 | 0001 488b | 9424 e000 | 0000 6666 | 9048 b8ff | ffff ffff 
+  0x000001ef97e63974: ;   {virtual_call}
+  0x000001ef97e63974: ffff ffe8 
+
+  0x000001ef97e63978: ; ImmutableOopMap {[192]=Oop [160]=Oop }
+                      ;*invokeinterface iterator {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@518
+  0x000001ef97e63978: 04da 5606 | 4889 8424 | 3001 0000 | be00 0000 | 0089 b424 | 0c01 0000 | e931 0200 | 0066 6690 
+  0x000001ef97e63998: 488b 8424 | 3001 0000 
+
+  0x000001ef97e639a0: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e639a0: 48bf d03c | d7a9 ef01 | 0000 8b40 | 0848 c1e0 | 0348 3b87 | f807 0000 | 750d 4883 | 8700 0800 
+  0x000001ef97e639c0: 0001 e966 | 0000 0048 | 3b87 0808 | 0000 750d | 4883 8710 | 0800 0001 | e950 0000 | 0048 81bf 
+  0x000001ef97e639e0: f807 0000 | 0000 0000 | 7517 4889 | 87f8 0700 | 0048 c787 | 0008 0000 | 0100 0000 | e92c 0000 
+  0x000001ef97e63a00: 0048 81bf | 0808 0000 | 0000 0000 | 7517 4889 | 8708 0800 | 0048 c787 | 1008 0000 | 0100 0000 
+  0x000001ef97e63a20: e908 0000 | 0048 8387 | e807 0000 | 0148 8b94 | 2430 0100 | 0048 b8ff | ffff ffff 
+
+  0x000001ef97e63a3c: ;   {virtual_call}
+  0x000001ef97e63a3c: ffff ffe8 
+
+  0x000001ef97e63a40: ; ImmutableOopMap {[192]=Oop [304]=Oop [160]=Oop }
+                      ;*invokeinterface next {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@537
+  0x000001ef97e63a40: 3cd9 5606 | 4883 f800 
+
+  0x000001ef97e63a48: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63a48: 7516 48be | d03c d7a9 | ef01 0000 | 808e 1908 | 0000 01e9 | c100 0000 
+
+  0x000001ef97e63a60: ;   {metadata('java/lang/Integer')}
+  0x000001ef97e63a60: 48bf d862 | 0500 0100 | 0000 448b | 4008 49c1 | e003 493b | f80f 858a 
+
+  0x000001ef97e63a78: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63a78: 0000 0048 | bed0 3cd7 | a9ef 0100 | 008b 7808 | 48c1 e703 | 483b be30 | 0800 0075 | 0d48 8386 
+  0x000001ef97e63a98: 3808 0000 | 01e9 7f00 | 0000 483b | be40 0800 | 0075 0d48 | 8386 4808 | 0000 01e9 | 6900 0000 
+  0x000001ef97e63ab8: 4881 be30 | 0800 0000 | 0000 0075 | 1748 89be | 3008 0000 | 48c7 8638 | 0800 0001 | 0000 00e9 
+  0x000001ef97e63ad8: 4500 0000 | 4881 be40 | 0800 0000 | 0000 0075 | 1748 89be | 4008 0000 | 48c7 8648 | 0800 0001 
+  0x000001ef97e63af8: 0000 00e9 | 2100 0000 | e91c 0000 
+
+  0x000001ef97e63b04: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63b04: 0048 bed0 | 3cd7 a9ef | 0100 0048 | 83ae 2008 | 0000 01e9 | 8e0c 0000 | e900 0000 | 0048 8bd0 
+  0x000001ef97e63b24: 488b b424 | a000 0000 | 448b 4644 | 8bbc 240c | 0100 00ff | c748 3b02 
+
+  0x000001ef97e63b3c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63b3c: 488b da48 | b8d0 3cd7 | a9ef 0100 | 0048 8380 | 5808 0000 | 018b 520c | 8b9c 240c | 0100 0041 
+  0x000001ef97e63b5c: 3b58 0c0f | 835d 0c00 | 0048 63db | 4189 5498 
+
+  0x000001ef97e63b6c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63b6c: 1048 bad0 | 3cd7 a9ef | 0100 0044 | 8b82 d000 | 0000 4183 | c002 4489 | 82d0 0000 | 0041 81e0 
+  0x000001ef97e63b8c: fe3f 0000 | 4183 f800 | 0f84 360c | 0000 4d8b | 9758 0300 
+
+  0x000001ef97e63ba0: ; ImmutableOopMap {[192]=Oop [304]=Oop rsi=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@562
+                      ;   {poll}
+  0x000001ef97e63ba0: 0041 8502 
+
+  0x000001ef97e63ba4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63ba4: 48ba d03c | d7a9 ef01 | 0000 ff82 | 9008 0000 | 488b df89 | 9c24 0c01 | 0000 488b | 8424 3001 
+  0x000001ef97e63bc4: 0000 483b | 0048 8bf8 
+
+  0x000001ef97e63bcc: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63bcc: 48bb d03c | d7a9 ef01 | 0000 8b7f | 0848 c1e7 | 0348 3bbb | a007 0000 | 750d 4883 | 83a8 0700 
+  0x000001ef97e63bec: 0001 e966 | 0000 0048 | 3bbb b007 | 0000 750d | 4883 83b8 | 0700 0001 | e950 0000 | 0048 81bb 
+  0x000001ef97e63c0c: a007 0000 | 0000 0000 | 7517 4889 | bba0 0700 | 0048 c783 | a807 0000 | 0100 0000 | e92c 0000 
+  0x000001ef97e63c2c: 0048 81bb | b007 0000 | 0000 0000 | 7517 4889 | bbb0 0700 | 0048 c783 | b807 0000 | 0100 0000 
+  0x000001ef97e63c4c: e908 0000 | 0048 8383 | 9007 0000 | 0148 8bd0 | 9048 b8ff | ffff ffff 
+
+  0x000001ef97e63c64: ;   {virtual_call}
+  0x000001ef97e63c64: ffff ffe8 
+
+  0x000001ef97e63c68: ; ImmutableOopMap {[192]=Oop [160]=Oop [304]=Oop }
+                      ;*invokeinterface hasNext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@527
+  0x000001ef97e63c68: 14d7 5606 
+
+  0x000001ef97e63c6c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63c6c: 83f8 0048 | bad0 3cd7 | a9ef 0100 | 0048 bed8 | 0700 0000 | 0000 000f | 850a 0000 | 0048 bec8 
+  0x000001ef97e63c8c: 0700 0000 | 0000 0048 | 8b3c 3248 | 8d7f 0148 | 893c 320f | 85f3 fcff 
+
+  0x000001ef97e63ca4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63ca4: ff48 bad0 | 3cd7 a9ef | 0100 00ff | 82a8 0800 | 00e9 2700 | 0000 498b 
+
+  0x000001ef97e63cbc: ;   {oop([I{0x00000000c068d9a8})}
+  0x000001ef97e63cbc: f049 baa8 | d968 c000 | 0000 0044 | 8956 4448 | 8bd6 48c1 | ea09 49b8 | 0000 5593 | ef01 0000 
+  0x000001ef97e63cdc: 42c6 0402 | 008b b424 | d000 0000 | 8b8c 24cc | 0000 0083 | c116 3bce 
+
+  0x000001ef97e63cf4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63cf4: 48ba d03c | d7a9 ef01 | 0000 49b8 | d008 0000 | 0000 0000 | 0f85 0a00 | 0000 49b8 | c008 0000 
+  0x000001ef97e63d14: 0000 0000 | 4a8b 3402 | 488d 7601 | 4a89 3402 | 0f85 7d01 | 0000 4881 | c480 0100 
+
+  0x000001ef97e63d30: ;   {poll_return}
+  0x000001ef97e63d30: 005d 493b | a750 0300 | 000f 87b7 | 0a00 00c3 
+
+  0x000001ef97e63d40: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63d40: 49b8 d03c | d7a9 ef01 | 0000 4983 | 80b8 0200 | 0001 488b | 9424 c000 | 0000 4c8b 
+
+  0x000001ef97e63d5c: ;   {static_call}
+  0x000001ef97e63d5c: c766 90e8 
+
+  0x000001ef97e63d60: ; ImmutableOopMap {[160]=Oop }
+                      ;*invokestatic countCENHeaders {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@257
+  0x000001ef97e63d60: 1cd9 5606 | 488b 9424 | a000 0000 
+
+  0x000001ef97e63d6c: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63d6c: 49b8 d03c | d7a9 ef01 | 0000 4983 | 80c8 0200 | 0001 4c8b | c048 8b94 | 24a0 0000 | 0066 0f1f 
+  0x000001ef97e63d8c: ;   {optimized virtual_call}
+  0x000001ef97e63d8c: 4400 00e8 
+
+  0x000001ef97e63d90: ; ImmutableOopMap {}
+                      ;*invokevirtual initCEN {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@260
+  0x000001ef97e63d90: ecd2 5606 | 4881 c480 | 0100 005d 
+
+  0x000001ef97e63d9c: ;   {poll_return}
+  0x000001ef97e63d9c: 493b a750 | 0300 000f | 8763 0a00 | 00c3 488b | 9424 a000 | 0000 48bb | 0000 0000 | 0000 0000 
+  0x000001ef97e63dbc: 49ba 0000 | 0000 0000 | 0000 4c89 | 5210 c742 | 2000 0000 | 00bb 0000 | 0000 4c8b 
+
+  0x000001ef97e63dd8: ;   {metadata({type array int})}
+  0x000001ef97e63dd8: ea48 baa0 | 0b04 0001 | 0000 0048 | 63db 488b | fb48 81fb | ffff ff00 | 0f87 2c0a | 0000 48be 
+  0x000001ef97e63df8: 1700 0000 | 0000 0000 | 488d 349e | 4883 e6f8 | 498b 8708 | 0100 0048 | 8d34 3049 | 3bb7 1801 
+  0x000001ef97e63e18: 0000 0f87 | 020a 0000 | 4989 b708 | 0100 0048 | 2bf0 48c7 | 0001 0000 | 0048 8bca | 48c1 e903 
+  0x000001ef97e63e38: 8948 0889 | 580c 4883 | ee10 0f84 | 1a00 0000 | 4885 f60f | 8411 0000 | 0048 33db | 48c1 ee03 
+  0x000001ef97e63e58: 4889 5cf0 | 0848 ffce | 75f6 4c8b | d045 8955 | 4849 8bd5 | 48c1 ea09 | 48be 0000 | 5593 ef01 
+  0x000001ef97e63e78: 0000 c604 | 3200 41c7 | 4538 0000 | 0000 498b | d548 c1ea | 09c6 0432 | 0048 81c4 | 8001 0000 
+  0x000001ef97e63e98: ;   {poll_return}
+  0x000001ef97e63e98: 5d49 3ba7 | 5003 0000 | 0f87 8609 
+
+  0x000001ef97e63ea4: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63ea4: 0000 c348 | bad0 3cd7 | a9ef 0100 | 0048 8382 | e008 0000 
+
+  0x000001ef97e63eb8: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63eb8: 0148 bad0 | 185a a9ef | 0100 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x000001ef97e63ed8: 83fe 000f | 8461 0900 | 000f 1f80 | 0000 0000 
+
+  0x000001ef97e63ee8: ;   {no_reloc}
+  0x000001ef97e63ee8: e985 0900 | 0000 0000 | 0000 80ba | 3301 0000 | 040f 8582 | 0900 0049 | 8b87 0801 | 0000 488d 
+  0x000001ef97e63f08: 7828 493b | bf18 0100 | 000f 876a | 0900 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca 
+  0x000001ef97e63f28: 48c1 e903 | 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x000001ef97e63f44: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63f44: 4c8b c048 | bad0 185a | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e63f58: ;   {oop("invalid CEN header (bad header size)"{0x00000000c0002e28})}
+  0x000001ef97e63f58: 0149 b828 | 2e00 c000 | 0000 0048 | 8bd0 4889 | 8424 3801 
+
+  0x000001ef97e63f6c: ;   {optimized virtual_call}
+  0x000001ef97e63f6c: 0000 90e8 
+
+  0x000001ef97e63f70: ; ImmutableOopMap {[312]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@587
+  0x000001ef97e63f70: 0cd1 5606 | 488b 8424 | 3801 0000 | e915 0a00 | 0048 89bc | 2440 0100 | 004c 89ac | 24e0 0000 
+  0x000001ef97e63f90: 004c 89b4 | 24e8 0000 
+
+  0x000001ef97e63f98: ;   {metadata(method data for {method} {0x000001efa928f168} 'checkIndex' '(IILjava/util/function/BiFunction;)I' in 'jdk/internal/util/Preconditions')}
+  0x000001ef97e63f98: 0049 b800 | 4a4c a9ef | 0100 0049 | 8380 5001 
+
+  0x000001ef97e63fa8: ;   {oop(NULL)}
+  0x000001ef97e63fa8: 0000 0148 | ba00 0000 | 0000 0000 | 004c 8bc6 | 4d8b cb44 | 899c 244c | 0100 0089 | b424 4801 
+  0x000001ef97e63fc8: 0000 0f1f 
+
+  0x000001ef97e63fcc: ;   {static_call}
+  0x000001ef97e63fcc: 4400 00e8 
+
+  0x000001ef97e63fd0: ; ImmutableOopMap {[320]=Oop [224]=Oop [232]=Oop [192]=Oop [160]=Oop }
+                      ;*invokestatic outOfBoundsCheckIndex {reexecute=0 rethrow=0 return_oop=0}
+                      ; - jdk.internal.util.Preconditions::checkIndex@12
+                      ; - java.util.Objects::checkIndex@3
+                      ; - java.util.ArrayList::get@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e63fd0: acd6 5606 
+
+  0x000001ef97e63fd4: ; implicit exception: dispatches to 0x000001ef97e6488e
+  0x000001ef97e63fd4: 483b 00e9 | ba09 0000 
+
+  0x000001ef97e63fdc: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63fdc: 48ba d03c | d7a9 ef01 | 0000 4883 | 8240 0200 
+
+  0x000001ef97e63fec: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e63fec: 0001 48ba | d018 5aa9 | ef01 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001ef97e6400c: 0083 fe00 | 0f84 7d08 | 0000 6690 
+
+  0x000001ef97e64018: ;   {no_reloc}
+  0x000001ef97e64018: e9a6 0800 | 0000 0000 | 0000 80ba | 3301 0000 | 040f 85a3 | 0800 0049 | 8b87 0801 | 0000 488d 
+  0x000001ef97e64038: 7828 493b | bf18 0100 | 000f 878b | 0800 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca 
+  0x000001ef97e64058: 48c1 e903 | 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x000001ef97e64074: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64074: 4c8b c048 | bad0 185a | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e64088: ;   {oop("read CEN tables failed"{0x00000000c030a310})}
+  0x000001ef97e64088: 0149 b810 | a330 c000 | 0000 0048 | 8bd0 4889 | 8424 5001 
+
+  0x000001ef97e6409c: ;   {optimized virtual_call}
+  0x000001ef97e6409c: 0000 90e8 
+
+  0x000001ef97e640a0: ; ImmutableOopMap {[160]=Oop [184]=Oop [336]=Oop [168]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@140
+  0x000001ef97e640a0: dccf 5606 | 488b 8424 | 5001 0000 | e9e5 0800 | 0048 899c | 2460 0100 
+
+  0x000001ef97e640b8: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e640b8: 0048 bad0 | 3cd7 a9ef | 0100 0048 | 8382 d801 
+
+  0x000001ef97e640c8: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e640c8: 0000 0148 | bad0 185a | a9ef 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001ef97e640e8: 1f00 83fe | 000f 84ec | 0700 000f | 1f44 0000 
+
+  0x000001ef97e640f8: ;   {no_reloc}
+  0x000001ef97e640f8: e912 0800 | 0000 0000 | 0000 80ba | 3301 0000 | 040f 850f | 0800 0049 | 8b87 0801 | 0000 488d 
+  0x000001ef97e64118: 7828 493b | bf18 0100 | 000f 87f7 | 0700 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca 
+  0x000001ef97e64138: 48c1 e903 | 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x000001ef97e64154: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64154: 4c8b c048 | bad0 185a | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e64168: ;   {oop("invalid END header (bad central directory offset)"{0x00000000c030a328})}
+  0x000001ef97e64168: 0149 b828 | a330 c000 | 0000 0048 | 8bd0 4889 | 8424 5801 
+
+  0x000001ef97e6417c: ;   {optimized virtual_call}
+  0x000001ef97e6417c: 0000 90e8 
+
+  0x000001ef97e64180: ; ImmutableOopMap {[168]=Oop [160]=Oop [344]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@94
+  0x000001ef97e64180: fcce 5606 | 488b 8424 | 5801 0000 | e905 0800 
+
+  0x000001ef97e64190: ;   {metadata(method data for {method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64190: 0048 bed0 | 3cd7 a9ef | 0100 0048 | 8386 a801 
+
+  0x000001ef97e641a0: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e641a0: 0000 0148 | bed0 185a | a9ef 0100 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 feff 
+  0x000001ef97e641c0: 1f00 83ff | 000f 8460 | 0700 000f | 1f44 0000 
+
+  0x000001ef97e641d0: ;   {no_reloc}
+  0x000001ef97e641d0: e986 0700 | 0000 0000 | 0000 80ba | 3301 0000 | 040f 8583 | 0700 0049 | 8b87 0801 | 0000 488d 
+  0x000001ef97e641f0: 7828 493b | bf18 0100 | 000f 876b | 0700 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca 
+  0x000001ef97e64210: 48c1 e903 | 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x000001ef97e6422c: ;   {metadata(method data for {method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e6422c: 4c8b c048 | bad0 185a | a9ef 0100 | 0048 8382 | 1001 0000 
+
+  0x000001ef97e64240: ;   {oop("invalid END header (bad central directory size)"{0x00000000c030a340})}
+  0x000001ef97e64240: 0149 b840 | a330 c000 | 0000 0048 | 8bd0 4889 | 8424 6801 
+
+  0x000001ef97e64254: ;   {optimized virtual_call}
+  0x000001ef97e64254: 0000 90e8 
+
+  0x000001ef97e64258: ; ImmutableOopMap {[160]=Oop [360]=Oop [168]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@57
+  0x000001ef97e64258: 24ce 5606 | 488b 8424 | 6801 0000 | e92d 0700 
+
+  0x000001ef97e64268: ;   {metadata({method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64268: 0049 bac0 | 6552 a9ef | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001ef97e64280: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64280: e87b 6461 
+
+  0x000001ef97e64284: ; ImmutableOopMap {rdx=Oop [160]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::initCEN@-1
+  0x000001ef97e64284: 06e9 f5d8 
+
+  0x000001ef97e64288: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64288: ffff e811 
+
+  0x000001ef97e6428c: ; ImmutableOopMap {[160]=Oop rax=Oop [168]=Oop }
+                      ;*getfield endpos {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@11
+                      ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e6428c: 3458 06e8 
+
+  0x000001ef97e64290: ; ImmutableOopMap {r11=Oop [160]=Oop [168]=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@107
+  0x000001ef97e64290: ec24 5806 | e9cf daff 
+
+  0x000001ef97e64298: ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e64298: ffe8 e224 
+
+  0x000001ef97e6429c: ; ImmutableOopMap {r11=Oop [160]=Oop [192]=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@173
+  0x000001ef97e6429c: 5806 e951 
+
+  0x000001ef97e642a0: ;   {runtime_call throw_div0_exception Runtime1 stub}
+  0x000001ef97e642a0: dcff ffe8 
+
+  0x000001ef97e642a4: ; ImmutableOopMap {r11=Oop [160]=Oop [192]=Oop }
+                      ;*idiv {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@183
+  0x000001ef97e642a4: f836 5806 
+
+  0x000001ef97e642a8: ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e642a8: e8d3 2458 
+
+  0x000001ef97e642ac: ; ImmutableOopMap {r11=Oop [160]=Oop [192]=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@196
+  0x000001ef97e642ac: 06e9 14dd 
+
+  0x000001ef97e642b0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e642b0: ffff e8e9 
+
+  0x000001ef97e642b4: ; ImmutableOopMap {[160]=Oop rax=Oop }
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@229
+  0x000001ef97e642b4: 3358 0648 
+
+  0x000001ef97e642b8: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001ef97e642b8: 8bd2 e8c1 
+
+  0x000001ef97e642bc: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@340
+  0x000001ef97e642bc: 2a58 06e9 | 12e1 ffff 
+
+  0x000001ef97e642c4: ;   {metadata({method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e642c4: 49ba d854 | 0fa9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e642d8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e642d8: ffff ffe8 
+
+  0x000001ef97e642dc: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Integer::valueOf@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+  0x000001ef97e642dc: 2064 6106 | e968 e1ff | ff48 8bd2 
+
+  0x000001ef97e642e8: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001ef97e642e8: e893 2a58 
+
+  0x000001ef97e642ec: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Integer::valueOf@23
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+  0x000001ef97e642ec: 06e9 13e2 
+
+  0x000001ef97e642f0: ;   {metadata({method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e642f0: ffff 49ba | 8855 0fa9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64308: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64308: ffe8 f263 
+
+  0x000001ef97e6430c: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Integer::<init>@-1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+  0x000001ef97e6430c: 6106 e931 
+
+  0x000001ef97e64310: ;   {metadata({method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e64310: e2ff ff49 | ba10 d60e | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64328: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64328: ffff e8d1 
+
+  0x000001ef97e6432c: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Number::<init>@-1
+                      ; - java.lang.Integer::<init>@1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+  0x000001ef97e6432c: 6361 06e9 | 4fe2 ffff 
+
+  0x000001ef97e64334: ;   {metadata({method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e64334: 49ba 8004 | 00a9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e64348: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64348: ffff ffe8 
+
+  0x000001ef97e6434c: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1
+                      ; - java.lang.Number::<init>@1
+                      ; - java.lang.Integer::<init>@1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+  0x000001ef97e6434c: b063 6106 | e96d e2ff 
+
+  0x000001ef97e64354: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64354: ffe8 4633 
+
+  0x000001ef97e64358: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Integer::valueOf@21
+                      ; - java.util.zip.ZipFile$Source::initCEN@354
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64358: 5806 e841 
+
+  0x000001ef97e6435c: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop }
+                      ;*invokevirtual add {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+                      ;   {metadata({method} {0x000001efa90d6050} 'add' '(Ljava/lang/Object;)Z' in 'java/util/ArrayList')}
+  0x000001ef97e6435c: 3358 0649 | ba48 600d | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64374: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64374: ffff e885 
+
+  0x000001ef97e64378: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.ArrayList::add@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e64378: 6361 06e9 | 29e3 ffff 
+
+  0x000001ef97e64380: ;   {metadata({method} {0x000001efa90d5fa8} 'add' '(Ljava/lang/Object;[Ljava/lang/Object;I)V' in 'java/util/ArrayList')}
+  0x000001ef97e64380: 49ba a05f | 0da9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e64394: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64394: ffff ffe8 
+
+  0x000001ef97e64398: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop r8=Oop }
+                      ;*synchronization entry
+                      ; - java.util.ArrayList::add@-1
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e64398: 6463 6106 | e958 e3ff 
+
+  0x000001ef97e643a0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e643a0: ffe8 fa32 
+
+  0x000001ef97e643a4: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop rax=Oop r8=Oop }
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.ArrayList::add@2
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+                      ;   {metadata({method} {0x000001efa90d55d8} 'grow' '()[Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e643a4: 5806 49ba | d055 0da9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e643bc: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e643bc: ffe8 3e63 
+
+  0x000001ef97e643c0: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r14=Oop [272]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.ArrayList::grow@-1
+                      ; - java.util.ArrayList::add@7
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e643c0: 6106 e9c8 
+
+  0x000001ef97e643c4: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e643c4: e3ff ffe8 
+
+  0x000001ef97e643c8: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r8=Oop r14=Oop rax=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.ArrayList::add@14
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e643c8: d432 5806 
+
+  0x000001ef97e643cc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e643cc: e8cf 3258 
+
+  0x000001ef97e643d0: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r8=Oop r14=Oop rax=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.ArrayList::add@14
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e643d0: 0648 8934 | 244c 8944 
+
+  0x000001ef97e643d8: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e643d8: 2408 e8c1 
+
+  0x000001ef97e643dc: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r8=Oop r14=Oop rax=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.ArrayList::add@14
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e643dc: 3b58 06e8 
+
+  0x000001ef97e643e0: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r8=Oop r14=Oop rax=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.ArrayList::add@14
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e643e0: bc32 5806 | 4889 0424 
+
+  0x000001ef97e643e8: ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x000001ef97e643e8: e833 1158 
+
+  0x000001ef97e643ec: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop r8=Oop r14=Oop rax=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.ArrayList::add@14
+                      ; - java.util.ArrayList::add@20
+                      ; - java.util.zip.ZipFile$Source::initCEN@357
+  0x000001ef97e643ec: 0648 8bd2 
+
+  0x000001ef97e643f0: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001ef97e643f0: e88b 2958 
+
+  0x000001ef97e643f4: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@387
+  0x000001ef97e643f4: 06e9 48e6 
+
+  0x000001ef97e643f8: ;   {metadata({method} {0x000001efa96c5bb0} '<init>' '()V' in 'java/util/TreeSet')}
+  0x000001ef97e643f8: ffff 49ba | a85b 6ca9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64410: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64410: ffe8 ea62 
+
+  0x000001ef97e64414: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.util.TreeSet::<init>@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64414: 6106 e967 | e6ff ff48 
+
+  0x000001ef97e6441c: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001ef97e6441c: 8bd2 e85d 
+
+  0x000001ef97e64420: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.TreeSet::<init>@1
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64420: 2958 06e9 | ade6 ffff 
+
+  0x000001ef97e64428: ;   {metadata({method} {0x000001efa966d590} '<init>' '()V' in 'java/util/TreeMap')}
+  0x000001ef97e64428: 49ba 88d5 | 66a9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e6443c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e6443c: ffff ffe8 
+
+  0x000001ef97e64440: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.TreeMap::<init>@-1
+                      ; - java.util.TreeSet::<init>@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64440: bc62 6106 | e9c9 e6ff 
+
+  0x000001ef97e64448: ;   {metadata({method} {0x000001efa90cf928} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x000001ef97e64448: ff49 ba20 | f90c a9ef | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001ef97e64460: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64460: e89b 6261 
+
+  0x000001ef97e64464: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractMap::<init>@-1
+                      ; - java.util.TreeMap::<init>@1
+                      ; - java.util.TreeSet::<init>@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64464: 06e9 e5e6 
+
+  0x000001ef97e64468: ;   {metadata({method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e64468: ffff 49ba | 8004 00a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64480: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64480: ffe8 7a62 
+
+  0x000001ef97e64484: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1
+                      ; - java.util.AbstractMap::<init>@1
+                      ; - java.util.TreeMap::<init>@1
+                      ; - java.util.TreeSet::<init>@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64484: 6106 e901 
+
+  0x000001ef97e64488: ;   {metadata({method} {0x000001efa96c5b18} '<init>' '(Ljava/util/NavigableMap;)V' in 'java/util/TreeSet')}
+  0x000001ef97e64488: e7ff ff49 | ba10 5b6c | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e644a0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e644a0: ffff e859 
+
+  0x000001ef97e644a4: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.TreeSet::<init>@-1
+                      ; - java.util.TreeSet::<init>@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e644a4: 6261 06e9 | 1de7 ffff 
+
+  0x000001ef97e644ac: ;   {metadata({method} {0x000001efa9159c98} '<init>' '()V' in 'java/util/AbstractSet')}
+  0x000001ef97e644ac: 49ba 909c | 15a9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e644c0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e644c0: ffff ffe8 
+
+  0x000001ef97e644c4: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractSet::<init>@-1
+                      ; - java.util.TreeSet::<init>@1
+                      ; - java.util.TreeSet::<init>@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e644c4: 3862 6106 | e939 e7ff 
+
+  0x000001ef97e644cc: ;   {metadata({method} {0x000001efa90d9aa8} '<init>' '()V' in 'java/util/AbstractCollection')}
+  0x000001ef97e644cc: ff49 baa0 | 9a0d a9ef | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001ef97e644e4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e644e4: e817 6261 
+
+  0x000001ef97e644e8: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractCollection::<init>@-1
+                      ; - java.util.AbstractSet::<init>@1
+                      ; - java.util.TreeSet::<init>@1
+                      ; - java.util.TreeSet::<init>@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e644e8: 06e9 55e7 
+
+  0x000001ef97e644ec: ;   {metadata({method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e644ec: ffff 49ba | 8004 00a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64504: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64504: ffe8 f661 
+
+  0x000001ef97e64508: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop rbx=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1
+                      ; - java.util.AbstractCollection::<init>@1
+                      ; - java.util.AbstractSet::<init>@1
+                      ; - java.util.TreeSet::<init>@1
+                      ; - java.util.TreeSet::<init>@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@391
+  0x000001ef97e64508: 6106 e971 
+
+  0x000001ef97e6450c: ;   {metadata({method} {0x000001efa90f54e0} 'valueOf' '(I)Ljava/lang/Integer;' in 'java/lang/Integer')}
+  0x000001ef97e6450c: e7ff ff49 | bad8 540f | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64524: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64524: ffff e8d5 
+
+  0x000001ef97e64528: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Integer::valueOf@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+  0x000001ef97e64528: 6161 06e9 | a9e7 ffff 
+
+  0x000001ef97e64530: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001ef97e64530: 488b d2e8 
+
+  0x000001ef97e64534: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Integer::valueOf@23
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+  0x000001ef97e64534: 4828 5806 | e953 e8ff 
+
+  0x000001ef97e6453c: ;   {metadata({method} {0x000001efa90f5590} '<init>' '(I)V' in 'java/lang/Integer')}
+  0x000001ef97e6453c: ff49 ba88 | 550f a9ef | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001ef97e64554: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64554: e8a7 6161 
+
+  0x000001ef97e64558: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Integer::<init>@-1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+  0x000001ef97e64558: 06e9 6fe8 
+
+  0x000001ef97e6455c: ;   {metadata({method} {0x000001efa90ed618} '<init>' '()V' in 'java/lang/Number')}
+  0x000001ef97e6455c: ffff 49ba | 10d6 0ea9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64574: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64574: ffe8 8661 
+
+  0x000001ef97e64578: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Number::<init>@-1
+                      ; - java.lang.Integer::<init>@1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+  0x000001ef97e64578: 6106 e98b 
+
+  0x000001ef97e6457c: ;   {metadata({method} {0x000001efa9000488} '<init>' '()V' in 'java/lang/Object')}
+  0x000001ef97e6457c: e8ff ff49 | ba80 0400 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64594: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64594: ffff e865 
+
+  0x000001ef97e64598: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1
+                      ; - java.lang.Number::<init>@1
+                      ; - java.lang.Integer::<init>@1
+                      ; - java.lang.Integer::valueOf@28
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+  0x000001ef97e64598: 6161 06e9 | a7e8 ffff 
+
+  0x000001ef97e645a0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e645a0: e8fb 3058 
+
+  0x000001ef97e645a4: ; ImmutableOopMap {[192]=Oop [160]=Oop [288]=Oop r13=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.Integer::valueOf@21
+                      ; - java.util.zip.ZipFile$Source::initCEN@400
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e645a4: 06e8 f630 
+
+  0x000001ef97e645a8: ; ImmutableOopMap {[192]=Oop [160]=Oop r13=Oop rax=Oop [288]=Oop }
+                      ;*invokeinterface add {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@403
+                      ;   {metadata({method} {0x000001efa9526668} 'nextEntryPos' '(III)I' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e645a8: 5806 49ba | 6066 52a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e645c0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e645c0: ffe8 3a61 
+
+  0x000001ef97e645c4: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e645c4: 6106 e9bd 
+
+  0x000001ef97e645c8: ;   {metadata({method} {0x000001efa956e5d8} 'CENCOM' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e645c8: e9ff ff49 | bad0 e556 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e645e0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e645e0: ffff e819 
+
+  0x000001ef97e645e4: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipUtils::CENCOM@-1
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e645e4: 6161 06e9 | e0e9 ffff 
+
+  0x000001ef97e645ec: ;   {metadata({method} {0x000001efa956cee0} 'SH' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e645ec: 49ba d8ce | 56a9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e64600: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64600: ffff ffe8 
+
+  0x000001ef97e64604: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipUtils::SH@-1
+                      ; - java.util.zip.ZipUtils::CENCOM@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e64604: f860 6106 | e903 eaff 
+
+  0x000001ef97e6460c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e6460c: ffe8 8e30 
+
+  0x000001ef97e64610: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*baload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipUtils::SH@2
+                      ; - java.util.zip.ZipUtils::CENCOM@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64610: 5806 e889 
+
+  0x000001ef97e64614: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*baload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipUtils::SH@2
+                      ; - java.util.zip.ZipUtils::CENCOM@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e64614: 3058 0648 | 890c 2448 | 895c 2408 
+
+  0x000001ef97e64620: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e64620: e87b 3958 
+
+  0x000001ef97e64624: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*baload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipUtils::SH@2
+                      ; - java.util.zip.ZipUtils::CENCOM@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e64624: 0648 890c | 2448 895c 
+
+  0x000001ef97e6462c: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e6462c: 2408 e86d 
+
+  0x000001ef97e64630: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*baload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipUtils::SH@11
+                      ; - java.util.zip.ZipUtils::CENCOM@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@8
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+                      ;   {metadata({method} {0x000001efa956e540} 'CENEXT' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e64630: 3958 0649 | ba38 e556 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64648: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64648: ffff e8b1 
+
+  0x000001ef97e6464c: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipUtils::CENEXT@-1
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@17
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e6464c: 6061 06e9 | 2eea ffff 
+
+  0x000001ef97e64654: ;   {metadata({method} {0x000001efa956cee0} 'SH' '([BI)I' in 'java/util/zip/ZipUtils')}
+  0x000001ef97e64654: 49ba d8ce | 56a9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e64668: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64668: ffff ffe8 
+
+  0x000001ef97e6466c: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipUtils::SH@-1
+                      ; - java.util.zip.ZipUtils::CENEXT@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@17
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+  0x000001ef97e6466c: 9060 6106 | e951 eaff | ff48 890c | 2448 895c 
+
+  0x000001ef97e6467c: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e6467c: 2408 e81d 
+
+  0x000001ef97e64680: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop rbx=Oop }
+                      ;*baload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipUtils::SH@2
+                      ; - java.util.zip.ZipUtils::CENEXT@5
+                      ; - java.util.zip.ZipFile$Source::nextEntryPos@17
+                      ; - java.util.zip.ZipFile$Source::initCEN@416
+                      ;   {metadata({method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64680: 3958 0649 | bac0 6552 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ac01 
+
+  0x000001ef97e64698: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64698: 0000 e861 
+
+  0x000001ef97e6469c: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop rdx=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@428
+  0x000001ef97e6469c: 6061 06e9 | 7fea ffff 
+
+  0x000001ef97e646a4: ;   {runtime_call throw_div0_exception Runtime1 stub}
+  0x000001ef97e646a4: e8f7 3258 
+
+  0x000001ef97e646a8: ; ImmutableOopMap {[192]=Oop r13=Oop r14=Oop r8=Oop [160]=Oop }
+                      ;*idiv {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@435
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e646a8: 06e8 f22f 
+
+  0x000001ef97e646ac: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop }
+                      ;*invokevirtual size {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@446
+                      ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e646ac: 5806 e8cd 
+
+  0x000001ef97e646b0: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@454
+  0x000001ef97e646b0: 2058 06e9 | 5fec ffff 
+
+  0x000001ef97e646b8: ;   {metadata({method} {0x000001efa90d5e58} 'get' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e646b8: 49ba 505e | 0da9 ef01 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001ef97e646cc: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e646cc: ffff ffe8 
+
+  0x000001ef97e646d0: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*synchronization entry
+                      ; - java.util.ArrayList::get@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e646d0: 2c60 6106 | e954 edff 
+
+  0x000001ef97e646d8: ;   {metadata({method} {0x000001efa911deb8} 'checkIndex' '(II)I' in 'java/util/Objects')}
+  0x000001ef97e646d8: ff49 bab0 | de11 a9ef | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001ef97e646f0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e646f0: e80b 6061 
+
+  0x000001ef97e646f4: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*synchronization entry
+                      ; - java.util.Objects::checkIndex@-1
+                      ; - java.util.ArrayList::get@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e646f4: 06e9 6ded 
+
+  0x000001ef97e646f8: ;   {metadata({method} {0x000001efa928f168} 'checkIndex' '(IILjava/util/function/BiFunction;)I' in 'jdk/internal/util/Preconditions')}
+  0x000001ef97e646f8: ffff 49ba | 60f1 28a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64710: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64710: ffe8 ea5f 
+
+  0x000001ef97e64714: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*synchronization entry
+                      ; - jdk.internal.util.Preconditions::checkIndex@-1
+                      ; - java.util.Objects::checkIndex@3
+                      ; - java.util.ArrayList::get@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e64714: 6106 e986 
+
+  0x000001ef97e64718: ;   {metadata({method} {0x000001efa90d5d28} 'elementData' '(I)Ljava/lang/Object;' in 'java/util/ArrayList')}
+  0x000001ef97e64718: edff ff49 | ba20 5d0d | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64730: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64730: ffff e8c9 
+
+  0x000001ef97e64734: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*synchronization entry
+                      ; - java.util.ArrayList::elementData@-1
+                      ; - java.util.ArrayList::get@11
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e64734: 5f61 06e9 | 8fee ffff 
+
+  0x000001ef97e6473c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e6473c: e85f 2f58 
+
+  0x000001ef97e64740: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop rdx=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.ArrayList::elementData@5
+                      ; - java.util.ArrayList::get@11
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64740: 06e8 5a2f 
+
+  0x000001ef97e64744: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop rdx=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.ArrayList::elementData@5
+                      ; - java.util.ArrayList::get@11
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e64744: 5806 4889 | 3424 4889 
+
+  0x000001ef97e6474c: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e6474c: 5424 08e8 
+
+  0x000001ef97e64750: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop rdx=Oop }
+                      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.ArrayList::elementData@5
+                      ; - java.util.ArrayList::get@11
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+  0x000001ef97e64750: 4c38 5806 | 4889 1424 
+
+  0x000001ef97e64758: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001ef97e64758: e8c3 3261 
+
+  0x000001ef97e6475c: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@482
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e6475c: 06e8 3e2f 
+
+  0x000001ef97e64760: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop rdx=Oop }
+                      ;*invokevirtual intValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@485
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64760: 5806 e839 
+
+  0x000001ef97e64764: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@488
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64764: 2f58 06e8 
+
+  0x000001ef97e64768: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@488
+  0x000001ef97e64768: 342f 5806 | 4889 3424 | 4889 7c24 
+
+  0x000001ef97e64774: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e64774: 08e8 2638 
+
+  0x000001ef97e64778: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop rdi=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@488
+                      ;   {metadata({method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64778: 5806 49ba | c065 52a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ec 0100 
+
+  0x000001ef97e64790: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64790: 00e8 6a5f 
+
+  0x000001ef97e64794: ; ImmutableOopMap {[192]=Oop r13=Oop r8=Oop [160]=Oop r14=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@492
+  0x000001ef97e64794: 6106 e975 
+
+  0x000001ef97e64798: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64798: efff ffe8 
+
+  0x000001ef97e6479c: ; ImmutableOopMap {[192]=Oop r13=Oop [160]=Oop }
+                      ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@503
+  0x000001ef97e6479c: 002f 5806 
+
+  0x000001ef97e647a0: ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e647a0: e8db 1f58 
+
+  0x000001ef97e647a4: ; ImmutableOopMap {[192]=Oop [224]=Oop [160]=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@508
+  0x000001ef97e647a4: 06e9 fef0 | ffff 4889 
+
+  0x000001ef97e647ac: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x000001ef97e647ac: 0424 e86d 
+
+  0x000001ef97e647b0: ; ImmutableOopMap {[192]=Oop [304]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@542
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e647b0: 3261 06e8 
+
+  0x000001ef97e647b4: ; ImmutableOopMap {[192]=Oop [304]=Oop rdx=Oop rsi=Oop [160]=Oop r8=Oop }
+                      ;*invokevirtual intValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@558
+  0x000001ef97e647b4: e82e 5806 
+
+  0x000001ef97e647b8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e647b8: e8e3 2e58 
+
+  0x000001ef97e647bc: ; ImmutableOopMap {[192]=Oop [304]=Oop rsi=Oop [160]=Oop r8=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@561
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e647bc: 06e8 de2e 
+
+  0x000001ef97e647c0: ; ImmutableOopMap {[192]=Oop [304]=Oop rsi=Oop [160]=Oop r8=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@561
+  0x000001ef97e647c0: 5806 4889 | 1c24 4c89 
+
+  0x000001ef97e647c8: ;   {runtime_call throw_range_check_failed Runtime1 stub}
+  0x000001ef97e647c8: 4424 08e8 
+
+  0x000001ef97e647cc: ; ImmutableOopMap {[192]=Oop [304]=Oop rsi=Oop [160]=Oop r8=Oop }
+                      ;*iastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@561
+  0x000001ef97e647cc: d037 5806 
+
+  0x000001ef97e647d0: ;   {metadata({method} {0x000001efa95265c8} 'initCEN' '(I)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e647d0: 49ba c065 | 52a9 ef01 | 0000 4c89 | 5424 0848 | c704 2432 
+
+  0x000001ef97e647e4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e647e4: 0200 00e8 
+
+  0x000001ef97e647e8: ; ImmutableOopMap {[192]=Oop [304]=Oop rsi=Oop [160]=Oop }
+                      ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::initCEN@562
+  0x000001ef97e647e8: 145f 6106 | e9a9 f3ff 
+
+  0x000001ef97e647f0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e647f0: ffe8 aa2e 
+
+  0x000001ef97e647f4: ; ImmutableOopMap {[192]=Oop rax=Oop [304]=Oop [160]=Oop }
+                      ;*invokeinterface hasNext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@527
+                      ;   {internal_word}
+  0x000001ef97e647f4: 5806 49ba | 323d e697 | ef01 0000 | 4d89 9768 
+
+  0x000001ef97e64804: ;   {runtime_call SafepointBlob}
+  0x000001ef97e64804: 0300 00e9 | f42e 5706 
+
+  0x000001ef97e6480c: ;   {internal_word}
+  0x000001ef97e6480c: 49ba 9c3d | e697 ef01 | 0000 4d89 | 9768 0300 
+
+  0x000001ef97e6481c: ;   {runtime_call SafepointBlob}
+  0x000001ef97e6481c: 00e9 de2e 
+
+  0x000001ef97e64820: ;   {runtime_call new_type_array Runtime1 stub}
+  0x000001ef97e64820: 5706 e859 
+
+  0x000001ef97e64824: ; ImmutableOopMap {r13=Oop [160]=Oop }
+                      ;*newarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::initCEN@31
+  0x000001ef97e64824: 1f58 06e9 | 36f6 ffff 
+
+  0x000001ef97e6482c: ;   {internal_word}
+  0x000001ef97e6482c: 49ba 993e | e697 ef01 | 0000 4d89 | 9768 0300 
+
+  0x000001ef97e6483c: ;   {runtime_call SafepointBlob}
+  0x000001ef97e6483c: 00e9 be2e 
+
+  0x000001ef97e64840: ;   {metadata({method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64840: 5706 49ba | f866 52a9 | ef01 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001ef97e64858: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64858: ffe8 a25e 
+
+  0x000001ef97e6485c: ; ImmutableOopMap {}
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::zerror@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@587
+  0x000001ef97e6485c: 6106 e97e 
+
+  0x000001ef97e64860: ;   {metadata(NULL)}
+  0x000001ef97e64860: f6ff ff48 | ba00 0000 | 0000 0000 | 00b8 000f 
+
+  0x000001ef97e64870: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001ef97e64870: 050a e809 
+
+  0x000001ef97e64874: ; ImmutableOopMap {}
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@587
+  0x000001ef97e64874: 4e61 06e9 | 6cf6 ffff 
+
+  0x000001ef97e6487c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e6487c: e81f 2e58 
+
+  0x000001ef97e64880: ; ImmutableOopMap {}
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@587
+  0x000001ef97e64880: 0648 8bd2 
+
+  0x000001ef97e64884: ;   {runtime_call fast_new_instance_init_check Runtime1 stub}
+  0x000001ef97e64884: e8f7 2158 
+
+  0x000001ef97e64888: ; ImmutableOopMap {}
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@587
+  0x000001ef97e64888: 06e9 b6f6 
+
+  0x000001ef97e6488c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e6488c: ffff e80d 
+
+  0x000001ef97e64890: ; ImmutableOopMap {[320]=Oop [224]=Oop [232]=Oop [192]=Oop [160]=Oop rax=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) jdk.internal.util.Preconditions::checkIndex@15
+                      ; - java.util.Objects::checkIndex@3
+                      ; - java.util.ArrayList::get@5
+                      ; - java.util.zip.ZipFile$Source::initCEN@479
+                      ;   {metadata({method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64890: 2e58 0649 | baf8 6652 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e648a8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e648a8: ffff e851 
+
+  0x000001ef97e648ac: ; ImmutableOopMap {[168]=Oop [184]=Oop [160]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::zerror@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@140
+  0x000001ef97e648ac: 5e61 06e9 | 62f7 ffff 
+
+  0x000001ef97e648b4: ;   {metadata(NULL)}
+  0x000001ef97e648b4: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x000001ef97e648c0: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001ef97e648c0: 0f05 0ae8 
+
+  0x000001ef97e648c4: ; ImmutableOopMap {[168]=Oop [184]=Oop [160]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@140
+  0x000001ef97e648c4: b84d 6106 | e94b f7ff 
+
+  0x000001ef97e648cc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e648cc: ffe8 ce2d 
+
+  0x000001ef97e648d0: ; ImmutableOopMap {[184]=Oop [160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@140
+  0x000001ef97e648d0: 5806 488b 
+
+  0x000001ef97e648d4: ;   {runtime_call fast_new_instance_init_check Runtime1 stub}
+  0x000001ef97e648d4: d2e8 a621 
+
+  0x000001ef97e648d8: ; ImmutableOopMap {[184]=Oop [160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@140
+  0x000001ef97e648d8: 5806 e995 
+
+  0x000001ef97e648dc: ;   {metadata({method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e648dc: f7ff ff49 | baf8 6652 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e648f4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e648f4: ffff e805 
+
+  0x000001ef97e648f8: ; ImmutableOopMap {[168]=Oop [160]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::zerror@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@94
+  0x000001ef97e648f8: 5e61 06e9 | f3f7 ffff 
+
+  0x000001ef97e64900: ;   {metadata(NULL)}
+  0x000001ef97e64900: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x000001ef97e6490c: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001ef97e6490c: 0f05 0ae8 
+
+  0x000001ef97e64910: ; ImmutableOopMap {[168]=Oop [160]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@94
+  0x000001ef97e64910: 6c4d 6106 | e9df f7ff 
+
+  0x000001ef97e64918: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64918: ffe8 822d 
+
+  0x000001ef97e6491c: ; ImmutableOopMap {[168]=Oop [160]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@94
+  0x000001ef97e6491c: 5806 488b 
+
+  0x000001ef97e64920: ;   {runtime_call fast_new_instance_init_check Runtime1 stub}
+  0x000001ef97e64920: d2e8 5a21 
+
+  0x000001ef97e64924: ; ImmutableOopMap {[168]=Oop [160]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@94
+  0x000001ef97e64924: 5806 e929 
+
+  0x000001ef97e64928: ;   {metadata({method} {0x000001efa9526700} 'zerror' '(Ljava/lang/String;)V' in 'java/util/zip/ZipFile$Source')}
+  0x000001ef97e64928: f8ff ff49 | baf8 6652 | a9ef 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001ef97e64940: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001ef97e64940: ffff e8b9 
+
+  0x000001ef97e64944: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*synchronization entry
+                      ; - java.util.zip.ZipFile$Source::zerror@-1
+                      ; - java.util.zip.ZipFile$Source::initCEN@57
+  0x000001ef97e64944: 5d61 06e9 | 7ff8 ffff 
+
+  0x000001ef97e6494c: ;   {metadata(NULL)}
+  0x000001ef97e6494c: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x000001ef97e64958: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x000001ef97e64958: 0f05 0ae8 
+
+  0x000001ef97e6495c: ; ImmutableOopMap {[168]=Oop [160]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@57
+  0x000001ef97e6495c: 204d 6106 | e96b f8ff 
+
+  0x000001ef97e64964: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001ef97e64964: ffe8 362d 
+
+  0x000001ef97e64968: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@57
+  0x000001ef97e64968: 5806 488b 
+
+  0x000001ef97e6496c: ;   {runtime_call fast_new_instance_init_check Runtime1 stub}
+  0x000001ef97e6496c: d2e8 0e21 
+
+  0x000001ef97e64970: ; ImmutableOopMap {[160]=Oop [168]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.util.zip.ZipFile$Source::zerror@0
+                      ; - java.util.zip.ZipFile$Source::initCEN@57
+  0x000001ef97e64970: 5806 e9b5 | f8ff ff90 | 9049 8b87 | e003 0000 | 49c7 87e0 | 0300 0000 | 0000 0049 | c787 e803 
+  0x000001ef97e64990: 0000 0000 | 0000 4881 | c480 0100 
+
+  0x000001ef97e6499c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x000001ef97e6499c: 005d e9dd | 3b58 06f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+  0x000001ef97e649bc: f4f4 f4f4 
+[Stub Code]
+  0x000001ef97e649c0: ;   {no_reloc}
+  0x000001ef97e649c0: 0f1f 4400 
+
+  0x000001ef97e649c4: ;   {static_stub}
+  0x000001ef97e649c4: 0048 bb00 | 0000 0000 
+
+  0x000001ef97e649cc: ;   {runtime_call}
+  0x000001ef97e649cc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e649d4: ;   {static_stub}
+  0x000001ef97e649d4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e649dc: ;   {runtime_call}
+  0x000001ef97e649dc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e649e4: ;   {static_stub}
+  0x000001ef97e649e4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e649ec: ;   {runtime_call}
+  0x000001ef97e649ec: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e649f4: ;   {static_stub}
+  0x000001ef97e649f4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e649fc: ;   {runtime_call}
+  0x000001ef97e649fc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a04: ;   {static_stub}
+  0x000001ef97e64a04: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a0c: ;   {runtime_call}
+  0x000001ef97e64a0c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a14: ;   {static_stub}
+  0x000001ef97e64a14: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a1c: ;   {runtime_call}
+  0x000001ef97e64a1c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a24: ;   {static_stub}
+  0x000001ef97e64a24: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a2c: ;   {runtime_call}
+  0x000001ef97e64a2c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a34: ;   {static_stub}
+  0x000001ef97e64a34: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a3c: ;   {runtime_call}
+  0x000001ef97e64a3c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a44: ;   {static_stub}
+  0x000001ef97e64a44: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a4c: ;   {runtime_call}
+  0x000001ef97e64a4c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a54: ;   {static_stub}
+  0x000001ef97e64a54: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a5c: ;   {runtime_call}
+  0x000001ef97e64a5c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a64: ;   {static_stub}
+  0x000001ef97e64a64: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a6c: ;   {runtime_call}
+  0x000001ef97e64a6c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a74: ;   {static_stub}
+  0x000001ef97e64a74: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a7c: ;   {runtime_call}
+  0x000001ef97e64a7c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a84: ;   {static_stub}
+  0x000001ef97e64a84: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a8c: ;   {runtime_call}
+  0x000001ef97e64a8c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64a94: ;   {static_stub}
+  0x000001ef97e64a94: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64a9c: ;   {runtime_call}
+  0x000001ef97e64a9c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64aa4: ;   {static_stub}
+  0x000001ef97e64aa4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64aac: ;   {runtime_call}
+  0x000001ef97e64aac: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64ab4: ;   {static_stub}
+  0x000001ef97e64ab4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64abc: ;   {runtime_call}
+  0x000001ef97e64abc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64ac4: ;   {static_stub}
+  0x000001ef97e64ac4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64acc: ;   {runtime_call}
+  0x000001ef97e64acc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64ad4: ;   {static_stub}
+  0x000001ef97e64ad4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64adc: ;   {runtime_call}
+  0x000001ef97e64adc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64ae4: ;   {static_stub}
+  0x000001ef97e64ae4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64aec: ;   {runtime_call}
+  0x000001ef97e64aec: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64af4: ;   {static_stub}
+  0x000001ef97e64af4: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64afc: ;   {runtime_call}
+  0x000001ef97e64afc: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64b04: ;   {static_stub}
+  0x000001ef97e64b04: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64b0c: ;   {runtime_call}
+  0x000001ef97e64b0c: 0000 00e9 | fbff ffff 
+
+  0x000001ef97e64b14: ;   {static_stub}
+  0x000001ef97e64b14: 9048 bb00 | 0000 0000 
+
+  0x000001ef97e64b1c: ;   {runtime_call}
+  0x000001ef97e64b1c: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x000001ef97e64b24: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x000001ef97e64b24: e857 0d58 
+
+  0x000001ef97e64b28: ;   {external_word}
+  0x000001ef97e64b28: 0648 b930 | ca03 16f9 | 7f00 0048 
+
+  0x000001ef97e64b34: ;   {runtime_call}
+  0x000001ef97e64b34: 83e4 f049 | ba70 4ccc | 15f9 7f00 | 0041 ffd2 
+
+  0x000001ef97e64b44: ;   {section_word}
+  0x000001ef97e64b44: f449 ba45 | 4be6 97ef | 0100 0041 
+
+  0x000001ef97e64b50: ;   {runtime_call DeoptimizationBlob}
+  0x000001ef97e64b50: 52e9 4a1e | 5706 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001efb161cc20, length=40, elements={
+0x000001ef941a7ad0, 0x000001efa7fe6750, 0x000001efa7fe9190, 0x000001efa8010050,
+0x000001efa8010de0, 0x000001efa8011b70, 0x000001efa8013a50, 0x000001efa8016660,
+0x000001efad269eb0, 0x000001efad26cb80, 0x000001ef94266d10, 0x000001efad613260,
+0x000001efad9e13e0, 0x000001efad9e09c0, 0x000001efad9df580, 0x000001efad9deb60,
+0x000001efad9e18f0, 0x000001efad9dfa90, 0x000001efad9de650, 0x000001efad9e04b0,
+0x000001efad9dffa0, 0x000001efada6c4d0, 0x000001efada678e0, 0x000001efada6bab0,
+0x000001efada65060, 0x000001efada6b090, 0x000001efada6c9e0, 0x000001efada6bfc0,
+0x000001efada65a80, 0x000001efada673d0, 0x000001efada6a160, 0x000001efada669b0,
+0x000001efada6b5a0, 0x000001efada67df0, 0x000001efada69740, 0x000001efada65570,
+0x000001efada664a0, 0x000001efada66ec0, 0x000001efada68d20, 0x000001efada69230
+}
+
+Java Threads: ( => current thread )
+  0x000001ef941a7ad0 JavaThread "main" [_thread_blocked, id=7328, stack(0x000000db37600000,0x000000db37700000)]
+  0x000001efa7fe6750 JavaThread "Reference Handler" daemon [_thread_blocked, id=5952, stack(0x000000db37900000,0x000000db37a00000)]
+  0x000001efa7fe9190 JavaThread "Finalizer" daemon [_thread_blocked, id=10416, stack(0x000000db37a00000,0x000000db37b00000)]
+  0x000001efa8010050 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=12800, stack(0x000000db37b00000,0x000000db37c00000)]
+  0x000001efa8010de0 JavaThread "Attach Listener" daemon [_thread_blocked, id=6660, stack(0x000000db37c00000,0x000000db37d00000)]
+  0x000001efa8011b70 JavaThread "Service Thread" daemon [_thread_blocked, id=7916, stack(0x000000db37d00000,0x000000db37e00000)]
+  0x000001efa8013a50 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=9060, stack(0x000000db37e00000,0x000000db37f00000)]
+  0x000001efa8016660 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=8796, stack(0x000000db37f00000,0x000000db38000000)]
+  0x000001efad269eb0 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=9668, stack(0x000000db38000000,0x000000db38100000)]
+  0x000001efad26cb80 JavaThread "Sweeper thread" daemon [_thread_blocked, id=13156, stack(0x000000db38100000,0x000000db38200000)]
+  0x000001ef94266d10 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=3564, stack(0x000000db38200000,0x000000db38300000)]
+  0x000001efad613260 JavaThread "Notification Thread" daemon [_thread_blocked, id=10832, stack(0x000000db38300000,0x000000db38400000)]
+  0x000001efad9e13e0 JavaThread "Active Thread: Equinox Container: f5425323-912b-4ec1-8464-4723b50b7efe" [_thread_blocked, id=9120, stack(0x000000db38900000,0x000000db38a00000)]
+  0x000001efad9e09c0 JavaThread "Framework Event Dispatcher: Equinox Container: f5425323-912b-4ec1-8464-4723b50b7efe" daemon [_thread_blocked, id=12944, stack(0x000000db38a00000,0x000000db38b00000)]
+  0x000001efad9df580 JavaThread "Start Level: Equinox Container: f5425323-912b-4ec1-8464-4723b50b7efe" daemon [_thread_blocked, id=10620, stack(0x000000db38b00000,0x000000db38c00000)]
+  0x000001efad9deb60 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=1800, stack(0x000000db38c00000,0x000000db38d00000)]
+  0x000001efad9e18f0 JavaThread "SCR Component Actor" daemon [_thread_blocked, id=13188, stack(0x000000db38d00000,0x000000db38e00000)]
+  0x000001efad9dfa90 JavaThread "Worker-JM" [_thread_blocked, id=6136, stack(0x000000db38e00000,0x000000db38f00000)]
+  0x000001efad9de650 JavaThread "JNA Cleaner" daemon [_thread_blocked, id=1256, stack(0x000000db38f00000,0x000000db39000000)]
+  0x000001efad9e04b0 JavaThread "Worker-0: Initialize Workspace" [_thread_blocked, id=8364, stack(0x000000db39000000,0x000000db39100000)]
+  0x000001efad9dffa0 JavaThread "Worker-1" [_thread_blocked, id=12568, stack(0x000000db39100000,0x000000db39200000)]
+  0x000001efada6c4d0 JavaThread "Worker-2" [_thread_blocked, id=4948, stack(0x000000db39200000,0x000000db39300000)]
+  0x000001efada678e0 JavaThread "Worker-3" [_thread_blocked, id=4764, stack(0x000000db39400000,0x000000db39500000)]
+  0x000001efada6bab0 JavaThread "Java indexing" daemon [_thread_in_Java, id=10400, stack(0x000000db39500000,0x000000db39600000)]
+  0x000001efada65060 JavaThread "Worker-4" [_thread_blocked, id=14272, stack(0x000000db39600000,0x000000db39700000)]
+  0x000001efada6b090 JavaThread "Worker-5" [_thread_blocked, id=13096, stack(0x000000db39900000,0x000000db39a00000)]
+  0x000001efada6c9e0 JavaThread "Worker-6: Java indexing... " [_thread_blocked, id=12908, stack(0x000000db38800000,0x000000db38900000)]
+  0x000001efada6bfc0 JavaThread "Thread-2" daemon [_thread_in_native, id=772, stack(0x000000db39a00000,0x000000db39b00000)]
+  0x000001efada65a80 JavaThread "Thread-3" daemon [_thread_in_native, id=2744, stack(0x000000db39b00000,0x000000db39c00000)]
+  0x000001efada673d0 JavaThread "Thread-4" daemon [_thread_in_native, id=13248, stack(0x000000db39c00000,0x000000db39d00000)]
+  0x000001efada6a160 JavaThread "Thread-5" daemon [_thread_in_native, id=12932, stack(0x000000db39d00000,0x000000db39e00000)]
+  0x000001efada669b0 JavaThread "Thread-6" daemon [_thread_in_native, id=10716, stack(0x000000db39e00000,0x000000db39f00000)]
+  0x000001efada6b5a0 JavaThread "pool-2-thread-1" [_thread_blocked, id=1924, stack(0x000000db39f00000,0x000000db3a000000)]
+  0x000001efada67df0 JavaThread "WorkspaceEventsHandler" [_thread_blocked, id=3900, stack(0x000000db3a000000,0x000000db3a100000)]
+  0x000001efada69740 JavaThread "pool-1-thread-1" [_thread_blocked, id=13572, stack(0x000000db3a100000,0x000000db3a200000)]
+  0x000001efada65570 JavaThread "Compiler Source File Reader" daemon [_thread_blocked, id=13764, stack(0x000000db3a200000,0x000000db3a300000)]
+  0x000001efada664a0 JavaThread "Compiler Source File Reader" daemon [_thread_blocked, id=10036, stack(0x000000db3a300000,0x000000db3a400000)]
+  0x000001efada66ec0 JavaThread "Compiler Processing Task" daemon [_thread_blocked, id=13488, stack(0x000000db3a400000,0x000000db3a500000)]
+  0x000001efada68d20 JavaThread "Timer-0" [_thread_blocked, id=13484, stack(0x000000db3a500000,0x000000db3a600000)]
+=>0x000001efada69230 JavaThread "Connection worker" [_thread_in_Java, id=13908, stack(0x000000db3a600000,0x000000db3a700000)]
+
+Other Threads:
+  0x000001efa7fcf610 VMThread "VM Thread" [stack: 0x000000db37800000,0x000000db37900000] [id=10760]
+  0x000001efad4c0900 WatcherThread [stack: 0x000000db38400000,0x000000db38500000] [id=13356]
+  0x000001ef941bee80 GCTaskThread "GC Thread#0" [stack: 0x000000db37700000,0x000000db37800000] [id=1712]
+  0x000001efad6d9de0 GCTaskThread "GC Thread#1" [stack: 0x000000db38500000,0x000000db38600000] [id=13676]
+  0x000001efad6da4b0 GCTaskThread "GC Thread#2" [stack: 0x000000db38600000,0x000000db38700000] [id=13612]
+  0x000001efadcc9470 GCTaskThread "GC Thread#3" [stack: 0x000000db38700000,0x000000db38800000] [id=13412]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+
+GC Precious Log:
+ CPUs: 4 total, 4 available
+ Memory: 7854M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Alignments: Space 512K, Generation 512K, Heap 2M
+ Heap Min Capacity: 100M
+ Heap Initial Capacity: 100M
+ Heap Max Capacity: 1G
+ Pre-touch: Disabled
+ Parallel Workers: 4
+
+Heap:
+ PSYoungGen      total 17408K, used 12056K [0x00000000eab00000, 0x00000000ec500000, 0x0000000100000000)
+  eden space 15360K, 65% used [0x00000000eab00000,0x00000000eb4cb758,0x00000000eba00000)
+  from space 2048K, 98% used [0x00000000eba80000,0x00000000ebc7ab90,0x00000000ebc80000)
+  to   space 5632K, 0% used [0x00000000ebf80000,0x00000000ebf80000,0x00000000ec500000)
+ ParOldGen       total 68608K, used 43740K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 63% used [0x00000000c0000000,0x00000000c2ab72e0,0x00000000c4300000)
+ Metaspace       used 64988K, committed 66048K, reserved 1114112K
+  class space    used 6995K, committed 7424K, reserved 1048576K
+
+Card table byte_map: [0x000001ef93b50000,0x000001ef93d60000] _byte_map_base: 0x000001ef93550000
+
+Marking Bits: (ParMarkBitMap*) 0x00007ff9162b58b0
+ Begin Bits: [0x000001efa5e50000, 0x000001efa6e50000)
+ End Bits:   [0x000001efa6e50000, 0x000001efa7e50000)
+
+Polling page: 0x000001ef92160000
+
+Metaspace:
+
+Usage:
+  Non-class:     56.63 MB used.
+      Class:      6.83 MB used.
+       Both:     63.47 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      57.25 MB ( 89%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       7.25 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      64.50 MB (  6%) committed. 
+
+Chunk freelists:
+   Non-Class:  6.66 MB
+       Class:  8.59 MB
+        Both:  15.25 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 97.31 MB
+CDS: off
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 9.
+num_arena_births: 666.
+num_arena_deaths: 32.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 1032.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 45.
+num_chunks_taken_from_freelist: 3334.
+num_chunk_merges: 14.
+num_chunk_splits: 2015.
+num_chunks_enlarged: 1171.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120000Kb used=4747Kb max_used=4747Kb free=115252Kb
+ bounds [0x000001ef9e920000, 0x000001ef9edd0000, 0x000001efa5e50000]
+CodeHeap 'profiled nmethods': size=120000Kb used=16482Kb max_used=16482Kb free=103517Kb
+ bounds [0x000001ef96e50000, 0x000001ef97e70000, 0x000001ef9e380000]
+CodeHeap 'non-nmethods': size=5760Kb used=1352Kb max_used=1446Kb free=4408Kb
+ bounds [0x000001ef9e380000, 0x000001ef9e5f0000, 0x000001ef9e920000]
+ total_blobs=8014 nmethods=7316 adapters=612
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 28.246 Thread 0x000001efad269eb0 8081       3       org.eclipse.jdt.core.Signature::appendTypeSignature (9 bytes)
+Event: 28.246 Thread 0x000001efad269eb0 nmethod 8081 0x000001ef97e56290 code [0x000001ef97e56420, 0x000001ef97e56548]
+Event: 28.250 Thread 0x000001efad269eb0 8084       3       sun.nio.fs.WindowsPath::compareTo (118 bytes)
+Event: 28.252 Thread 0x000001efad269eb0 nmethod 8084 0x000001ef97e56610 code [0x000001ef97e56940, 0x000001ef97e57e08]
+Event: 28.258 Thread 0x000001efad269eb0 8085       3       org.eclipse.jdt.internal.compiler.classfmt.MethodInfo::decodeMethodParameters (129 bytes)
+Event: 28.260 Thread 0x000001efad269eb0 nmethod 8085 0x000001ef97e58810 code [0x000001ef97e58aa0, 0x000001ef97e59888]
+Event: 28.272 Thread 0x000001efa8016660 nmethod 8075 0x000001ef9ed93110 code [0x000001ef9ed93300, 0x000001ef9ed94038]
+Event: 28.272 Thread 0x000001efad269eb0 8088       3       java.lang.AbstractStringBuilder::append (22 bytes)
+Event: 28.272 Thread 0x000001efa8016660 8080 %     4       org.eclipse.jdt.internal.core.search.indexing.BinaryIndexer::extractReferenceFromConstantPool @ 324 (358 bytes)
+Event: 28.273 Thread 0x000001efad269eb0 nmethod 8088 0x000001ef97e59e90 code [0x000001ef97e5a040, 0x000001ef97e5a1f8]
+Event: 28.277 Thread 0x000001efad269eb0 8090       3       java.util.zip.ZipEntry::setExtra0 (493 bytes)
+Event: 28.281 Thread 0x000001efad269eb0 nmethod 8090 0x000001ef97e5a310 code [0x000001ef97e5a6a0, 0x000001ef97e5c198]
+Event: 28.281 Thread 0x000001efad269eb0 8091 %     3       java.util.zip.ZipFile$Source::initCEN @ 240 (591 bytes)
+Event: 28.286 Thread 0x000001efad269eb0 nmethod 8091% 0x000001ef97e5cb10 code [0x000001ef97e5d020, 0x000001ef97e601d8]
+Event: 28.292 Thread 0x000001efad269eb0 8092       3       java.util.zip.ZipFile$Source::initCEN (591 bytes)
+Event: 28.297 Thread 0x000001efad269eb0 nmethod 8092 0x000001ef97e61610 code [0x000001ef97e61b20, 0x000001ef97e64b58]
+Event: 28.298 Thread 0x000001efad269eb0 8093   !   3       java.util.zip.ZipFile$Source::checkAndAddEntry (262 bytes)
+Event: 28.300 Thread 0x000001efad269eb0 nmethod 8093 0x000001ef97e65f10 code [0x000001ef97e662e0, 0x000001ef97e67b48]
+Event: 28.300 Thread 0x000001efad269eb0 8094       3       java.util.zip.ZipFile$Source::isMetaName (141 bytes)
+Event: 28.301 Thread 0x000001efad269eb0 nmethod 8094 0x000001ef97e68890 code [0x000001ef97e68a40, 0x000001ef97e68f58]
+
+GC Heap History (20 events):
+Event: 23.466 GC heap before
+{Heap before GC invocations=29 (full 2):
+ PSYoungGen      total 20992K, used 20864K [0x00000000eab00000, 0x00000000ec180000, 0x0000000100000000)
+  eden space 19968K, 100% used [0x00000000eab00000,0x00000000ebe80000,0x00000000ebe80000)
+  from space 1024K, 87% used [0x00000000ec080000,0x00000000ec160008,0x00000000ec180000)
+  to   space 1536K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 34947K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 50% used [0x00000000c0000000,0x00000000c2220f98,0x00000000c4300000)
+ Metaspace       used 57253K, committed 58304K, reserved 1114112K
+  class space    used 6157K, committed 6592K, reserved 1048576K
+}
+Event: 23.476 GC heap after
+{Heap after GC invocations=29 (full 2):
+ PSYoungGen      total 21504K, used 971K [0x00000000eab00000, 0x00000000ec100000, 0x0000000100000000)
+  eden space 19968K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebe80000)
+  from space 1536K, 63% used [0x00000000ebe80000,0x00000000ebf72d28,0x00000000ec000000)
+  to   space 1024K, 0% used [0x00000000ec000000,0x00000000ec000000,0x00000000ec100000)
+ ParOldGen       total 68608K, used 35737K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 52% used [0x00000000c0000000,0x00000000c22e6710,0x00000000c4300000)
+ Metaspace       used 57253K, committed 58304K, reserved 1114112K
+  class space    used 6157K, committed 6592K, reserved 1048576K
+}
+Event: 24.030 GC heap before
+{Heap before GC invocations=30 (full 2):
+ PSYoungGen      total 21504K, used 20939K [0x00000000eab00000, 0x00000000ec100000, 0x0000000100000000)
+  eden space 19968K, 100% used [0x00000000eab00000,0x00000000ebe80000,0x00000000ebe80000)
+  from space 1536K, 63% used [0x00000000ebe80000,0x00000000ebf72d28,0x00000000ec000000)
+  to   space 1024K, 0% used [0x00000000ec000000,0x00000000ec000000,0x00000000ec100000)
+ ParOldGen       total 68608K, used 35737K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 52% used [0x00000000c0000000,0x00000000c22e6710,0x00000000c4300000)
+ Metaspace       used 58408K, committed 59456K, reserved 1114112K
+  class space    used 6261K, committed 6720K, reserved 1048576K
+}
+Event: 24.033 GC heap after
+{Heap after GC invocations=30 (full 2):
+ PSYoungGen      total 18944K, used 1020K [0x00000000eab00000, 0x00000000ec580000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 1024K, 99% used [0x00000000ec000000,0x00000000ec0ff1a8,0x00000000ec100000)
+  to   space 3584K, 0% used [0x00000000ebc80000,0x00000000ebc80000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 37769K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 55% used [0x00000000c0000000,0x00000000c24e25f8,0x00000000c4300000)
+ Metaspace       used 58408K, committed 59456K, reserved 1114112K
+  class space    used 6261K, committed 6720K, reserved 1048576K
+}
+Event: 24.199 GC heap before
+{Heap before GC invocations=31 (full 2):
+ PSYoungGen      total 18944K, used 18940K [0x00000000eab00000, 0x00000000ec580000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 1024K, 99% used [0x00000000ec000000,0x00000000ec0ff1a8,0x00000000ec100000)
+  to   space 3584K, 0% used [0x00000000ebc80000,0x00000000ebc80000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 37769K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 55% used [0x00000000c0000000,0x00000000c24e25f8,0x00000000c4300000)
+ Metaspace       used 58457K, committed 59520K, reserved 1114112K
+  class space    used 6261K, committed 6720K, reserved 1048576K
+}
+Event: 24.201 GC heap after
+{Heap after GC invocations=31 (full 2):
+ PSYoungGen      total 18944K, used 968K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 1024K, 94% used [0x00000000ebc80000,0x00000000ebd72260,0x00000000ebd80000)
+  to   space 2048K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ec080000)
+ ParOldGen       total 68608K, used 38774K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 56% used [0x00000000c0000000,0x00000000c25ddb80,0x00000000c4300000)
+ Metaspace       used 58457K, committed 59520K, reserved 1114112K
+  class space    used 6261K, committed 6720K, reserved 1048576K
+}
+Event: 24.291 GC heap before
+{Heap before GC invocations=32 (full 2):
+ PSYoungGen      total 18944K, used 13845K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 71% used [0x00000000eab00000,0x00000000eb793388,0x00000000ebc80000)
+  from space 1024K, 94% used [0x00000000ebc80000,0x00000000ebd72260,0x00000000ebd80000)
+  to   space 2048K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ec080000)
+ ParOldGen       total 68608K, used 38774K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 56% used [0x00000000c0000000,0x00000000c25ddb80,0x00000000c4300000)
+ Metaspace       used 58770K, committed 59776K, reserved 1114112K
+  class space    used 6283K, committed 6720K, reserved 1048576K
+}
+Event: 24.292 GC heap after
+{Heap after GC invocations=32 (full 2):
+ PSYoungGen      total 18432K, used 128K [0x00000000eab00000, 0x00000000ebf00000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 512K, 25% used [0x00000000ebe80000,0x00000000ebea0000,0x00000000ebf00000)
+  to   space 1024K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 39273K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 57% used [0x00000000c0000000,0x00000000c265a6d8,0x00000000c4300000)
+ Metaspace       used 58770K, committed 59776K, reserved 1114112K
+  class space    used 6283K, committed 6720K, reserved 1048576K
+}
+Event: 24.293 GC heap before
+{Heap before GC invocations=33 (full 3):
+ PSYoungGen      total 18432K, used 128K [0x00000000eab00000, 0x00000000ebf00000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 512K, 25% used [0x00000000ebe80000,0x00000000ebea0000,0x00000000ebf00000)
+  to   space 1024K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 39273K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 57% used [0x00000000c0000000,0x00000000c265a6d8,0x00000000c4300000)
+ Metaspace       used 58770K, committed 59776K, reserved 1114112K
+  class space    used 6283K, committed 6720K, reserved 1048576K
+}
+Event: 24.403 GC heap after
+{Heap after GC invocations=33 (full 3):
+ PSYoungGen      total 18432K, used 0K [0x00000000eab00000, 0x00000000ebf00000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 512K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ebf00000)
+  to   space 1024K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 34556K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 50% used [0x00000000c0000000,0x00000000c21bf148,0x00000000c4300000)
+ Metaspace       used 58770K, committed 59776K, reserved 1114112K
+  class space    used 6283K, committed 6720K, reserved 1048576K
+}
+Event: 25.475 GC heap before
+{Heap before GC invocations=34 (full 3):
+ PSYoungGen      total 18432K, used 17920K [0x00000000eab00000, 0x00000000ebf00000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 512K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ebf00000)
+  to   space 1024K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 34556K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 50% used [0x00000000c0000000,0x00000000c21bf148,0x00000000c4300000)
+ Metaspace       used 61135K, committed 62272K, reserved 1114112K
+  class space    used 6503K, committed 6976K, reserved 1048576K
+}
+Event: 25.477 GC heap after
+{Heap after GC invocations=34 (full 3):
+ PSYoungGen      total 18944K, used 996K [0x00000000eab00000, 0x00000000ec180000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 1024K, 97% used [0x00000000ebd00000,0x00000000ebdf9158,0x00000000ebe00000)
+  to   space 2560K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ec180000)
+ ParOldGen       total 68608K, used 35370K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 51% used [0x00000000c0000000,0x00000000c228aa38,0x00000000c4300000)
+ Metaspace       used 61135K, committed 62272K, reserved 1114112K
+  class space    used 6503K, committed 6976K, reserved 1048576K
+}
+Event: 26.360 GC heap before
+{Heap before GC invocations=35 (full 3):
+ PSYoungGen      total 18944K, used 18916K [0x00000000eab00000, 0x00000000ec180000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 1024K, 97% used [0x00000000ebd00000,0x00000000ebdf9158,0x00000000ebe00000)
+  to   space 2560K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ec180000)
+ ParOldGen       total 68608K, used 35370K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 51% used [0x00000000c0000000,0x00000000c228aa38,0x00000000c4300000)
+ Metaspace       used 61742K, committed 62784K, reserved 1114112K
+  class space    used 6550K, committed 6976K, reserved 1048576K
+}
+Event: 26.366 GC heap after
+{Heap after GC invocations=35 (full 3):
+ PSYoungGen      total 17920K, used 2541K [0x00000000eab00000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 15360K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eba00000)
+  from space 2560K, 99% used [0x00000000ebf00000,0x00000000ec17b6b8,0x00000000ec180000)
+  to   space 5120K, 0% used [0x00000000eba00000,0x00000000eba00000,0x00000000ebf00000)
+ ParOldGen       total 68608K, used 37236K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 54% used [0x00000000c0000000,0x00000000c245d398,0x00000000c4300000)
+ Metaspace       used 61742K, committed 62784K, reserved 1114112K
+  class space    used 6550K, committed 6976K, reserved 1048576K
+}
+Event: 27.413 GC heap before
+{Heap before GC invocations=36 (full 3):
+ PSYoungGen      total 17920K, used 17901K [0x00000000eab00000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 15360K, 100% used [0x00000000eab00000,0x00000000eba00000,0x00000000eba00000)
+  from space 2560K, 99% used [0x00000000ebf00000,0x00000000ec17b6b8,0x00000000ec180000)
+  to   space 5120K, 0% used [0x00000000eba00000,0x00000000eba00000,0x00000000ebf00000)
+ ParOldGen       total 68608K, used 37236K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 54% used [0x00000000c0000000,0x00000000c245d398,0x00000000c4300000)
+ Metaspace       used 62738K, committed 63808K, reserved 1114112K
+  class space    used 6662K, committed 7104K, reserved 1048576K
+}
+Event: 27.416 GC heap after
+{Heap after GC invocations=36 (full 3):
+ PSYoungGen      total 17408K, used 1812K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 15360K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eba00000)
+  from space 2048K, 88% used [0x00000000eba00000,0x00000000ebbc53f8,0x00000000ebc00000)
+  to   space 3072K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 39300K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 57% used [0x00000000c0000000,0x00000000c2661228,0x00000000c4300000)
+ Metaspace       used 62738K, committed 63808K, reserved 1114112K
+  class space    used 6662K, committed 7104K, reserved 1048576K
+}
+Event: 27.809 GC heap before
+{Heap before GC invocations=37 (full 3):
+ PSYoungGen      total 17408K, used 17172K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 15360K, 100% used [0x00000000eab00000,0x00000000eba00000,0x00000000eba00000)
+  from space 2048K, 88% used [0x00000000eba00000,0x00000000ebbc53f8,0x00000000ebc00000)
+  to   space 3072K, 0% used [0x00000000ebd00000,0x00000000ebd00000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 39300K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 57% used [0x00000000c0000000,0x00000000c2661228,0x00000000c4300000)
+ Metaspace       used 64177K, committed 65216K, reserved 1114112K
+  class space    used 6864K, committed 7296K, reserved 1048576K
+}
+Event: 27.815 GC heap after
+{Heap after GC invocations=37 (full 3):
+ PSYoungGen      total 16896K, used 1135K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 15360K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eba00000)
+  from space 1536K, 73% used [0x00000000ebd00000,0x00000000ebe1bd58,0x00000000ebe80000)
+  to   space 2048K, 0% used [0x00000000eba80000,0x00000000eba80000,0x00000000ebc80000)
+ ParOldGen       total 68608K, used 41052K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 59% used [0x00000000c0000000,0x00000000c2817380,0x00000000c4300000)
+ Metaspace       used 64177K, committed 65216K, reserved 1114112K
+  class space    used 6864K, committed 7296K, reserved 1048576K
+}
+Event: 28.224 GC heap before
+{Heap before GC invocations=38 (full 3):
+ PSYoungGen      total 16896K, used 16480K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 15360K, 99% used [0x00000000eab00000,0x00000000eb9fc430,0x00000000eba00000)
+  from space 1536K, 73% used [0x00000000ebd00000,0x00000000ebe1bd58,0x00000000ebe80000)
+  to   space 2048K, 0% used [0x00000000eba80000,0x00000000eba80000,0x00000000ebc80000)
+ ParOldGen       total 68608K, used 41052K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 59% used [0x00000000c0000000,0x00000000c2817380,0x00000000c4300000)
+ Metaspace       used 64984K, committed 66048K, reserved 1114112K
+  class space    used 6995K, committed 7424K, reserved 1048576K
+}
+Event: 28.228 GC heap after
+{Heap after GC invocations=38 (full 3):
+ PSYoungGen      total 17408K, used 2026K [0x00000000eab00000, 0x00000000ec500000, 0x0000000100000000)
+  eden space 15360K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eba00000)
+  from space 2048K, 98% used [0x00000000eba80000,0x00000000ebc7ab90,0x00000000ebc80000)
+  to   space 5632K, 0% used [0x00000000ebf80000,0x00000000ebf80000,0x00000000ec500000)
+ ParOldGen       total 68608K, used 43740K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 63% used [0x00000000c0000000,0x00000000c2ab72e0,0x00000000c4300000)
+ Metaspace       used 64984K, committed 66048K, reserved 1114112K
+  class space    used 6995K, committed 7424K, reserved 1048576K
+}
+
+Dll operation events (10 events):
+Event: 0.016 Loaded shared library c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\java.dll
+Event: 0.423 Loaded shared library c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\zip.dll
+Event: 0.429 Loaded shared library C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\instrument.dll
+Event: 0.454 Loaded shared library C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\net.dll
+Event: 0.460 Loaded shared library C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\nio.dll
+Event: 0.476 Loaded shared library C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\zip.dll
+Event: 0.582 Loaded shared library C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\jimage.dll
+Event: 0.753 Loaded shared library c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\verify.dll
+Event: 3.862 Loaded shared library C:\Users\bayes\AppData\Roaming\Code\User\globalStorage\redhat.java\1.35.0\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.1100.v20240722-2106\eclipse_11904.dll
+Event: 7.132 Loaded shared library C:\Users\bayes\AppData\Local\Temp\jna-93514312\jna11713988522946255329.dll
+
+Deoptimization events (20 events):
+Event: 28.279 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef9eaab7a8 sp=0x000000db3a6fd440
+Event: 28.279 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d66a3 sp=0x000000db3a6fd398 mode 2
+Event: 28.282 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef97588ab4 sp=0x000000db3a6fd770
+Event: 28.282 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d6e43 sp=0x000000db3a6fcbe0 mode 0
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001ef9e9ebf7c relative=0x000000000000043c
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001ef9e9ebf7c method=java.util.zip.ZipCoder$UTF8ZipCoder.checkedHash([BII)I @ 27 c2
+Event: 28.298 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef9e9ebf7c sp=0x000000db3a6fd320
+Event: 28.298 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d66a3 sp=0x000000db3a6fd1e8 mode 2
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001ef9e9e1d88 relative=0x00000000000004e8
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001ef9e9e1d88 method=java.lang.String.newStringUTF8NoRepl([BII)Ljava/lang/String; @ 26 c2
+Event: 28.298 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef9e9e1d88 sp=0x000000db3a6fd0f0
+Event: 28.298 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d66a3 sp=0x000000db3a6fd0c8 mode 2
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001ef9ed6b7a0 relative=0x0000000000000200
+Event: 28.298 Thread 0x000001efada69230 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001ef9ed6b7a0 method=java.lang.String.hashCode()I @ 20 c2
+Event: 28.298 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef9ed6b7a0 sp=0x000000db3a6fd1d0
+Event: 28.298 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d66a3 sp=0x000000db3a6fd108 mode 2
+Event: 28.299 Thread 0x000001efada69230 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001ef9e9ea930 relative=0x0000000000000190
+Event: 28.299 Thread 0x000001efada69230 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001ef9e9ea930 method=java.util.zip.ZipFile$Source.isMetaName([BII)Z @ 57 c2
+Event: 28.299 Thread 0x000001efada69230 DEOPT PACKING pc=0x000001ef9e9ea930 sp=0x000000db3a6fd330
+Event: 28.299 Thread 0x000001efada69230 DEOPT UNPACKING pc=0x000001ef9e3d66a3 sp=0x000000db3a6fd2c0 mode 2
+
+Classes loaded (20 events):
+Event: 27.566 Loading class java/nio/file/PathMatcher done
+Event: 27.566 Loading class sun/nio/fs/WindowsFileSystem$2 done
+Event: 27.574 Loading class java/nio/file/FileChannelLinesSpliterator
+Event: 27.575 Loading class java/nio/file/FileChannelLinesSpliterator done
+Event: 27.576 Loading class java/util/stream/Streams$1
+Event: 27.576 Loading class java/util/stream/Streams$1 done
+Event: 27.577 Loading class java/nio/file/FileChannelLinesSpliterator$1
+Event: 27.577 Loading class java/nio/file/FileChannelLinesSpliterator$1 done
+Event: 27.741 Loading class java/util/concurrent/CopyOnWriteArraySet
+Event: 27.741 Loading class java/util/concurrent/CopyOnWriteArraySet done
+Event: 27.816 Loading class java/util/concurrent/ArrayBlockingQueue
+Event: 27.816 Loading class java/util/concurrent/ArrayBlockingQueue done
+Event: 27.968 Loading class java/net/HttpURLConnection
+Event: 27.968 Loading class java/net/HttpURLConnection done
+Event: 27.981 Loading class java/io/FileFilter
+Event: 27.981 Loading class java/io/FileFilter done
+Event: 28.039 Loading class java/util/concurrent/ConcurrentHashMap$ValueSpliterator
+Event: 28.039 Loading class java/util/concurrent/ConcurrentHashMap$ValueSpliterator done
+Event: 28.059 Loading class jdk/internal/loader/BootLoader$PackageHelper
+Event: 28.059 Loading class jdk/internal/loader/BootLoader$PackageHelper done
+
+Classes unloaded (16 events):
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100368c00 'java/lang/invoke/LambdaForm$MH+0x0000000100368c00'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100368000 'java/lang/invoke/LambdaForm$MH+0x0000000100368000'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100367800 'java/lang/invoke/LambdaForm$MH+0x0000000100367800'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100367400 'java/lang/invoke/LambdaForm$MH+0x0000000100367400'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100366800 'java/lang/invoke/LambdaForm$MH+0x0000000100366800'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100366000 'java/lang/invoke/LambdaForm$MH+0x0000000100366000'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100365800 'java/lang/invoke/LambdaForm$MH+0x0000000100365800'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100365400 'java/lang/invoke/LambdaForm$MH+0x0000000100365400'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100364800 'java/lang/invoke/LambdaForm$DMH+0x0000000100364800'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100250400 'java/lang/invoke/LambdaForm$MH+0x0000000100250400'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x0000000100250000 'java/lang/invoke/LambdaForm$MH+0x0000000100250000'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x000000010024fc00 'java/lang/invoke/LambdaForm$MH+0x000000010024fc00'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x000000010024f800 'java/lang/invoke/LambdaForm$MH+0x000000010024f800'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x000000010024f400 'java/lang/invoke/LambdaForm$BMH+0x000000010024f400'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x000000010024f000 'java/lang/invoke/LambdaForm$DMH+0x000000010024f000'
+Event: 10.621 Thread 0x000001efa7fcf610 Unloading class 0x000000010024c400 'java/lang/invoke/LambdaForm$DMH+0x000000010024c400'
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 20.712 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb5c6ce0}> (0x00000000eb5c6ce0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 20.712 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb5c75a0}> (0x00000000eb5c75a0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 20.714 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb5e6478}> (0x00000000eb5e6478) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 24.679 Thread 0x000001efada6c4d0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000eb2e1a58}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecialIFC(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000eb2e1a58) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 25.313 Thread 0x000001efada66ec0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000ebb1cf18}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, java.lang.Object)'> (0x00000000ebb1cf18) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 26.149 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb751158}> (0x00000000eb751158) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.149 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb751a28}> (0x00000000eb751a28) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.150 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb7522e8}> (0x00000000eb7522e8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.164 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb7a6868}> (0x00000000eb7a6868) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.172 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb7d0b60}> (0x00000000eb7d0b60) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.266 Thread 0x000001efada6c4d0 Implicit null exception at 0x000001ef9eca19a5 to 0x000001ef9eca1b08
+Event: 26.792 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eaca18c8}> (0x00000000eaca18c8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.792 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eaca1f00}> (0x00000000eaca1f00) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.799 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb1f6d50}> (0x00000000eb1f6d50) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 26.799 Thread 0x000001efada6c4d0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb1f7630}> (0x00000000eb1f7630) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 27.244 Thread 0x000001efada6c4d0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000eb6632b0}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecialIFC(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000eb6632b0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 27.346 Thread 0x000001efada6c4d0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000eb6c54b8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000eb6c54b8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 27.521 Thread 0x000001efad9e04b0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000eaed7f28}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object)'> (0x00000000eaed7f28) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 27.522 Thread 0x000001efad9e04b0 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000000eaef2760}: Found class java.lang.Object, but interface was expected> (0x00000000eaef2760) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 826]
+Event: 27.816 Thread 0x000001efada6bab0 Implicit null exception at 0x000001ef9ecbb02c to 0x000001ef9ecbb140
+
+VM Operations (20 events):
+Event: 26.076 Executing VM operation: HandshakeAllThreads
+Event: 26.076 Executing VM operation: HandshakeAllThreads done
+Event: 26.335 Executing VM operation: ICBufferFull
+Event: 26.355 Executing VM operation: ICBufferFull done
+Event: 26.360 Executing VM operation: ParallelGCFailedAllocation
+Event: 26.437 Executing VM operation: ParallelGCFailedAllocation done
+Event: 26.806 Executing VM operation: HandshakeAllThreads
+Event: 27.015 Executing VM operation: HandshakeAllThreads done
+Event: 27.065 Executing VM operation: HandshakeAllThreads
+Event: 27.091 Executing VM operation: HandshakeAllThreads done
+Event: 27.401 Executing VM operation: ParallelGCFailedAllocation
+Event: 27.424 Executing VM operation: ParallelGCFailedAllocation done
+Event: 27.427 Executing VM operation: HandshakeAllThreads
+Event: 27.427 Executing VM operation: HandshakeAllThreads done
+Event: 27.806 Executing VM operation: ParallelGCFailedAllocation
+Event: 27.815 Executing VM operation: ParallelGCFailedAllocation done
+Event: 28.021 Executing VM operation: HandshakeAllThreads
+Event: 28.029 Executing VM operation: HandshakeAllThreads done
+Event: 28.224 Executing VM operation: ParallelGCFailedAllocation
+Event: 28.228 Executing VM operation: ParallelGCFailedAllocation done
+
+Events (20 events):
+Event: 14.663 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef977e1f90
+Event: 14.663 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef977e2b10
+Event: 14.663 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef977ec890
+Event: 14.663 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef977f1090
+Event: 14.663 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef9780b110
+Event: 14.712 Thread 0x000001efada67df0 Thread added: 0x000001efada67df0
+Event: 14.712 Thread 0x000001efada69740 Thread added: 0x000001efada69740
+Event: 17.717 Thread 0x000001efadf4d500 Thread exited: 0x000001efadf4d500
+Event: 18.418 Thread 0x000001efb002a4f0 Thread added: 0x000001efb002a4f0
+Event: 19.224 Thread 0x000001efb002a4f0 Thread exited: 0x000001efb002a4f0
+Event: 19.469 Thread 0x000001efae18e030 Thread added: 0x000001efae18e030
+Event: 20.838 Thread 0x000001efada65570 Thread added: 0x000001efada65570
+Event: 20.838 Thread 0x000001efada664a0 Thread added: 0x000001efada664a0
+Event: 21.585 Thread 0x000001efae18e030 Thread exited: 0x000001efae18e030
+Event: 23.364 Thread 0x000001efae88d6f0 Thread added: 0x000001efae88d6f0
+Event: 23.897 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef96eafb10
+Event: 23.897 Thread 0x000001efad26cb80 flushing nmethod 0x000001ef96eb0410
+Event: 24.802 Thread 0x000001efada66ec0 Thread added: 0x000001efada66ec0
+Event: 27.676 Thread 0x000001efada68d20 Thread added: 0x000001efada68d20
+Event: 27.845 Thread 0x000001efada69230 Thread added: 0x000001efada69230
+
+
+Dynamic libraries:
+0x00007ff70e8b0000 - 0x00007ff70e8be000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\java.exe
+0x00007ff94b1b0000 - 0x00007ff94b3a8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff94b0b0000 - 0x00007ff94b16f000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff948cf0000 - 0x00007ff948fe6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff949110000 - 0x00007ff949210000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff932c60000 - 0x00007ff932c77000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\jli.dll
+0x00007ff9493b0000 - 0x00007ff94954d000 	C:\Windows\System32\USER32.dll
+0x00007ff948cc0000 - 0x00007ff948ce2000 	C:\Windows\System32\win32u.dll
+0x00007ff9497e0000 - 0x00007ff94980c000 	C:\Windows\System32\GDI32.dll
+0x00007ff948ff0000 - 0x00007ff949105000 	C:\Windows\System32\gdi32full.dll
+0x00007ff948c20000 - 0x00007ff948cbd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff919900000 - 0x00007ff91991b000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\VCRUNTIME140.dll
+0x00007ff947c90000 - 0x00007ff947f2a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ff949620000 - 0x00007ff9496be000 	C:\Windows\System32\msvcrt.dll
+0x00007ff9495f0000 - 0x00007ff949620000 	C:\Windows\System32\IMM32.DLL
+0x00007ff933a90000 - 0x00007ff933a9c000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\vcruntime140_1.dll
+0x00007ff919870000 - 0x00007ff9198fd000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\msvcp140.dll
+0x00007ff915710000 - 0x00007ff91637a000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\server\jvm.dll
+0x00007ff94a0e0000 - 0x00007ff94a18f000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff949a20000 - 0x00007ff949abc000 	C:\Windows\System32\sechost.dll
+0x00007ff949870000 - 0x00007ff949996000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff94a600000 - 0x00007ff94a66b000 	C:\Windows\System32\WS2_32.dll
+0x00007ff9484b0000 - 0x00007ff9484fb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ff923640000 - 0x00007ff923667000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff941820000 - 0x00007ff94182a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff947f30000 - 0x00007ff947f42000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ff9462c0000 - 0x00007ff9462d2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff932e10000 - 0x00007ff932e1a000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\jimage.dll
+0x00007ff948240000 - 0x00007ff948424000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff948060000 - 0x00007ff948094000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff948940000 - 0x00007ff9489c2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff932c30000 - 0x00007ff932c3e000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\instrument.dll
+0x00007ff919840000 - 0x00007ff919865000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\java.dll
+0x00007ff919820000 - 0x00007ff919838000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\zip.dll
+0x00007ff94a670000 - 0x00007ff94adb4000 	C:\Windows\System32\SHELL32.dll
+0x00007ff9462e0000 - 0x00007ff946a73000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ff949b20000 - 0x00007ff949e74000 	C:\Windows\System32\combase.dll
+0x00007ff947bf0000 - 0x00007ff947c1e000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ff949220000 - 0x00007ff9492cd000 	C:\Windows\System32\SHCORE.dll
+0x00007ff949810000 - 0x00007ff949865000 	C:\Windows\System32\shlwapi.dll
+0x00007ff9487d0000 - 0x00007ff9487ef000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ff918180000 - 0x00007ff918199000 	C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\net.dll
+0x00007ff9369c0000 - 0x00007ff936aca000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ff947ac0000 - 0x00007ff947b2a000 	C:\Windows\system32\mswsock.dll
+0x00007ff918160000 - 0x00007ff918176000 	C:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\nio.dll
+0x00007ff928920000 - 0x00007ff928930000 	c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\verify.dll
+0x00007ff917fd0000 - 0x00007ff918015000 	C:\Users\bayes\AppData\Roaming\Code\User\globalStorage\redhat.java\1.35.0\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.1100.v20240722-2106\eclipse_11904.dll
+0x00007ff94ade0000 - 0x00007ff94af0a000 	C:\Windows\System32\ole32.dll
+0x00007ff948620000 - 0x00007ff948638000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ff9472c0000 - 0x00007ff9472f4000 	C:\Windows\system32\rsaenh.dll
+0x00007ff948a20000 - 0x00007ff948a47000 	C:\Windows\System32\bcrypt.dll
+0x00007ff948790000 - 0x00007ff9487be000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ff947bb0000 - 0x00007ff947bbc000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ff947640000 - 0x00007ff94767c000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ff94b040000 - 0x00007ff94b048000 	C:\Windows\System32\NSI.dll
+0x00007ff93cc10000 - 0x00007ff93cc27000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ff93ce10000 - 0x00007ff93ce2d000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ff947680000 - 0x00007ff94774b000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ff927b00000 - 0x00007ff927b49000 	C:\Users\bayes\AppData\Local\Temp\jna-93514312\jna11713988522946255329.dll
+0x00007ff9495e0000 - 0x00007ff9495e8000 	C:\Windows\System32\PSAPI.DLL
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\jre\17.0.12-win32-x86_64\bin\server;C:\Users\bayes\AppData\Roaming\Code\User\globalStorage\redhat.java\1.35.0\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.1100.v20240722-2106;C:\Users\bayes\AppData\Local\Temp\jna-93514312
+
+VM Arguments:
+jvm_args: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -DDetectVMInstallationsJob.disabled=true -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\lombok\lombok-1.18.33.jar -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:\Users\bayes\AppData\Roaming\Code\User\workspaceStorage\168498a9360cd755819b0a706d5edd1a\redhat.java -Daether.dependencyCollector.impl=bf 
+java_command: c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar -configuration c:\Users\bayes\AppData\Roaming\Code\User\globalStorage\redhat.java\1.35.0\config_win -data c:\Users\bayes\AppData\Roaming\Code\User\workspaceStorage\168498a9360cd755819b0a706d5edd1a\redhat.java\jdt_ws --pipe=\\.\pipe\lsp-1f0ff9a3ddeeee7bfe186a0b3bc75c39-sock
+java_class_path (initial): c:\Users\bayes\.vscode\extensions\redhat.java-1.35.0-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+    uintx AdaptiveSizePolicyWeight                 = 90                                        {product} {command line}
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+    uintx GCTimeRatio                              = 4                                         {product} {command line}
+     bool HeapDumpOnOutOfMemoryError               = true                                   {manageable} {command line}
+    ccstr HeapDumpPath                             = c:\Users\bayes\AppData\Roaming\Code\User\workspaceStorage\168498a9360cd755819b0a706d5edd1a\redhat.java         {manageable} {command line}
+   size_t InitialHeapSize                          = 104857600                                 {product} {command line}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MaxNewSize                               = 357564416                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 524288                                    {product} {ergonomic}
+   size_t MinHeapSize                              = 104857600                                 {product} {command line}
+   size_t NewSize                                  = 34603008                                  {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+   size_t OldSize                                  = 70254592                                  {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1073741824                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+     bool UseParallelGC                            = true                                      {product} {command line}
+
+Logging:
+Log output configuration:
+ #0: stdout all=off uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-21
+PATH=C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk-21;C:\Users\bayes\AppData\Local\Microsoft\WindowsApps;C:\Users\bayes\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\gradle-8.10.2\bin;
+USERNAME=bayes
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+TMP=C:\Users\bayes\AppData\Local\Temp
+TEMP=C:\Users\bayes\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.2913)
+OS uptime: 0 days 0:08 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 78 stepping 3 microcode 0xcc, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, rtm, adx, fma, vzeroupper, clflush, clflushopt
+Processor Information for all 4 processors :
+  Max Mhz: 2496, Current Mhz: 2396, Mhz Limit: 2396
+
+Memory: 4k page, system-wide physical 7854M (1692M free)
+TotalPageFile size 15790M (AvailPageFile size 7721M)
+current process WorkingSet (physical memory assigned to process): 260M, peak: 275M
+current process commit charge ("private bytes"): 318M, peak: 333M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.12+7) for windows-amd64 JRE (17.0.12+7), built on Jul 16 2024 22:08:24 by "admin" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
