@@ -54,14 +54,16 @@ public class UnitTests {
         assertThat(player.getXp(),is(0));
     }
     @Test
+    void testgetXp2() {
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.setXp(30);
+        assertThat(player.retrieveLevel(),is(3));
+    }
+    @Test
     public void testPlayerKO() {
-      
         player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         player.currenthealthpoints = 0; 
-
-
         UpdatePlayer.majFinDeTour(player);
-
         assertEquals(0, player.currenthealthpoints);
     }
     @Test
@@ -108,8 +110,6 @@ public class UnitTests {
         player player = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
         player.setXp(10);
         int xpToAdd = 100;
-
-
         boolean leveledUp = UpdatePlayer.addXp(player, xpToAdd);
         assertTrue(leveledUp); 
         assertEquals(110, player.getXp());
@@ -120,7 +120,6 @@ public class UnitTests {
         player player = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
         player.setXp(20);  
         int xpToAdd = 100;   
-
         boolean leveledUp = UpdatePlayer.addXp(player, xpToAdd);
         assertTrue(leveledUp); 
         assertNotEquals(4, player.retrieveLevel());
