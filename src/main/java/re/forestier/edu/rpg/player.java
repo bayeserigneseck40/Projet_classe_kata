@@ -9,6 +9,7 @@ public class player {
     private String AvatarClass;
 
     public Integer money;
+    @SuppressWarnings("unused")
     private Float __real_money__;
 
 
@@ -68,7 +69,9 @@ public class player {
         if (xp < levels.get(5)) return 4;
         return 5;
     }
-
+public void setXp(int xp){
+    this.xp=xp;
+}
     public int getXp() {
         return this.xp;
     }

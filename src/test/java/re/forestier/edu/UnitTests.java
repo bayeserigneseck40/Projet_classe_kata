@@ -2,8 +2,10 @@ package re.forestier.edu;
 
 import org.junit.jupiter.api.*;
 
+import re.forestier.edu.rpg.Affichage;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.player;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -153,5 +155,30 @@ public class UnitTests {
         assertNull(playerInvalid.getAvatarClass());
         assertNull(playerInvalid.inventory);
         assertNull(playerInvalid.money);
+    }
+
+    @Test
+    public void testAfficherJoueur() {
+        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
+        UpdatePlayer.addXp(player, 20);
+        player.inventory = new ArrayList<>();
+        player.inventory.add("Sword");
+        player.inventory.add("Shield");
+
+        // Appeler la méthode afficherJoueur
+        String expected = "Joueur Gnognak le Barbare joué par Florian\n" +
+                          "Niveau : 2 (XP totale : 20)\n\n" +
+                          "Capacités :\n" +
+                          "   DEF : 1\n" +
+                          "   ATK : 3\n" +
+                          "   CHA : 3\n" +
+                          "   INT : 2\n\n" +
+                          "Inventaire :\n" +
+                          "   Sword\n" +
+                          "   Shield";
+        
+                          String actual = Affichage.afficherJoueur(player);
+                          // Vérifier que la sortie correspond à ce qui est attendu
+                          assertThat(expected, is(actual));
     }
 }
