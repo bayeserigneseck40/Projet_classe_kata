@@ -44,8 +44,14 @@ public class UnitTests {
         assertThat(player.money,is(80));
     }
     @Test
-    void testAddMoney() {
+    void testremoveMoneyMut() {
         player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.removeMoney(100);
+        assertThat(player.money,is(0));
+    }
+    @Test
+    void testAddMoney() {
+        player player = new player("Florian", "Grogit gnak le barbare", "ADVENTURER", 100, new ArrayList<>());
         player.addMoney(20);
         assertThat(player.money,is(120));
     }
@@ -62,6 +68,30 @@ public class UnitTests {
         assertThat(player.retrieveLevel(),is(3));
     }
     @Test
+    void testgetXp2Mut() {
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.setXp(27);
+        assertThat(player.retrieveLevel(),is(3));
+    }
+    @Test
+    void testgetXp2Mut1() {
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.setXp(57);
+        assertThat(player.retrieveLevel(),is(4));
+    }
+    @Test
+    void testgetXp2Mut2() {
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.setXp(111);
+        assertThat(player.retrieveLevel(),is(5));
+    }
+    @Test
+    void testgetXp2Mut3() {
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.setXp(10);
+        assertThat(player.retrieveLevel(),is(2));
+    }
+    @Test
     public void testPlayerKO() {
         player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         player.currenthealthpoints = 0; 
@@ -76,6 +106,15 @@ public class UnitTests {
         player.currenthealthpoints = 4; 
         player.inventory.add("Holy Elixir");
         UpdatePlayer.majFinDeTour(player);
+        assertEquals(6, player.currenthealthpoints); 
+    }
+    public void testDwarfWithElixirMut() {
+
+        player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        player.healthpoints = 10;
+        player.currenthealthpoints = 4; 
+        UpdatePlayer.majFinDeTour(player);
+        player.setXp(40);
         assertEquals(6, player.currenthealthpoints); 
     }
     @Test
@@ -117,6 +156,7 @@ public class UnitTests {
         assertEquals(110, player.getXp());
         assertEquals(4, player.retrieveLevel()); 
     }
+   
     @Test
     public void testAddXpMultipleLevelUp2() {
         player player = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
