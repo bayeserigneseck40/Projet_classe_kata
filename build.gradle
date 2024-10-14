@@ -1,8 +1,13 @@
 plugins {
     id 'java'
     id "jacoco"
+<<<<<<< HEAD
     id 'info.solidsoft.pitest' version '1.15.0'
     id("org.sonarqube") version "4.0.0.2929" // Replace with latest scanner version number
+=======
+    id 'info.solidsoft.pitest' version '1.7.4'
+    id "org.sonarqube" version "5.1.0.4882"
+>>>>>>> cdd4755a0585f4ef850a0a6f395bddc908b077b9
 }
 
 group = 're.forestier.edu'
@@ -24,13 +29,19 @@ dependencies {
 
 }
 sonar {
+<<<<<<< HEAD
  
+=======
+>>>>>>> cdd4755a0585f4ef850a0a6f395bddc908b077b9
   properties {
     property "sonar.projectKey", "kata"
     property "sonar.projectName", "kata"
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cdd4755a0585f4ef850a0a6f395bddc908b077b9
 
 test {
     useJUnitPlatform()
