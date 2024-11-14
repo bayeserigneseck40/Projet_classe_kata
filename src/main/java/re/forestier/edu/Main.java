@@ -1,14 +1,12 @@
 package re.forestier.edu;
-import re.forestier.edu.rpg.Affichage;
-import re.forestier.edu.rpg.player;
-
 import java.util.ArrayList;
 
-import re.forestier.edu.rpg.PlayerDwarf;
+import re.forestier.edu.rpg.Affichage;
+import re.forestier.edu.rpg.PlayerAdventurer;
 
 public class Main {
     public static void main(String[] args) {
-        PlayerDwarf firstPlayer = new PlayerDwarf("Florian", "Ruzberg de Rivehaute", 200, new ArrayList<>());
+        PlayerAdventurer firstPlayer = new PlayerAdventurer("Florian", "Ruzberg de Rivehaute","ADVENTURER" ,200, new ArrayList<>());
         firstPlayer.addMoney(400);
 
         firstPlayer.addXp(0xf);

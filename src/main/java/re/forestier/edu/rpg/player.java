@@ -10,8 +10,8 @@ public abstract class player {
     private String AvatarClass;
     public Integer money;
     protected int level;
-    protected int healthpoints;
-    protected int currenthealthpoints;
+    public int healthpoints;
+    public int currenthealthpoints;
     protected int xp;
 
     public HashMap<String, Integer> abilities;
