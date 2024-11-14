@@ -1,19 +1,19 @@
 package re.forestier.edu;
 
-import org.junit.jupiter.api.*;
-import re.forestier.edu.rpg.Affichage;
-import re.forestier.edu.rpg.UpdatePlayer;
-import re.forestier.edu.rpg.player;
+import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import re.forestier.edu.rpg.UpdatePlayer;
+import re.forestier.edu.rpg.player;
 
 public class UnitTests {
 
@@ -107,13 +107,15 @@ public class UnitTests {
         UpdatePlayer.majFinDeTour(player);
         assertEquals(6, player.currenthealthpoints); 
     }
+    @Test
     public void testDwarfWithElixirMut() {
 
         player player = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         player.healthpoints = 10;
         player.currenthealthpoints = 4; 
-        UpdatePlayer.majFinDeTour(player);
-        player.setXp(40);
+        UpdatePlayer.addXp(player, 40);
+        UpdatePlayer.majFinDeTour(player); 
+        assertEquals(3, player.retrieveLevel()); 
         assertEquals(6, player.currenthealthpoints); 
     }
     @Test
@@ -196,28 +198,5 @@ public class UnitTests {
         assertNull(playerInvalid.money);
     }
 
-    @Test
-    public void testAfficherJoueur() {
-        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
-        UpdatePlayer.addXp(player, 20);
-        player.inventory = new ArrayList<>();
-        player.inventory.add("Sword");
-        player.inventory.add("Shield");
-
-        // Appeler la méthode afficherJoueur
-        String expected = "Joueur Gnognak le Barbare joué par Florian\n" +
-                          "Niveau : 2 (XP totale : 20)\n\n" +
-                          "Capacités :\n" +
-                          "   DEF : 1\n" +
-                          "   ATK : 3\n" +
-                          "   CHA : 3\n" +
-                          "   INT : 2\n\n" +
-                          "Inventaire :\n" +
-                          "   Sword\n" +
-                          "   Shield";
-        
-                          String actual = Affichage.afficherJoueur(player);
-                          // Vérifier que la sortie correspond à ce qui est attendu
-                          assertThat(expected, is(actual));
-    }
+   
 }

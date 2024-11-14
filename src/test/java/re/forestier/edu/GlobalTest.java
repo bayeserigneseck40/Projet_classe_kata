@@ -24,7 +24,7 @@ public class GlobalTest {
 
     @Test
     void testAffichage() {
-        player player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
+        player = new player("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
         UpdatePlayer.addXp(player, 20);
         player.inventory = new ArrayList<>();
         player.inventory.add("Sword");
