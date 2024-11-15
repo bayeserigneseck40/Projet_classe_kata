@@ -116,4 +116,19 @@ public abstract class player {
 
         return abilitiesPerTypeAndLevel;
     }
+
+    public String afficherJoueur() {
+        final String[] finalString = {"Joueur " + Avatar_name + " joué par " + playerName};
+        finalString[0] += "\nNiveau : " + retrieveLevel() + " (XP totale : " + xp + ")";
+        finalString[0] += "\n\nCapacités :";
+        abilities.forEach((name, level) -> {
+            finalString[0] += "\n   " + name + " : " + level;
+        });
+        finalString[0] += "\n\nInventaire :";
+        inventory.forEach(item -> {
+            finalString[0] += "\n   " + item;
+        });
+
+        return finalString[0];
+    }
 }

@@ -7,7 +7,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import org.junit.jupiter.api.Test;
 
-import re.forestier.edu.rpg.Affichage;
 import re.forestier.edu.rpg.PlayerAdventurer;
 
 
@@ -27,7 +26,7 @@ public class GlobalTest {
         player.addXp(20);
         player.inventory = new ArrayList<>();
         player.inventory.add("Sword");
-        String resultat=Affichage.afficherJoueur(player);
+        String resultat=player.afficherJoueur();
         assertThat((resultat),containsString("Sword"));
     }
 
