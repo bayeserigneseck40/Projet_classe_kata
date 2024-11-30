@@ -2,6 +2,7 @@ package re.forestier.edu.rpg;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class player {
@@ -24,7 +25,7 @@ public abstract class player {
         this.AvatarClass = avatarClass;
         this.money = money;
         this.inventory = inventory;
-        this.abilities = (HashMap<String, Integer>) abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+        this.abilities =  abilitiesPerTypeAndLevel().get(avatarClass).get(1);
     }
 
     public String getAvatarClass() {
@@ -51,18 +52,27 @@ public abstract class player {
         this.xp += xp;
         int newLevel = retrieveLevel();
         if (newLevel != currentLevel) {
-            // addRandomObject();
+            addRandomObject();
             upgradeAbilities(newLevel);
         }
     }
+private void addRandomObject() {
+    List<Item> objectList = List.of(
+        new Item("Lookout Ring", "Prevents surprise attacks", 1, 100),
+        new Item("Scroll of Stupidity", "INT-2 when applied to an enemy", 2, 50),
+        new Item("Draupnir", "Increases XP gained by 100%", 3, 200),
+        new Item("Magic Charm", "Magic +10 for 5 rounds", 1, 150),
+        new Item("Rune Staff of Curse", "May burn your enemies... or yourself.", 5, 120),
+        new Item("Combat Edge", "A sharp combat weapon", 4, 80),
+        new Item("Holy Elixir", "Recovers your HP", 2, 75)
+    );
+    Item randomItem = objectList.get((int) (Math.random() * objectList.size()));
+    inventory.add(randomItem);
+}
 
-    // private void addRandomObject() {
-    //     String[] objectList = {"Lookout Ring", "Scroll of Stupidity", "Draupnir", "Magic Charm", "Rune Staff of Curse", "Combat Edge", "Holy Elixir"};
-    //     inventory.add(objectList[(int) (Math.random() * objectList.length)]);
-    // }
 
     private void upgradeAbilities(int newLevel) {
-        HashMap<String, Integer> newAbilities = (HashMap<String, Integer>) abilitiesPerTypeAndLevel().get(getAvatarClass()).get(newLevel);
+        HashMap<String, Integer> newAbilities = abilitiesPerTypeAndLevel().get(getAvatarClass()).get(newLevel);
         newAbilities.forEach((ability, level) -> abilities.put(ability, level));
     }
 
@@ -87,47 +97,43 @@ public abstract class player {
         this.xp = xp;
     }
 
-    public static Map<String, Map<Integer, Map<String, Integer>>> abilitiesPerTypeAndLevel() {
-        Map<String, Map<Integer, Map<String, Integer>>> abilitiesPerTypeAndLevel = new HashMap<>();
+    public static HashMap<String, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel() {
+        HashMap<String, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel = new HashMap<>();
     
         // Capacités pour l'Aventurier
-        Map<Integer, Map<String, Integer>> adventurerMap = Map.of(
-            1, Map.of("INT", 1, "DEF", 1, "ATK", 3, "CHA", 2),
-            2, Map.of("INT", 2, "CHA", 3),
-            3, Map.of("ATK", 5, "ALC", 1),
-            4, Map.of("DEF", 3),
-            5, Map.of("VIS", 1, "DEF", 4)
-        );
+        HashMap<Integer, HashMap<String, Integer>> adventurerMap = new HashMap<>();
+        adventurerMap.put(1, new HashMap<>(Map.of("INT", 1, "DEF", 1, "ATK", 3, "CHA", 2)));
+        adventurerMap.put(2, new HashMap<>(Map.of("INT", 2, "CHA", 3)));
+        adventurerMap.put(3, new HashMap<>(Map.of("ATK", 5, "ALC", 1)));
+        adventurerMap.put(4, new HashMap<>(Map.of("DEF", 3)));
+        adventurerMap.put(5, new HashMap<>(Map.of("VIS", 1, "DEF", 4)));
         abilitiesPerTypeAndLevel.put("ADVENTURER", adventurerMap);
     
         // Capacités pour l'Archer
-        Map<Integer, Map<String, Integer>> archerMap = Map.of(
-            1, Map.of("INT", 1, "ATK", 3, "CHA", 1, "VIS", 3),
-            2, Map.of("DEF", 1, "CHA", 2),
-            3, Map.of("ATK", 3),
-            4, Map.of("DEF", 2),
-            5, Map.of("ATK", 4)
-        );
+        HashMap<Integer, HashMap<String, Integer>> archerMap = new HashMap<>();
+        archerMap.put(1, new HashMap<>(Map.of("INT", 1, "ATK", 3, "CHA", 1, "VIS", 3)));
+        archerMap.put(2, new HashMap<>(Map.of("DEF", 1, "CHA", 2)));
+        archerMap.put(3, new HashMap<>(Map.of("ATK", 3)));
+        archerMap.put(4, new HashMap<>(Map.of("DEF", 2)));
+        archerMap.put(5, new HashMap<>(Map.of("ATK", 4)));
         abilitiesPerTypeAndLevel.put("ARCHER", archerMap);
     
         // Capacités pour le Nain
-        Map<Integer, Map<String, Integer>> dwarfMap = Map.of(
-            1, Map.of("ALC", 4, "INT", 1, "ATK", 3),
-            2, Map.of("DEF", 1, "ALC", 5),
-            3, Map.of("ATK", 4),
-            4, Map.of("DEF", 2),
-            5, Map.of("CHA", 1)
-        );
+        HashMap<Integer, HashMap<String, Integer>> dwarfMap = new HashMap<>();
+        dwarfMap.put(1, new HashMap<>(Map.of("ALC", 4, "INT", 1, "ATK", 3)));
+        dwarfMap.put(2, new HashMap<>(Map.of("DEF", 1, "ALC", 5)));
+        dwarfMap.put(3, new HashMap<>(Map.of("ATK", 4)));
+        dwarfMap.put(4, new HashMap<>(Map.of("DEF", 2)));
+        dwarfMap.put(5, new HashMap<>(Map.of("CHA", 1)));
         abilitiesPerTypeAndLevel.put("DWARF", dwarfMap);
     
         // Capacités pour le Gobelin
-        Map<Integer, Map<String, Integer>> goblinMap = Map.of(
-            1, Map.of("INT", 2, "ATK", 2, "ALC", 1),
-            2, Map.of("ATK", 3, "ALC", 4),
-            3, Map.of("VIS", 1),
-            4, Map.of("DEF", 1),
-            5, Map.of("DEF", 2, "ATK", 4)
-        );
+        HashMap<Integer, HashMap<String, Integer>> goblinMap = new HashMap<>();
+        goblinMap.put(1, new HashMap<>(Map.of("INT", 2, "ATK", 2, "ALC", 1)));
+        goblinMap.put(2, new HashMap<>(Map.of("ATK", 3, "ALC", 4)));
+        goblinMap.put(3, new HashMap<>(Map.of("VIS", 1)));
+        goblinMap.put(4, new HashMap<>(Map.of("DEF", 1)));
+        goblinMap.put(5, new HashMap<>(Map.of("DEF", 2, "ATK", 4)));
         abilitiesPerTypeAndLevel.put("GOBLIN", goblinMap);
     
         return abilitiesPerTypeAndLevel;

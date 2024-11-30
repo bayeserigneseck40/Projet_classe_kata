@@ -13,8 +13,25 @@ public class Item {
         this.value = value;
     }
 
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public int getWeight() { return weight; }
-    public int getValue() { return value; }
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + description + ")";
+    }
 }
+

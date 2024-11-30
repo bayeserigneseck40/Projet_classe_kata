@@ -3,9 +3,10 @@ package re.forestier.edu.rpg;
 import java.util.ArrayList;
 
 public class PlayerAdventurer extends player {
-    public PlayerAdventurer(String playerName, String avatar_name, String dwarf, int money, ArrayList<Item> inventory) {
+    public PlayerAdventurer(String playerName, String avatar_name, int money, ArrayList<Item> inventory) {
         super(playerName, avatar_name, "ADVENTURER", money, inventory);
     }
+
   
 
     @Override

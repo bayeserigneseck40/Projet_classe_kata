@@ -13,12 +13,21 @@ public class PlayerDwarf extends player {
             System.out.println("Le joueur est KO !");
             return;
         }
+    
+        // Vérifie si le joueur est en mauvaise santé (moins de la moitié de ses HP)
         if (currenthealthpoints < healthpoints / 2) {
             currenthealthpoints += 1;
-            if (inventory.contains("Holy Elixir")) {
+    
+            // Vérifie si le joueur possède un Holy Elixir dans son inventaire
+            boolean hasHolyElixir = inventory.stream()
+                                             .anyMatch(item -> item.getName().equals("Holy Elixir"));
+            if (hasHolyElixir) {
                 currenthealthpoints += 1;
             }
         }
+    
+        // Assure que les points de vie ne dépassent pas le maximum
         currenthealthpoints = Math.min(currenthealthpoints, healthpoints);
     }
+    
 }
