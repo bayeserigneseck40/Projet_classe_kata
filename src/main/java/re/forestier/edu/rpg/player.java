@@ -13,17 +13,18 @@ public abstract class player {
     public int healthpoints;
     public int currenthealthpoints;
     protected int xp;
+    private int maxWeight = 50;
 
     public HashMap<String, Integer> abilities;
-    public ArrayList<String> inventory;
+    public ArrayList<Item> inventory;
 
-    public player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<String> inventory) {
+    public player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<Item> inventory) {
         this.playerName = playerName;
         this.Avatar_name = avatar_name;
         this.AvatarClass = avatarClass;
         this.money = money;
         this.inventory = inventory;
-        this.abilities = abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+        this.abilities = (HashMap<String, Integer>) abilitiesPerTypeAndLevel().get(avatarClass).get(1);
     }
 
     public String getAvatarClass() {
@@ -50,18 +51,18 @@ public abstract class player {
         this.xp += xp;
         int newLevel = retrieveLevel();
         if (newLevel != currentLevel) {
-            addRandomObject();
+            // addRandomObject();
             upgradeAbilities(newLevel);
         }
     }
 
-    private void addRandomObject() {
-        String[] objectList = {"Lookout Ring", "Scroll of Stupidity", "Draupnir", "Magic Charm", "Rune Staff of Curse", "Combat Edge", "Holy Elixir"};
-        inventory.add(objectList[(int) (Math.random() * objectList.length)]);
-    }
+    // private void addRandomObject() {
+    //     String[] objectList = {"Lookout Ring", "Scroll of Stupidity", "Draupnir", "Magic Charm", "Rune Staff of Curse", "Combat Edge", "Holy Elixir"};
+    //     inventory.add(objectList[(int) (Math.random() * objectList.length)]);
+    // }
 
     private void upgradeAbilities(int newLevel) {
-        HashMap<String, Integer> newAbilities = abilitiesPerTypeAndLevel().get(getAvatarClass()).get(newLevel);
+        HashMap<String, Integer> newAbilities = (HashMap<String, Integer>) abilitiesPerTypeAndLevel().get(getAvatarClass()).get(newLevel);
         newAbilities.forEach((ability, level) -> abilities.put(ability, level));
     }
 
@@ -86,36 +87,52 @@ public abstract class player {
         this.xp = xp;
     }
 
-    public static HashMap<String, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel() {
-        HashMap<String, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel = new HashMap<>();
-
-        HashMap<Integer, HashMap<String, Integer>> adventurerMap = new HashMap<>();
-        adventurerMap.put(1, new HashMap<>(Map.of("INT", 1, "DEF", 1, "ATK", 3, "CHA", 2)));
-        adventurerMap.put(2, new HashMap<>(Map.of("INT", 2, "CHA", 3)));
-        adventurerMap.put(3, new HashMap<>(Map.of("ATK", 5, "ALC", 1)));
-        adventurerMap.put(4, new HashMap<>(Map.of("DEF", 3)));
-        adventurerMap.put(5, new HashMap<>(Map.of("VIS", 1, "DEF", 4)));
-
-        HashMap<Integer, HashMap<String, Integer>> archerMap = new HashMap<>();
-        archerMap.put(1, new HashMap<>(Map.of("INT", 1, "ATK", 3, "CHA", 1, "VIS", 3)));
-        archerMap.put(2, new HashMap<>(Map.of("DEF", 1, "CHA", 2)));
-        archerMap.put(3, new HashMap<>(Map.of("ATK", 3)));
-        archerMap.put(4, new HashMap<>(Map.of("DEF", 2)));
-        archerMap.put(5, new HashMap<>(Map.of("ATK", 4)));
-
-        HashMap<Integer, HashMap<String, Integer>> dwarfMap = new HashMap<>();
-        dwarfMap.put(1, new HashMap<>(Map.of("ALC", 4, "INT", 1, "ATK", 3)));
-        dwarfMap.put(2, new HashMap<>(Map.of("DEF", 1, "ALC", 5)));
-        dwarfMap.put(3, new HashMap<>(Map.of("ATK", 4)));
-        dwarfMap.put(4, new HashMap<>(Map.of("DEF", 2)));
-        dwarfMap.put(5, new HashMap<>(Map.of("CHA", 1)));
-
+    public static Map<String, Map<Integer, Map<String, Integer>>> abilitiesPerTypeAndLevel() {
+        Map<String, Map<Integer, Map<String, Integer>>> abilitiesPerTypeAndLevel = new HashMap<>();
+    
+        // Capacités pour l'Aventurier
+        Map<Integer, Map<String, Integer>> adventurerMap = Map.of(
+            1, Map.of("INT", 1, "DEF", 1, "ATK", 3, "CHA", 2),
+            2, Map.of("INT", 2, "CHA", 3),
+            3, Map.of("ATK", 5, "ALC", 1),
+            4, Map.of("DEF", 3),
+            5, Map.of("VIS", 1, "DEF", 4)
+        );
         abilitiesPerTypeAndLevel.put("ADVENTURER", adventurerMap);
+    
+        // Capacités pour l'Archer
+        Map<Integer, Map<String, Integer>> archerMap = Map.of(
+            1, Map.of("INT", 1, "ATK", 3, "CHA", 1, "VIS", 3),
+            2, Map.of("DEF", 1, "CHA", 2),
+            3, Map.of("ATK", 3),
+            4, Map.of("DEF", 2),
+            5, Map.of("ATK", 4)
+        );
         abilitiesPerTypeAndLevel.put("ARCHER", archerMap);
+    
+        // Capacités pour le Nain
+        Map<Integer, Map<String, Integer>> dwarfMap = Map.of(
+            1, Map.of("ALC", 4, "INT", 1, "ATK", 3),
+            2, Map.of("DEF", 1, "ALC", 5),
+            3, Map.of("ATK", 4),
+            4, Map.of("DEF", 2),
+            5, Map.of("CHA", 1)
+        );
         abilitiesPerTypeAndLevel.put("DWARF", dwarfMap);
-
+    
+        // Capacités pour le Gobelin
+        Map<Integer, Map<String, Integer>> goblinMap = Map.of(
+            1, Map.of("INT", 2, "ATK", 2, "ALC", 1),
+            2, Map.of("ATK", 3, "ALC", 4),
+            3, Map.of("VIS", 1),
+            4, Map.of("DEF", 1),
+            5, Map.of("DEF", 2, "ATK", 4)
+        );
+        abilitiesPerTypeAndLevel.put("GOBLIN", goblinMap);
+    
         return abilitiesPerTypeAndLevel;
     }
+    
 
     public String afficherJoueur() {
         final String[] finalString = {"Joueur " + Avatar_name + " joué par " + playerName};
@@ -131,4 +148,24 @@ public abstract class player {
 
         return finalString[0];
     }
+    public boolean addItemToInventory(Item item) {
+        int currentWeight = inventory.stream().mapToInt(Item::getWeight).sum();
+        if (currentWeight + item.getWeight() > maxWeight) {
+            return false; // L'ajout échoue si le poids maximal est dépassé
+        }
+        inventory.add(item);
+        return true;
+    }
+
+    public boolean sellItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getName().equals(itemName)) {
+                inventory.remove(item);
+                addMoney(item.getValue());
+                return true;
+            }
+        }
+        return false; // Objet non trouvé
+    }
+
 }

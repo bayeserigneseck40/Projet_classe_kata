@@ -25,7 +25,7 @@ public class GlobalTest {
         PlayerAdventurer player = new PlayerAdventurer("Florian", "Gnognak le Barbare", "ADVENTURER", 200, new ArrayList<>());
         player.addXp(20);
         player.inventory = new ArrayList<>();
-        player.inventory.add("Sword");
+        //player.inventory.add("Sword");
         String resultat=player.afficherJoueur();
         assertThat((resultat),containsString("Sword"));
     }

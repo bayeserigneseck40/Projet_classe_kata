@@ -3,7 +3,7 @@ package re.forestier.edu.rpg;
 import java.util.ArrayList;
 
 public class PlayerDwarf extends player {
-    public PlayerDwarf(String playerName, String avatar_name, int money, ArrayList<String> inventory) {
+    public PlayerDwarf(String playerName, String avatar_name, int money, ArrayList<Item> inventory) {
         super(playerName, avatar_name, "DWARF", money, inventory);
     }
 
