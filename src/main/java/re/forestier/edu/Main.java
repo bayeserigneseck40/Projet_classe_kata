@@ -1,6 +1,7 @@
 package re.forestier.edu;
 import java.util.ArrayList;
 
+import re.forestier.edu.rpg.Affichage;
 import re.forestier.edu.rpg.PlayerAdventurer;
 
 public class Main {
@@ -13,5 +14,7 @@ public class Main {
         System.out.println("------------------");
         firstPlayer.addXp(20);
         System.out.println(firstPlayer.afficherJoueur());
+        System.out.println("------------------");
+        System.out.println(Affichage.afficherEnMarkdown(firstPlayer));
     }
 }

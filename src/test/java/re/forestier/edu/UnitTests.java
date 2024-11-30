@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,7 @@ import re.forestier.edu.rpg.Item;
 import re.forestier.edu.rpg.PlayerAdventurer;
 import re.forestier.edu.rpg.PlayerArcher;
 import re.forestier.edu.rpg.PlayerDwarf;
+import re.forestier.edu.rpg.PlayerGoblin;
 import re.forestier.edu.rpg.player;
 
 public class UnitTests {
@@ -214,15 +217,60 @@ public void testArcherWithMagicBow() {
         assertEquals("DWARF", player3.getAvatarClass());
     }
 
-    // @Test
-    // public void testPlayer_InvalidAvatarClass() {
-    //     ArrayList<String> inventory = new ArrayList<>();
-    //     inventory.add("Shield");
-    //    player playerInvalid = new player("Florian", "Grognak le barbare", "MAGE", 100,inventory);
-    //     assertNull(playerInvalid.getAvatarClass());
-    //     assertNull(playerInvalid.inventory);
-    //     assertNull(playerInvalid.money);
-    // }
+   @Test
+public void testMajFinDeTourPlayerGoblin() {
+    PlayerGoblin goblin = new PlayerGoblin("Florian", "Grognak le Gobelin", 50, new ArrayList<>());
+    goblin.healthpoints = 10; 
+    goblin.currenthealthpoints = 4; 
+    goblin.inventory.add(new Item("Poisonous Elixir", "An elixir with harmful effects", 5, 20)); // Objet spécifique
+    goblin.majFinDeTour();
+    int expectedHealthPoints = 5; 
+    assertEquals(expectedHealthPoints, goblin.currenthealthpoints);
+}
+@Test
+    public void testAddItemToInventory_Success() {
+        
+        player player = new PlayerAdventurer("Florian", "Gnognak l'Aventurier", 100, new ArrayList<>());
+        player.maxWeight = 10; 
+        Item item = new Item("Sword", "A sharp blade", 5, 50);
 
-   
+        boolean result = player.addItemToInventory(item);
+        assertTrue(result, "L'ajout de l'objet devrait réussir.");
+        assertTrue(player.inventory.contains(item), "L'inventaire devrait contenir l'objet ajouté.");
+    }
+
+     @Test
+    public void testAddItemToInventory_Failure() {
+        player player = new PlayerAdventurer("Florian", "Gnognak l'Aventurier", 100, new ArrayList<>());
+        player.maxWeight = 10; 
+        Item item1 = new Item("Shield", "A protective shield", 7, 40);
+        player.addItemToInventory(item1);
+        Item item2 = new Item("Helmet", "A sturdy helmet", 5, 30);
+        boolean result = player.addItemToInventory(item2);
+        assertFalse(result, "L'ajout de l'objet devrait échouer car le poids maximal est dépassé.");
+        assertFalse(player.inventory.contains(item2), "L'inventaire ne devrait pas contenir l'objet non ajouté.");
+    }
+    @Test
+    public void testSellItem_CorrectItemSold() {
+        player player = new PlayerAdventurer("Florian", "Gnognak l'Aventurier", 100, new ArrayList<>());
+        player.money = 50;
+        Item sword = new Item("Sword", "A sharp blade", 5, 100);
+        Item shield = new Item("Shield", "A sturdy shield", 10, 150);
+        player.inventory.add(sword);
+        player.inventory.add(shield);
+        boolean result = player.sellItem("Shield");
+        assertTrue(result, "La vente de l'objet devrait réussir.");
+        assertFalse(player.inventory.contains(shield), "L'objet vendu ne devrait plus être dans l'inventaire.");
+        assertTrue(player.inventory.contains(sword), "Les autres objets devraient rester dans l'inventaire.");
+        assertEquals(200, player.money, "La balance devrait être augmentée de la valeur de l'objet vendu.");
+    }
+
+    @Test
+public void testSellItem_Failure_EmptyInventory() {
+    player player = new PlayerAdventurer("Florian", "Gnognak l'Aventurier", 100, new ArrayList<>());
+    player.money = 50;
+    boolean result = player.sellItem("Sword");
+    assertFalse(result, "La vente devrait échouer car l'inventaire est vide.");
+    assertEquals(50, player.money, "La balance ne doit pas changer si l'inventaire est vide.");
+}
 }

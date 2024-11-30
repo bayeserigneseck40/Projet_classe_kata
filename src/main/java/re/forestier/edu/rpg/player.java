@@ -14,7 +14,7 @@ public abstract class player {
     public int healthpoints;
     public int currenthealthpoints;
     protected int xp;
-    private int maxWeight = 50;
+    public int maxWeight = 50;
 
     public HashMap<String, Integer> abilities;
     public ArrayList<Item> inventory;
