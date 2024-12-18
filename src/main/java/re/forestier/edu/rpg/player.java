@@ -32,7 +32,7 @@ public abstract class player {
         return AvatarClass;
     }
 
-    public abstract void majFinDeTour(); // Méthode abstraite
+    public abstract void majFinDeTour(); 
 
     public int retrieveLevel() {
         HashMap<Integer, Integer> levels = new HashMap<>();
@@ -171,7 +171,7 @@ private void addRandomObject() {
                 return true;
             }
         }
-        return false; // Objet non trouvé
+        return false; 
     }
 
 }
