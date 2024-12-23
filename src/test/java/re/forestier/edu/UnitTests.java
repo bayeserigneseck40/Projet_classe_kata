@@ -97,29 +97,35 @@ public class UnitTests {
         assertThat(player.retrieveLevel(),is(2));
     }
     @Test
-    public void testPlayerKO() {
+    public void testPlayerKOAdventurer() {
         player player = new PlayerAdventurer("Florian", "Grognak le barbare", 100, new ArrayList<>());
         player.currenthealthpoints = 0; 
         player.majFinDeTour();
         assertEquals(0, player.currenthealthpoints);
+       
     }
-    // @Test
-    // public void testDwarfWithElixir() {
-
-    //     PlayerDwarf player = new PlayerDwarf("Florian", "Grognak le barbare", 100, new ArrayList<>());
-    //     player.healthpoints = 10;
-    //     player.currenthealthpoints = 4; 
-    //     //player.inventory.add("Holy Elixir");
-    //     player.majFinDeTour();
-    //     assertEquals(6, player.currenthealthpoints); 
-    // }
+    @Test
+    public void testPlayeKODwarf() {
+        player player = new PlayerDwarf("Florian", "Grognak le barbare", 100, new ArrayList<>());
+        player.currenthealthpoints = 0; 
+        player.majFinDeTour();
+        assertEquals(0, player.currenthealthpoints);
+       
+    }
+    @Test
+    public void testPlayeKOArcher() {
+        player player = new PlayerArcher("Florian", "Grognak le barbare", 100, new ArrayList<>());
+        player.currenthealthpoints = 0; 
+        player.majFinDeTour();
+        assertEquals(0, player.currenthealthpoints);
+       
+    }
+    
     @Test
 public void testDwarfWithElixir() {
     PlayerDwarf player = new PlayerDwarf("Florian", "Grognak le barbare", 100, new ArrayList<>());
-
-    player.healthpoints = 10;
     player.currenthealthpoints = 4;
-
+    player.healthpoints = 10;
     Item holyElixir = new Item("Holy Elixir", "A sacred elixir that restores health.", 1, 50);
     player.inventory.add(holyElixir);
     player.majFinDeTour();
@@ -146,17 +152,7 @@ public void testDwarfWithElixir() {
         assertEquals(5, player.currenthealthpoints);
     }
  
- 
-    // @Test
-    // public void testArcherWithMagicBow() {
-    //     PlayerArcher player = new PlayerArcher("Florian", "Grognak le barbare", 100, new ArrayList<>());
-    //     player.healthpoints = 20;
-    //     player.currenthealthpoints = 8;
-    //     //player.inventory.add("Magic Bow");
-    //     player.majFinDeTour();
-    //     int expectedHealthPoints = 8 + 1 + (8 / 8 - 1); 
-    //     assertEquals(expectedHealthPoints, player.currenthealthpoints);
-//} 
+
 @Test
 public void testArcherWithMagicBow() {
     PlayerArcher player = new PlayerArcher("Florian", "Grognak le barbare", 100, new ArrayList<>());
@@ -196,13 +192,7 @@ public void testArcherWithMagicBow() {
         player.addXp(xpToAdd);
         assertNotEquals(4, player.retrieveLevel());
     }
-    // @Test
-    // public void testAddXpMultipleLevelUp3() {
-    //     PlayerArcher player = new PlayerArcher("Florian", "Grognak le barbare", 100, new ArrayList<>());
-    //     player.setXp(20);  
-    //     int xpToAdd = 0; 
-    //    assertThat(player.addXp(xpToAdd),is(false));
-    // }
+
      @Test
     public void testPlayer_ValidAvatarClass() {
         ArrayList<Item> inventory = new ArrayList<>();
@@ -273,4 +263,8 @@ public void testSellItem_Failure_EmptyInventory() {
     assertFalse(result, "La vente devrait échouer car l'inventaire est vide.");
     assertEquals(50, player.money, "La balance ne doit pas changer si l'inventaire est vide.");
 }
+
+
+
 }
+

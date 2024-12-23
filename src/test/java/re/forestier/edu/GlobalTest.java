@@ -20,18 +20,8 @@ public class GlobalTest {
         PlayerAdventurer player = new PlayerAdventurer("Florian", "Gnognak le Barbare", 200, new ArrayList<>());
        player.addXp(20);
         player.inventory = new ArrayList<>();
-       // verify(Affichage.afficherJoueur(player));
     }
 
-    // @Test
-    // void testAffichage() {
-    //     PlayerAdventurer player = new PlayerAdventurer("Florian", "Gnognak le Barbare",  200, new ArrayList<>());
-    //     player.addXp(20);
-    //     player.inventory = new ArrayList<>();
-    //     //player.inventory.add("Sword");
-    //     String resultat=player.afficherJoueur();
-    //     assertThat((resultat),containsString("Sword"));
-    // }
 
     @Test
 void testAffichage() {

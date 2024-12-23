@@ -13,11 +13,8 @@ public class PlayerArcher extends player {
             System.out.println("Le joueur est KO !");
             return;
         }
-    
-        // Ajoute un point de vie
+
         currenthealthpoints += 1;
-    
-        // Vérifie si le joueur possède un Magic Bow dans son inventaire
         boolean hasMagicBow = inventory.stream()
                                        .anyMatch(item -> item.getName().equals("Magic Bow"));
         if (hasMagicBow) {
